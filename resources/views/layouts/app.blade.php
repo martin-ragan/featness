@@ -13,34 +13,23 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-        @livewireStyles
+        {{-- <!-- @livewireStyles --> --}}
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
-        <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-
-        @stack('modals')
-
-        @livewireScripts
+    <body class="w-screen h-screen p-0 m-0">
+            @section('navbar')
+               <header class="h-1/6">
+                   <nav class="flex items-center container mx-auto h-full">
+                       <a href="/" class="text-secondary text-xl" href="">F<span class="font-bold text-primary">EAT</span>NESS</a>
+                   </nav>
+               </header>
+            @show
+    
+            <div class="container mx-auto flex items-center justify-center h-5/6">
+                @yield('content')
+            </div>
     </body>
 </html>
