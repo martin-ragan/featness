@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->smallInteger('height');
             $table->smallInteger('weight');
             $table->tinyInteger('age');
+            $table->string('life_style');
+            $table->string('my_goal');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

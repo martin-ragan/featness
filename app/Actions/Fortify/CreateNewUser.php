@@ -27,6 +27,8 @@ class CreateNewUser implements CreatesNewUsers
             'height' => ['required', 'integer', 'between:0,300'],
             'weight' => ['required', 'numeric', 'between:0,500'],
             'age' => ['required', 'integer', 'between:0,200'],
+            'life_style' => ['required', 'string'],
+            'my_goal' => ['required', 'string'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
@@ -38,7 +40,10 @@ class CreateNewUser implements CreatesNewUsers
             'height' => $input['height'],
             'weight' => $input['weight'],
             'age' => $input['age'],
+            'life_style' => $input['life_style'],
+            'my_goal' => $input['my_goal'],
             'password' => Hash::make($input['password']),
+            'active_until' => now()->addDays(14),
         ]);
     }
 }
