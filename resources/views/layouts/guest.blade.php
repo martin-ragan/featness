@@ -16,9 +16,19 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
+    <style>
+    </style>
+    <body class="font-sans antialiased">
+        <div class="h-screen bg-gray-100">
+                <header class="bg-white shadow h-1/6 bg-gray-100">
+                    <nav class="w-4/5 mx-auto flex items-center h-full">
+                        <a href="/" class="pl-4 text-2xl text-secondary font-semibold">F<span class="text-primary">EAT</span>NESS</a>
+                    </nav>
+                </header>
+                <!-- Page Content -->
+                <main class="h-5/6">
+                        {{ $slot }}
+                </main>
         </div>
     </body>
 </html>

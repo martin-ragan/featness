@@ -14,9 +14,13 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                primary: '#af8663',
-                secondary: '#47586a',
+                primary: '#C18E60',
+                secondary: '#283C50',
             },
+            backgroundImage: theme => ({
+                'icon': "url('../images/1.png')",
+                // 'footer-texture': "url('/img/footer-texture.png')",
+               })
         },
     },
 
