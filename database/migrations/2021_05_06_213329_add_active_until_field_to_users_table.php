@@ -14,7 +14,7 @@ class AddActiveUntilFieldToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->timestamp('active_until');
+            $table->timestamp('active_until')->nullable();
         });
     }
 

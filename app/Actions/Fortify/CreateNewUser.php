@@ -43,7 +43,7 @@ class CreateNewUser implements CreatesNewUsers
             'life_style' => $input['life_style'],
             'my_goal' => $input['my_goal'],
             'password' => Hash::make($input['password']),
-            'active_until' => now()->addDays(14),
+            'active_until' => now()->addDays(7),
         ]);
     }
 }
