@@ -8,8 +8,10 @@
 @section('content')
     <form method="POST" action="{{ route('login') }}" class="flex flex-col w-2/5 justify-center items-center bg-secondary h-96 rounded-3xl">
         @csrf
-        
+
         <h1 class="text-2xl text-white uppercase tracking-widest mb-4">Prihlásiť sa</h1>
+
+        <example-component />
 
         <div class="flex border-0 border-b border-white h-16 w-4/5">
             <img src="{{ asset('/images/4.png') }}" alt="" class="w-1/6">
