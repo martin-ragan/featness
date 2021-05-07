@@ -20,7 +20,7 @@
     </head>
 
     <body class="w-screen h-screen p-0 m-0">
-        <div id="app">
+        <div id="app" class="h-full w-full">
             @section('navbar')
                <header class="h-1/6">
                    <nav class="flex items-center container mx-auto h-full">
