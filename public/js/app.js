@@ -3897,6 +3897,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3937,7 +3939,10 @@ __webpack_require__.r(__webpack_exports__);
       }
     }
   },
-  computed: {// heightChecker() {
+  computed: {
+    csrf: function csrf() {
+      return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    } // heightChecker() {
     //     if(this.heightValue === '' | this.heightValue < 0) {
     //         return this.heightValue = 0;
     //     }
@@ -3955,6 +3960,7 @@ __webpack_require__.r(__webpack_exports__);
     //     }
     //     return this.ageValue;
     // }
+
   }
 });
 
@@ -21647,6 +21653,11 @@ var render = function() {
     [
       _c("h1", { staticClass: "heading-brown" }, [_vm._v("Vytvor si účet")]),
       _vm._v(" "),
+      _c("input", {
+        attrs: { type: "hidden", name: "_token" },
+        domProps: { value: _vm.csrf }
+      }),
+      _vm._v(" "),
       _c(
         "div",
         { staticClass: "flex flex-row justify-between items-center w-full" },
@@ -21960,7 +21971,7 @@ var staticRenderFns = [
       "select",
       {
         staticClass: "register-select",
-        attrs: { name: "pets", id: "pet-select" }
+        attrs: { name: "life_style", id: "pet-select" }
       },
       [
         _c("option", { attrs: { value: "" } }, [_vm._v("Životný štýl")]),
@@ -21981,7 +21992,7 @@ var staticRenderFns = [
       "select",
       {
         staticClass: "register-select",
-        attrs: { name: "pets", id: "pet-select" }
+        attrs: { name: "my_goal", id: "pet-select" }
       },
       [
         _c("option", { attrs: { value: "" } }, [_vm._v("Môj cieľ")]),

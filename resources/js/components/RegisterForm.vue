@@ -1,10 +1,12 @@
 <template>
     <form method="POST" action="" class="h-full w-full flex flex-col justify-center items-center">
-        
+
         <h1 class="heading-brown">Vytvor si účet</h1>
-        
+
+        <input type="hidden" name="_token" :value="csrf">
+
         <div class="flex flex-row justify-between items-center w-full">
-                
+
                 <div class="card-dark">
 
                     <div class="register-input-w-full-holder">
@@ -32,12 +34,12 @@
                         <label for="" class="text-white">suhlásim s obchodnými podmienkami</label>
                     </div>
 
-                    
+
                 </div>
 
                 <div class="ml-5 card-dark">
                     <div class="flex flex-row justify-between w-4/5 mt-4">
-                        
+
                         <div class="register-input-holder">
                             <label class="flex-none text-white uppercase" for="height">výška</label>
                             <div class="h-full flex items-center">
@@ -47,7 +49,7 @@
                                 <button type="button" class="change-v-button" v-on:click="increaseHeight">+</button>
                             </div>
                         </div>
-                        
+
                         <div class="register-input-holder ml-12">
                             <label class="text-white uppercase text-base" for="weight">váha</label>
                             <div class="h-full flex items-center">
@@ -59,7 +61,7 @@
                         </div>
 
                     </div>
-                
+
                     <div class="flex flex-row w-4/5 justify-left mt-7">
                         <div class="register-input-holder">
                             <label class="text-white uppercase" for="age" >VEK</label>
@@ -72,14 +74,14 @@
                         <div class="h-12  w-1/2 ml-12"></div>
                     </div>
 
-                    <select name="pets" id="pet-select" class="register-select">
+                    <select name="life_style" id="pet-select" class="register-select">
                         <option value="">Životný štýl</option>
                         <option value="dog">Dog</option>
                         <option value="cat">Cat</option>
                         <option value="hamster">Hamster</option>
                     </select>
 
-                    <select name="pets" id="pet-select" class="register-select">
+                    <select name="my_goal" id="pet-select" class="register-select">
                         <option value="">Môj cieľ</option>
                         <option value="dog">Dog</option>
                         <option value="cat">Cat</option>
@@ -87,7 +89,7 @@
                     </select>
                 </div>
         </div>
-            
+
         <button type="submit" class="btn-brown mt-8 w-72 rounded-lg"> HOTOVO! </button>
     </form>
 </template>
@@ -116,7 +118,7 @@
                     this.heightValue += 1
                 }
             },
-            
+
             decreaseWeight() {
 
                 if (this.weightValue != 20) {
@@ -146,6 +148,11 @@
             }
         },
         computed: {
+
+            csrf() {
+                return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            },
+
             // heightChecker() {
             //     if(this.heightValue === '' | this.heightValue < 0) {
             //         return this.heightValue = 0;
