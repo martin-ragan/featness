@@ -11,7 +11,7 @@
 
 
 @layer components {
-  
+
   .card-dark {
     @apply flex flex-col bg-secondary h-96 w-1/2 rounded-3xl justify-start items-center;
   }
@@ -22,7 +22,7 @@
     @apply mt-7 tracking-widest w-4/5 bg-transparent rounded-none p-0 h-12 border-0 border-b border-white uppercase text-white;
   }
   .register-input-holder {
-    @apply flex flex-row h-12  w-1/2  items-center justify-between border-b border-white;
+    @apply flex flex-row h-12 w-1/2 items-center justify-between border-b border-white;
   }
   .register-input {
     @apply bg-transparent text-white text-center w-14 border-0 placeholder-white;
