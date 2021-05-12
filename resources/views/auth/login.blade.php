@@ -6,7 +6,7 @@
 @endsection --}}
 
 @section('content')
-    <form method="POST" action="{{ route('login') }}" class="flex flex-col w-2/5 justify-center items-center bg-secondary h-96 rounded-3xl">
+    <form method="POST" action="route('login')" class="flex flex-col w-2/5 justify-center items-center bg-secondary h-96 rounded-3xl">
         @csrf
 
         <h1 class="mb-4">Prihlásiť sa</h1>

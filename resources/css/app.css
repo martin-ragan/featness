@@ -4,9 +4,10 @@
 
 
 @layer base {
-  h1 {
-    @apply text-2xl text-white uppercase tracking-widest;
-  }
+      h1 {
+          @apply text-2xl text-white uppercase tracking-widest;
+      }
+
 }
 
 
