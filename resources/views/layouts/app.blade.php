@@ -19,12 +19,12 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
 
-    <body class="w-screen h-screen p-0 m-0">
+    <body class="h-screen container mx-auto bg-dark-background bg-cover bg-no-repeat">
         <div id="app" class="h-full w-full">
             @section('navbar')
-               <header class="h-1/6">
-                   <nav class="flex items-center container mx-auto h-full">
-                       <a href="/" class="text-secondary text-xl" href="">F<span class="font-bold text-primary">EAT</span>NESS</a>
+               <header class="h-1/6 w-full">
+                   <nav class="flex items-center container mx-auto h-full w-full">
+                       <a href="/" class="h-logo" href="">F<span class="text-primary">EAT</span>NESS</a>
                    </nav>
                </header>
             @show
