@@ -24,27 +24,27 @@
         @section('navbar')
             <header class="h-1/6">
                 <nav class="flex items-center container mx-auto h-full">
-                    <a href="/" class="flex-1 text-secondary text-2xl tracking-widest">F<span class="font-bold text-primary">EAT</span>NESS</a>
+                    <a href="/" class="text-secondary text-2xl tracking-widest">F<span class="font-bold text-primary">EAT</span>NESS</a>
 
-                    <ul class="h-full flex items-center justify-center">
-                        <li>
+                    <ul class="flex-1 h-full flex items-center justify-end">
+                        <li class="p-4">
                             <a class="text-primary text-xl font-semibold mr-4 tracking-widest" href="">BLOG</a>
                         </li>
-                        <li>
+                        <li class="">
                             <a href="">
-                                <img class="w-16" src="{{ asset('/images/1.png') }}" alt="">
+                                <img class="w-16 h-16" src="{{ asset('/images/1.png') }}" alt="">
                             </a>
                         </li>
-                        <li>
+                        <li class="">
                             <a href="">
                                 <img class="w-16" src="{{ asset('/images/2.png') }}" alt="">
                             </a>
                         </li>
-                        <li>
-                            <a href="">
-                                <img class="w-16" src="{{ asset('/images/3.png') }}" alt="">
-                            </a>
-                        </li>
+                        <form action="{{route('logout')}}" method="post">
+                            @csrf
+                            <label for="logout" class="cursor-pointer"><img class="w-16 p-0 m-0" src="{{ asset('/images/3.png') }}" alt=""></label>
+                            <input type="submit" id="logout" class="hidden">
+                        </form>
                     </ul>
 
                 </nav>
