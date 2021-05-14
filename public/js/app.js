@@ -21753,7 +21753,7 @@ var render = function() {
     "a",
     {
       staticClass:
-        "card-dark w-1/3 h-2/3 justify-center opacity-90 cursor-pointer hover:opacity-100",
+        "card-dark w-1/3 h-2/3 justify-center cursor-pointer hover:bg-secondary",
       attrs: { href: this.toRoute }
     },
     [

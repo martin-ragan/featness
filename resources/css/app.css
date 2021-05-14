@@ -58,4 +58,14 @@
       .heading-brown {
           @apply w-full text-center text-primary uppercase font-bold text-4xl pb-8 tracking-widest;
       }
+
+    .checkbox-holder {
+        @apply w-2/3 h-16 flex items-center justify-center mt-4;
+    }
+    .checkbox-holder input {
+        @apply h-7 w-7;
+    }
+    .checkbox-holder label {
+        @apply flex-1 uppercase text-xl tracking-widest text-white;
+    }
 }
