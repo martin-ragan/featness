@@ -4,40 +4,58 @@
 
 
 @layer base {
-      h1 {
-          @apply text-2xl text-white uppercase tracking-widest;
-      }
+    h1 {
+          @apply text-4xl text-white uppercase tracking-widest;
+    }
+    input {
+        @apply tracking-widest font-sans;
+    }
+    /*body {*/
+    /*    background: url("../images/bg-dark-desktop.png") no-repeat;*/
+    /*    background-size: cover;*/
+    /*}*/
 
 }
 
 
 @layer components {
-
-  .card-dark {
-    @apply flex flex-col bg-secondary h-96 w-1/2 rounded-3xl justify-start items-center;
-  }
-  .change-v-button {
-    @apply h-full text-primary font-semibold text-3xl;
-  }
-  .register-select {
-    @apply mt-7 tracking-widest w-4/5 bg-transparent rounded-none p-0 h-12 border-0 border-b border-white uppercase text-white;
-  }
-  .register-input-holder {
-    @apply flex flex-row h-12 w-1/2 items-center justify-between border-b border-white;
-  }
-  .register-input {
-    @apply bg-transparent text-white text-center w-14 border-0 placeholder-white;
-  }
-  .register-input-w-full {
-    @apply flex-1 p-2 text-white block mt-1 w-full bg-transparent border-0 placeholder-white tracking-widest;
-  }
-  .register-input-w-full-holder {
-    @apply flex border-0 border-b border-white h-12 mt-4 w-4/5;
-  }
-  .btn-brown {
-   @apply text-center px-4 py-2 mt-4 bg-primary border border-transparent font-semibold text-xs text-white uppercase tracking-widest transition hover:bg-secondary;
-  }
-  .heading-brown {
-    @apply w-full text-center text-primary uppercase font-bold text-2xl pb-8 tracking-widest;
-  }
+    .h-logo {
+        @apply text-4xl text-secondary tracking-widest;
+    }
+      .card-dark {
+          @apply flex flex-col bg-secondaryBg h-96 w-1/2 rounded-3xl justify-start items-center;
+      }
+      .change-v-button {
+          @apply h-full text-primary font-semibold text-3xl;
+      }
+      .register-select {
+          @apply text-2xl mt-7 tracking-widest w-4/5 bg-transparent rounded-none p-0 h-12 border-0 border-b border-white uppercase text-white;
+      }
+      .register-input-holder {
+          @apply flex flex-row h-16 w-1/2 items-center justify-between border-b border-white;
+      }
+      .register-input {
+          @apply bg-transparent text-white text-center w-14 border-0 placeholder-white;
+      }
+    .input-label {
+        @apply text-white uppercase text-2xl tracking-widest;
+    }
+    .login-input {
+        @apply flex-1 p-2 text-white text-2xl block mt-1 w-full bg-transparent border-0 placeholder-white tracking-widest;
+    }
+      .input-icon {
+          @apply w-auto h-full;
+      }
+      .register-input-w-full {
+          @apply flex-1 p-2 text-white text-2xl block mt-1 w-full bg-transparent border-0 placeholder-white tracking-widest;
+      }
+      .register-input-w-full-holder {
+          @apply flex border-0 border-b border-white h-16 mt-4 w-4/5;
+      }
+      .btn-brown {
+          @apply text-center h-12 text-lg font-light rounded-sm px-4 py-2 mt-4 bg-primary border border-transparent text-white uppercase tracking-widest transition hover:bg-secondary;
+      }
+      .heading-brown {
+          @apply w-full text-center text-primary uppercase font-bold text-4xl pb-8 tracking-widest;
+      }
 }

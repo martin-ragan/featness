@@ -21808,138 +21808,128 @@ var render = function() {
         [
           _vm._m(0),
           _vm._v(" "),
-          _c("div", { staticClass: "ml-5 card-dark" }, [
-            _c(
-              "div",
-              { staticClass: "flex flex-row justify-between w-4/5 mt-4" },
-              [
-                _c("div", { staticClass: "register-input-holder" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "flex-none text-white uppercase",
-                      attrs: { for: "height" }
-                    },
-                    [_vm._v("výška")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "h-full flex items-center" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "change-v-button ml-5",
-                        attrs: { type: "button" },
-                        on: { click: _vm.decreaseHeight }
-                      },
-                      [_vm._v("-")]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model.number",
-                          value: _vm.heightValue,
-                          expression: "heightValue",
-                          modifiers: { number: true }
-                        }
-                      ],
-                      staticClass: "register-input",
-                      attrs: { type: "number", name: "height", id: "height" },
-                      domProps: { value: _vm.heightValue },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.heightValue = _vm._n($event.target.value)
-                        },
-                        blur: function($event) {
-                          return _vm.$forceUpdate()
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "text-white mr-4" }, [
-                      _vm._v("cm")
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "change-v-button",
-                        attrs: { type: "button" },
-                        on: { click: _vm.increaseHeight }
-                      },
-                      [_vm._v("+")]
-                    )
-                  ])
-                ]),
+          _c("div", { staticClass: "ml-10 card-dark px-0 py-8" }, [
+            _c("div", { staticClass: "flex flex-row justify-between w-4/5" }, [
+              _c("div", { staticClass: "register-input-holder" }, [
+                _c(
+                  "label",
+                  { staticClass: "input-label", attrs: { for: "height" } },
+                  [_vm._v("výška")]
+                ),
                 _vm._v(" "),
-                _c("div", { staticClass: "register-input-holder ml-12" }, [
+                _c("div", { staticClass: "h-full flex items-center" }, [
                   _c(
-                    "label",
+                    "button",
                     {
-                      staticClass: "text-white uppercase text-base",
-                      attrs: { for: "weight" }
+                      staticClass: "change-v-button ml-5",
+                      attrs: { type: "button" },
+                      on: { click: _vm.decreaseHeight }
                     },
-                    [_vm._v("váha")]
+                    [_vm._v("-")]
                   ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "h-full flex items-center" }, [
-                    _c(
-                      "button",
+                  _c("input", {
+                    directives: [
                       {
-                        staticClass: "change-v-button ml-5",
-                        attrs: { type: "button" },
-                        on: { click: _vm.decreaseWeight }
-                      },
-                      [_vm._v("-")]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model.number",
-                          value: _vm.weightValue,
-                          expression: "weightValue",
-                          modifiers: { number: true }
-                        }
-                      ],
-                      staticClass: "register-input",
-                      attrs: { type: "number", name: "weight", id: "weight" },
-                      domProps: { value: _vm.weightValue },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.weightValue = _vm._n($event.target.value)
-                        },
-                        blur: function($event) {
-                          return _vm.$forceUpdate()
-                        }
+                        name: "model",
+                        rawName: "v-model.number",
+                        value: _vm.heightValue,
+                        expression: "heightValue",
+                        modifiers: { number: true }
                       }
-                    }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "text-white mr-4" }, [
-                      _vm._v("kg")
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "change-v-button",
-                        attrs: { type: "button" },
-                        on: { click: _vm.increaseWeight }
+                    ],
+                    staticClass: "register-input",
+                    attrs: { type: "number", name: "height", id: "height" },
+                    domProps: { value: _vm.heightValue },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.heightValue = _vm._n($event.target.value)
                       },
-                      [_vm._v("+")]
-                    )
-                  ])
+                      blur: function($event) {
+                        return _vm.$forceUpdate()
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text-white mr-4" }, [
+                    _vm._v("cm")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "change-v-button",
+                      attrs: { type: "button" },
+                      on: { click: _vm.increaseHeight }
+                    },
+                    [_vm._v("+")]
+                  )
                 ])
-              ]
-            ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "register-input-holder ml-12" }, [
+                _c(
+                  "label",
+                  { staticClass: "input-label", attrs: { for: "weight" } },
+                  [_vm._v("váha")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "h-full flex items-center" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "change-v-button ml-5",
+                      attrs: { type: "button" },
+                      on: { click: _vm.decreaseWeight }
+                    },
+                    [_vm._v("-")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model.number",
+                        value: _vm.weightValue,
+                        expression: "weightValue",
+                        modifiers: { number: true }
+                      }
+                    ],
+                    staticClass: "register-input",
+                    attrs: { type: "number", name: "weight", id: "weight" },
+                    domProps: { value: _vm.weightValue },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.weightValue = _vm._n($event.target.value)
+                      },
+                      blur: function($event) {
+                        return _vm.$forceUpdate()
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text-white mr-4" }, [
+                    _vm._v("kg")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "change-v-button",
+                      attrs: { type: "button" },
+                      on: { click: _vm.increaseWeight }
+                    },
+                    [_vm._v("+")]
+                  )
+                ])
+              ])
+            ]),
             _vm._v(" "),
             _c(
               "div",
@@ -21948,10 +21938,7 @@ var render = function() {
                 _c("div", { staticClass: "register-input-holder" }, [
                   _c(
                     "label",
-                    {
-                      staticClass: "text-white uppercase",
-                      attrs: { for: "age" }
-                    },
+                    { staticClass: "input-label", attrs: { for: "age" } },
                     [_vm._v("VEK")]
                   ),
                   _vm._v(" "),
@@ -22017,10 +22004,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "button",
-        {
-          staticClass: "btn-brown mt-8 w-72 rounded-lg",
-          attrs: { type: "submit" }
-        },
+        { staticClass: "btn-brown mt-8 w-72", attrs: { type: "submit" } },
         [_vm._v(" HOTOVO! ")]
       )
     ]
@@ -22031,11 +22015,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-dark" }, [
-      _c("div", { staticClass: "register-input-w-full-holder" }, [
+    return _c("div", { staticClass: "card-dark px-0 py-8" }, [
+      _c("div", { staticClass: "register-input-w-full-holder mt-0" }, [
         _c("img", {
-          staticClass: "w-auto h-full",
-          attrs: { src: "/images/2.png", alt: "" }
+          staticClass: "input-icon",
+          attrs: { src: "/images/white-avatar.png", alt: "" }
         }),
         _vm._v(" "),
         _c("input", {
@@ -22046,8 +22030,8 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "register-input-w-full-holder" }, [
         _c("img", {
-          staticClass: "w-auto h-full",
-          attrs: { src: "/images/2.png", alt: "" }
+          staticClass: "input-icon",
+          attrs: { src: "/images/white-avatar.png", alt: "" }
         }),
         _vm._v(" "),
         _c("input", {
@@ -22063,7 +22047,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "register-input-w-full-holder" }, [
         _c("img", {
-          staticClass: "w-auto h-full",
+          staticClass: "input-icon",
           attrs: { src: "/images/4.png", alt: "" }
         }),
         _vm._v(" "),
@@ -22080,7 +22064,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "register-input-w-full-holder" }, [
         _c("img", {
-          staticClass: "w-auto h-full",
+          staticClass: "input-icon",
           attrs: { src: "/images/5.png", alt: "" }
         }),
         _vm._v(" "),
@@ -22115,7 +22099,7 @@ var staticRenderFns = [
       "select",
       {
         staticClass: "register-select",
-        attrs: { name: "life_style", id: "pet-select" }
+        attrs: { name: "life_style", id: "life_style" }
       },
       [
         _c("option", { attrs: { value: "" } }, [_vm._v("Životný štýl")]),
@@ -22136,7 +22120,7 @@ var staticRenderFns = [
       "select",
       {
         staticClass: "register-select",
-        attrs: { name: "my_goal", id: "pet-select" }
+        attrs: { name: "my_goal", id: "my_goal" }
       },
       [
         _c("option", { attrs: { value: "" } }, [_vm._v("Môj cieľ")]),

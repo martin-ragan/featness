@@ -16,10 +16,14 @@ module.exports = {
             colors: {
                 primary: '#C18E60',
                 secondary: '#283C50',
+                secondaryBg: 'rgba(40, 60, 80, 0.85)'
+            },
+            spacing: {
+                '96': '28rem',
             },
             backgroundImage: theme => ({
                 'icon': "url('../images/1.png')",
-                // 'footer-texture': "url('/img/footer-texture.png')",
+                'dark-background': "url('../images/bg-dark-desktop.png')"
                })
         },
     },

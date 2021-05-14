@@ -7,25 +7,25 @@
 
         <div class="flex flex-row justify-between items-center w-full">
 
-                <div class="card-dark">
+                <div class="card-dark px-0 py-8">
 
-                    <div class="register-input-w-full-holder">
-                        <img src="/images/2.png" alt="" class="w-auto h-full">
+                    <div class="register-input-w-full-holder mt-0">
+                        <img src="/images/white-avatar.png" alt="" class="input-icon">
                         <input id="name" class="register-input-w-full" type="text" name="name" placeholder="MENO" />
                     </div>
 
                     <div class="register-input-w-full-holder">
-                        <img src="/images/2.png" alt="" class="w-auto h-full">
+                        <img src="/images/white-avatar.png" alt="" class="input-icon">
                         <input id="surname" class="register-input-w-full" type="text" name="surname" placeholder="PRIEZVISKO" />
                     </div>
 
                     <div class="register-input-w-full-holder">
-                        <img src="/images/4.png" alt="" class="w-auto h-full">
+                        <img src="/images/4.png" alt="" class="input-icon">
                         <input id="email" class="register-input-w-full" type="email" name="email" placeholder="EMAIL" />
                     </div>
 
                     <div class="register-input-w-full-holder">
-                        <img src="/images/5.png" alt="" class="w-auto h-full">
+                        <img src="/images/5.png" alt="" class="input-icon">
                         <input id="password" class="register-input-w-full" type="password" name="password" placeholder="HESLO" />
                     </div>
 
@@ -37,11 +37,11 @@
 
                 </div>
 
-                <div class="ml-5 card-dark">
-                    <div class="flex flex-row justify-between w-4/5 mt-4">
+                <div class="ml-10 card-dark px-0 py-8">
+                    <div class="flex flex-row justify-between w-4/5">
 
                         <div class="register-input-holder">
-                            <label class="flex-none text-white uppercase" for="height">výška</label>
+                            <label class="input-label" for="height">výška</label>
                             <div class="h-full flex items-center">
                                 <button type="button" class="change-v-button ml-5" v-on:click="decreaseHeight">-</button>
                                 <input type="number" class="register-input" name="height" id="height" v-model.number="heightValue">
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="register-input-holder ml-12">
-                            <label class="text-white uppercase text-base" for="weight">váha</label>
+                            <label class="input-label" for="weight">váha</label>
                             <div class="h-full flex items-center">
                                 <button type="button" class="change-v-button ml-5" v-on:click="decreaseWeight">-</button>
                                 <input class="register-input" type="number" v-model.number="weightValue" name="weight" id="weight">
@@ -64,7 +64,7 @@
 
                     <div class="flex flex-row w-4/5 justify-left mt-7">
                         <div class="register-input-holder">
-                            <label class="text-white uppercase" for="age" >VEK</label>
+                            <label class="input-label" for="age" >VEK</label>
                             <div class="h-full flex items-center">
                                 <button type="button" class="change-v-button ml-5" v-on:click="decreaseAge">-</button>
                                 <input class="register-input" type="number" v-model.number="ageValue" name="age" id="age">
@@ -74,14 +74,14 @@
                         <div class="h-12  w-1/2 ml-12"></div>
                     </div>
 
-                    <select name="life_style" id="pet-select" class="register-select">
+                    <select name="life_style" id="life_style" class="register-select">
                         <option value="">Životný štýl</option>
                         <option value="dog">Dog</option>
                         <option value="cat">Cat</option>
                         <option value="hamster">Hamster</option>
                     </select>
 
-                    <select name="my_goal" id="pet-select" class="register-select">
+                    <select name="my_goal" id="my_goal" class="register-select">
                         <option value="">Môj cieľ</option>
                         <option value="dog">Dog</option>
                         <option value="cat">Cat</option>
@@ -90,7 +90,7 @@
                 </div>
         </div>
 
-        <button type="submit" class="btn-brown mt-8 w-72 rounded-lg"> HOTOVO! </button>
+        <button type="submit" class="btn-brown mt-8 w-72"> HOTOVO! </button>
     </form>
 </template>
 
