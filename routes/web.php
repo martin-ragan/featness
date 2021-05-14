@@ -13,19 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function() {
     return view('welcome');
 });
 
-Route::get('/trening', function () {
-    return view('trening');
+// Routes protected for logged users
+Route::middleware('auth')->group(function() {
+
+    Route::get('/trening', function() {
+        return view('trening');
+    });
+
+    Route::get('/jedalnicek', function() {
+        return view('jedalnicek');
+    });
+
+
+    Route::middleware('verified')->get('/dashboard', function() {
+        return view('dashboard');
+    })->name('dashboard');
+
 });
-
-Route::get('/jedalnicek', function () {
-    return view('jedalnicek');
-});
-
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
