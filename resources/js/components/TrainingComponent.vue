@@ -1,8 +1,10 @@
 <template>
     <div class="flex flex-row w-full h-full mb-20 justify-center items-center">
-        <div v-show="showVideo" class="h-screen w-screen bg-secondary absolute top-0 left-0 z-50 flex flex-col items-center justify-center">
-            <iframe src="https://player.vimeo.com/video/549607347?autoplay=1&amp;player_id=0&amp;app_id=58479" class="w-2/3 h-1/2"></iframe>
-            <p class="text-white text-xl tracking-widest mt-5">Toto je popis cviku.</p>
+        <div v-show="showVideo"
+             class="h-screen w-screen bg-secondary absolute top-0 left-0 z-50 flex flex-col items-center justify-center">
+            <iframe :src="`https://player.vimeo.com/video/${exercise.url}?autoplay=1&amp;player_id=0&amp;app_id=58479`"
+                    class="w-2/3 h-1/2"></iframe>
+            <p class="text-white text-xl tracking-widest mt-5">{{ exercise.name }}</p>
             <button v-on:click="showVideo = false" class="btn-brown w-1/4 mt-12">Skryť ukážku</button>
         </div>
         <div class="training-holder">
@@ -32,7 +34,10 @@
                 <exercise exercise-name="Kľuky" v-bind:reps=10></exercise>
                 <exercise exercise-name="Brušáky" v-bind:reps=10></exercise>
             </div>
-            <button class="bg-secondary w-2/3 tracking-widest rounded-sm text-white text-xl py-3 font-sans uppercase text-center mx-auto mt-5">Ukončiť tréning</button>
+            <button
+                class="bg-secondary w-2/3 tracking-widest rounded-sm text-white text-xl py-3 font-sans uppercase text-center mx-auto mt-5">
+                Ukončiť tréning
+            </button>
         </div>
 
         <div class="flex flex-col bg-primaryBg w-2/5 ml-20 h-full p-4 items-center justify-center rounded-3xl">
@@ -42,6 +47,7 @@
             <h2 class="uppercase tracking-widest  text-2xl py-2 text-white mt-20">Medzi kolami</h2>
             <h1 class="uppercase tracking-widest  text-5xl font-bold py-2">2 minúty</h1>
         </div>
+
     </div>
 </template>
 
@@ -49,14 +55,18 @@
 import Exercise from './Exercise';
 
 export default {
+
+    props: ['exercise'],
+
     data() {
         return {
             showVideo: false,
         }
     },
-    components:{
+    components: {
         Exercise,
-    }
+    },
+
 }
 </script>
 

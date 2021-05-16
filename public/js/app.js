@@ -4104,8 +4104,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['exercise'],
   data: function data() {
     return {
       showVideo: false
@@ -22492,12 +22499,14 @@ var render = function() {
             staticClass: "w-2/3 h-1/2",
             attrs: {
               src:
-                "https://player.vimeo.com/video/549607347?autoplay=1&player_id=0&app_id=58479"
+                "https://player.vimeo.com/video/" +
+                _vm.exercise.url +
+                "?autoplay=1&player_id=0&app_id=58479"
             }
           }),
           _vm._v(" "),
           _c("p", { staticClass: "text-white text-xl tracking-widest mt-5" }, [
-            _vm._v("Toto je popis cviku.")
+            _vm._v(_vm._s(_vm.exercise.name))
           ]),
           _vm._v(" "),
           _c(
@@ -22572,7 +22581,7 @@ var render = function() {
             staticClass:
               "bg-secondary w-2/3 tracking-widest rounded-sm text-white text-xl py-3 font-sans uppercase text-center mx-auto mt-5"
           },
-          [_vm._v("Ukončiť tréning")]
+          [_vm._v("\n            Ukončiť tréning\n        ")]
         )
       ]),
       _vm._v(" "),

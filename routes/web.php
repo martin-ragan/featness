@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExerciseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +29,7 @@ Route::middleware('auth')->group(function() {
         return view('jedalnicek');
     });
 
-    Route::get('/current-training', function() {
-        return view('current-training');
-    });
+    Route::get('/current-training', [ExerciseController::class, 'index']);
 
 
     Route::middleware('verified')->get('/dashboard', function() {

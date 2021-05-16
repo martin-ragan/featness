@@ -7,14 +7,12 @@ use Illuminate\Http\Request;
 
 class ExerciseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $exercise = Exercise::first();
+//        dd($excerxise);
+        return view('current-training', ["exercise" =>$exercise]);
     }
 
     /**
