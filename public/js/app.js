@@ -4101,6 +4101,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -22059,7 +22062,7 @@ var render = function() {
         _c("button", { on: { click: _vm.showVideo } }, [
           _c("img", {
             staticClass: "w-20 h-20",
-            attrs: { src: "/images/hint-icon.png", alt: "" }
+            attrs: { src: "/images/play-icon.png", alt: "" }
           })
         ]),
         _vm._v(" "),
@@ -22582,8 +22585,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "t-heading mb-5" }, [
-      _c("h1", [_vm._v("Rozcvička")]),
+    return _c("div", { staticClass: "flex flex-row w-full justify-between" }, [
+      _c("div", { staticClass: "t-heading mb-5" }, [
+        _c("h1", [_vm._v("Rozcvička")]),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "w-20 h-20",
+          attrs: { src: "/images/dark-arrow.PNG", alt: "" }
+        })
+      ]),
       _vm._v(" "),
       _c("img", {
         staticClass: "w-20 h-20",
@@ -22600,7 +22610,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("img", {
         staticClass: "w-20 h-20",
-        attrs: { src: "/images/hint-icon.png", alt: "" }
+        attrs: { src: "/images/dark-arrow.PNG", alt: "" }
       })
     ])
   },

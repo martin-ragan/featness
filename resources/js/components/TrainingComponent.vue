@@ -7,8 +7,11 @@
         </div>
         <div class="training-holder">
             <div class="flex flex-col w-full" id="warm-up">
-                <div class="t-heading mb-5">
-                    <h1>Rozcvička</h1>
+                <div class="flex flex-row w-full justify-between">
+                    <div class="t-heading mb-5">
+                        <h1>Rozcvička</h1>
+                        <img class="w-20 h-20" src="/images/dark-arrow.PNG" alt="">
+                    </div>
                     <img class="w-20 h-20" src="/images/hint-icon.png" alt="">
                 </div>
                 <exercise v-on:showingVideo="showVideo = true" exercise-name="Drepy" v-bind:reps=10></exercise>
@@ -17,7 +20,7 @@
             <div class="flex flex-col w-full mt-5" id="training">
                 <div class="t-heading">
                     <h1>tréning</h1>
-                    <img class="w-20 h-20" src="/images/hint-icon.png" alt="">
+                    <img class="w-20 h-20" src="/images/dark-arrow.PNG" alt="">
                 </div>
                 <h1 class="heading-round">1.kolo</h1>
                 <exercise exercise-name="Kľuky" v-bind:reps=10></exercise>
