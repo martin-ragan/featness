@@ -2,7 +2,7 @@
     <div class="exercise-holder">
         <div class="flex flex-row flex-1 h-full items-center justify-start">
             <button v-on:click="showVideo">
-                <img class="w-20 h-20" src="/images/hint-icon.png" alt="">
+                <img class="w-20 h-20" src="/images/play-icon.png" alt="">
             </button>
             <h1>
                 {{ this.exerciseName }}
