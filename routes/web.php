@@ -28,6 +28,10 @@ Route::middleware('auth')->group(function() {
         return view('jedalnicek');
     });
 
+    Route::get('/current-training', function() {
+        return view('current-training');
+    });
+
 
     Route::middleware('verified')->get('/dashboard', function() {
         return view('dashboard');

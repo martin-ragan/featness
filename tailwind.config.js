@@ -16,14 +16,18 @@ module.exports = {
             colors: {
                 primary: '#C18E60',
                 secondary: '#283C50',
-                secondaryBg: 'rgba(40, 60, 80, 0.85)'
+                secondaryBg: 'rgba(40, 60, 80, 0.85)',
+                primaryBg: 'rgba(193, 142, 96, 0.85)'
             },
             spacing: {
-                '96': '28rem',
+                '80': '28rem',
+                '96': '40rem'
             },
             backgroundImage: theme => ({
                 'icon': "url('../images/1.png')",
-                'dark-background': "url('../images/bg-dark-desktop.png')"
+                'dark-background': "url('../images/bg-dark-desktop.png')",
+                'light-background': "url('../images/bg-light-desktop.png')",
+                'select-arrow': "url('../images/select-arrow.png')"
                })
         },
     },
