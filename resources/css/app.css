@@ -10,6 +10,10 @@
     input {
         @apply tracking-widest font-sans;
     }
+    select {
+        @apply bg-select-arrow;
+        background-size: 5rem;
+    }
     /*body {*/
     /*    background: url("../images/bg-dark-desktop.png") no-repeat;*/
     /*    background-size: cover;*/
@@ -23,7 +27,7 @@
         @apply text-4xl text-secondary tracking-widest;
     }
       .card-dark {
-          @apply flex flex-col bg-secondaryBg h-96 w-1/2 rounded-3xl justify-start items-center;
+          @apply flex flex-col bg-secondaryBg h-80 w-1/2 rounded-3xl justify-start items-center;
       }
       .change-v-button {
           @apply h-full text-primary font-semibold text-3xl;
@@ -63,9 +67,56 @@
         @apply w-2/3 h-16 flex items-center justify-center mt-4;
     }
     .checkbox-holder input {
-        @apply h-7 w-7;
+        @apply h-7 w-7 bg-transparent;
+        /*position: absolute;*/
+        /*opacity: 0;*/
+        /*cursor: pointer;*/
     }
+
+    /*.checkmark {*/
+    /*    position: absolute;*/
+    /*    top: 0;*/
+    /*    left: 0;*/
+    /*    height: 25px;*/
+    /*    width: 25px;*/
+    /*    background-color: #eee;*/
+    /*    border-radius: 50%;*/
+    /*}*/
+
     .checkbox-holder label {
         @apply flex-1 uppercase text-xl tracking-widest text-white;
+    }
+
+/*    Current training section of styles @Martin Ragan*/
+    .t-heading {
+        @apply bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-1/2;
+    }
+    .t-heading h1 {
+        @apply text-white text-3xl uppercase font-bold tracking-widest;
+    }
+    .exercise-holder{
+        @apply bg-primaryBg pr-4 mt-2 flex flex-row justify-between items-center rounded-2xl w-11/12;
+    }
+    .exercise-holder h1 {
+        @apply text-white text-xl uppercase tracking-widest;
+    }
+
+    .training-holder {
+        @apply flex flex-col w-1/2 h-96 overflow-y-scroll;
+    }
+    .training-holder::-webkit-scrollbar {
+        @apply w-5 rounded-xl;
+    }
+
+    .training-holder::-webkit-scrollbar-track {
+        background-color: rgba(40, 60, 80, 0.50);
+        @apply rounded-xl;
+    }
+
+    .training-holder::-webkit-scrollbar-thumb {
+        @apply bg-secondary rounded-xl;
+    }
+    .heading-round {
+        @apply text-secondary w-full text-left uppercase my-4 text-3xl pl-4;
     }
 }
