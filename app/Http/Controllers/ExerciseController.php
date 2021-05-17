@@ -5,14 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Exercise;
 use Illuminate\Http\Request;
 
-class ExerciseController extends Controller
-{
+class ExerciseController extends Controller {
 
-    public function index()
-    {
-        $exercise = Exercise::first();
-//        dd($excerxise);
-        return view('current-training', ["exercise" =>$exercise]);
+    public function index() {
+        $warmUp = Exercise::take(2)->get();
+//        dd($warmUp);
+        $training = Exercise::skip(2)->take(3)->get();
+//        dd($training);
+        return view('current-training',
+            [
+                "warmUp" => $warmUp,
+                "training" => $training
+            ]
+        );
     }
 
     /**
@@ -20,64 +25,58 @@ class ExerciseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Exercise  $exercise
+     * @param \App\Models\Exercise $exercise
      * @return \Illuminate\Http\Response
      */
-    public function show(Exercise $exercise)
-    {
+    public function show(Exercise $exercise) {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Exercise  $exercise
+     * @param \App\Models\Exercise $exercise
      * @return \Illuminate\Http\Response
      */
-    public function edit(Exercise $exercise)
-    {
+    public function edit(Exercise $exercise) {
         //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Exercise  $exercise
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Exercise $exercise
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Exercise $exercise)
-    {
+    public function update(Request $request, Exercise $exercise) {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Exercise  $exercise
+     * @param \App\Models\Exercise $exercise
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Exercise $exercise)
-    {
+    public function destroy(Exercise $exercise) {
         //
     }
 }

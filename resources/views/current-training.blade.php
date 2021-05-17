@@ -2,6 +2,6 @@
 
 @section('content')
     <h1 class="heading-brown text-secondary text-5xl font-bold">tréning</h1>
-    <training-component :exercise="{{$exercise}}"></training-component>
-{{--    {{$exercise->url}}--}}
+    <training-component :warmUp="{{$warmUp}}" :training="{{$training}}"></training-component>
+
 @endsection

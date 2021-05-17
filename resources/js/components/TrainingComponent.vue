@@ -56,7 +56,7 @@ import Exercise from './Exercise';
 
 export default {
 
-    props: ['exercise'],
+    props: ['warmUp', 'training'],
 
     data() {
         return {
