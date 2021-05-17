@@ -1,11 +1,13 @@
 <template>
     <div class="flex flex-row w-full h-full mb-20 justify-center items-center">
+        <transition name="fade">
         <video-component v-if="iframeVisibility"
                          :visible-url="visibleUrl"
                          :visible-text="visibleText"
                          v-on:hideIframe="iframeVisibility = false"
 
         />
+        </transition>
         <div class="training-holder">
             <div class="flex flex-col w-full" id="warm-up">
                 <div class="flex flex-row w-full justify-between">
@@ -72,5 +74,10 @@ export default {
 </script>
 
 <style scoped>
-
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
 </style>
