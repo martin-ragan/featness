@@ -2,7 +2,7 @@
     <div class="flex flex-row w-full h-full mb-20 justify-center items-center">
         <div v-show="showVideo"
              class="h-screen w-screen bg-secondary absolute top-0 left-0 z-50 flex flex-col items-center justify-center">
-            <iframe :src="`https://player.vimeo.com/video/${exercise.url}?autoplay=1&amp;player_id=0&amp;app_id=58479`"
+            <iframe :src="`https://player.vimeo.com/video/${exercise.url}?autoplay=1&amp;player_id=0&amp;app_id=58479`" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
                     class="w-2/3 h-1/2"></iframe>
             <p class="text-white text-xl tracking-widest mt-5">{{ exercise.name }}</p>
             <button v-on:click="showVideo = false" class="btn-brown w-1/4 mt-12">Skryť ukážku</button>
@@ -16,7 +16,7 @@
                     </div>
                     <img class="w-20 h-20" src="/images/hint-icon.png" alt="">
                 </div>
-                <exercise v-on:showingVideo="showVideo = true" exercise-name="Drepy" v-bind:reps=10></exercise>
+                <exercise class="cursor-pointer" v-on:click.native="showVideo = true" exercise-name="Drepy" v-bind:reps=10></exercise>
                 <exercise exercise-name="Drepy" v-bind:reps=10></exercise>
             </div>
             <div class="flex flex-col w-full mt-5" id="training">
