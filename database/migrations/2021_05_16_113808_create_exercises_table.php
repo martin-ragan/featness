@@ -25,18 +25,28 @@ class CreateExercisesTable extends Migration
 
         DB::table('exercises')->insert([
             [
-                'name' => 'drep',
+                'name' => 'Drep',
                 'url' => '549607068',
                 'body_part_id' => 2,
             ],
             [
-                'name' => 'drep s výskokom',
+                'name' => 'Drep s výskokom',
                 'url' => '549607347',
                 'body_part_id' => 2,
             ],
             [
-                'name' => 'drep s výskokom na stranu',
+                'name' => 'Drep s výskokom na stranu',
                 'url' => '549607620',
+                'body_part_id' => 2,
+            ],
+            [
+                'name' => 'Drep na úzko',
+                'url' => '549607900',
+                'body_part_id' => 2,
+            ],
+            [
+                'name' => 'Drep pulz',
+                'url' => '549608189',
                 'body_part_id' => 2,
             ],
         ]);
