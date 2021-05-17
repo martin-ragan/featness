@@ -1,7 +1,7 @@
 <template>
-    <div class="exercise-holder">
+    <div class="exercise-holder cursor-pointer">
         <div class="flex flex-row flex-1 h-full items-center justify-start">
-            <button v-on:click="showVideo">
+            <button>
                 <img class="w-20 h-20" src="/images/play-icon.png" alt="">
             </button>
             <h1>
@@ -25,11 +25,6 @@ export default {
             type: Number,
             default: 8
         },
-    },
-    methods: {
-        showVideo() {
-            this.$emit('showingVideo', true)
-        }
     },
 }
 </script>
