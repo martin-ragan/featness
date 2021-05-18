@@ -5,7 +5,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateBodyPartsTable extends Migration
+
+class CreateBodySectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +15,17 @@ class CreateBodyPartsTable extends Migration
      */
     public function up()
     {
-        Schema::create('body_parts', function (Blueprint $table) {
+        Schema::create('body_sections', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('body_section_id')->constrained('body_sections');
         });
 
 
+        DB::table('body_sections')->insert([
+            ['name' => 'up'],
+            ['name' => 'down'],
+            ['name' => 'whole'],
+        ]);
     }
 
     /**
@@ -30,6 +35,6 @@ class CreateBodyPartsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('body_parts');
+        Schema::dropIfExists('body_sections');
     }
 }

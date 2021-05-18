@@ -19,7 +19,7 @@ class CreateExercisesTable extends Migration
             $table->string('url')->unique();
             $table->string('name')->unique();
 
-            $table->foreignId('body_part_id')->constrained('body_parts');
+            $table->foreignId('body_section_id')->constrained('body_sections');
 
         });
 
@@ -27,27 +27,27 @@ class CreateExercisesTable extends Migration
             [
                 'name' => 'Drep',
                 'url' => '549607068',
-                'body_part_id' => 2,
+                'body_section_id' => 2,
             ],
             [
                 'name' => 'Drep s výskokom',
                 'url' => '549607347',
-                'body_part_id' => 2,
+                'body_section_id' => 2,
             ],
             [
                 'name' => 'Drep s výskokom na stranu',
                 'url' => '549607620',
-                'body_part_id' => 2,
+                'body_section_id' => 2,
             ],
             [
                 'name' => 'Drep na úzko',
                 'url' => '549607900',
-                'body_part_id' => 2,
+                'body_section_id' => 2,
             ],
             [
                 'name' => 'Drep pulz',
                 'url' => '549608189',
-                'body_part_id' => 2,
+                'body_section_id' => 2,
             ],
         ]);
 
