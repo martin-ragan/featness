@@ -15,7 +15,14 @@ use App\Http\Controllers\ExerciseController;
 */
 
 Route::get('/ajo', function() {
-    dd(\App\Models\Exercise::with(['bodySection', 'bodyPart', 'type'])->first()->toArray());
+    $e = \App\Models\Exercise::first();
+    $e->bodySection;
+    $e->bodyPart;
+    $e->type;
+    $e->areas;
+    $e->difficulties;
+    dd($e->toArray());
+//    dd(\App\Models\Exercise::with(['bodySection', 'bodyPart', 'type'])->first()->toArray());
 //    dd(\App\Models\Exercise::first()->areas()->get()->toArray());
 });
 
