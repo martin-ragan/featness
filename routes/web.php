@@ -26,6 +26,9 @@ Route::get('/ajo', function() {
 //    dd(\App\Models\Exercise::first()->areas()->get()->toArray());
 });
 
+Route::get('/current-training', [ExerciseController::class, 'currentTraining']);
+
+
 Route::get('/', function() {
     return view('welcome');
 });
@@ -41,7 +44,6 @@ Route::middleware('auth')->group(function() {
         return view('jedalnicek');
     });
 
-    Route::get('/current-training', [ExerciseController::class, 'index']);
 
 
     Route::middleware('verified')->get('/dashboard', function() {
