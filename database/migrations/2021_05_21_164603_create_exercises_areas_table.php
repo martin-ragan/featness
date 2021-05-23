@@ -3,9 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
-class CreateBodyPartsTable extends Migration
+class CreateExercisesAreasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +13,11 @@ class CreateBodyPartsTable extends Migration
      */
     public function up()
     {
-        Schema::create('body_parts', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->foreignId('body_section_id')->constrained('body_sections');
+        Schema::create('exercises_areas', function (Blueprint $table) {
+            $table->increments('id');
+            $table->foreignId('exercise_id')->references('id')->on('exercises');
+            $table->foreignId('area_id')->references('id')->on('areas');
         });
-
-
     }
 
     /**
@@ -30,6 +27,6 @@ class CreateBodyPartsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('body_parts');
+        Schema::dropIfExists('exercises_areas');
     }
 }

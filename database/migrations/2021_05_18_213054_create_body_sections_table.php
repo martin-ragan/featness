@@ -22,9 +22,9 @@ class CreateBodySectionsTable extends Migration
 
 
         DB::table('body_sections')->insert([
-            ['name' => 'up'],
-            ['name' => 'down'],
-            ['name' => 'whole'],
+            ['name' => 'Horná'],
+            ['name' => 'Spodná'],
+            ['name' => 'Celé telo'],
         ]);
     }
 

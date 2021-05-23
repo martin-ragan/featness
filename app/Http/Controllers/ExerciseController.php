@@ -4,10 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Exercise;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ExerciseController extends Controller {
 
     public function index() {
+        $aa = DB::table('exercises')
+                ->join('body_sections', 'exercises.body_section_id', '=', 'body_sections.id')
+                ->join('body_parts', 'body_sections.id', '=', 'body_parts.body_section_id')
+                ->select('body_sections.name as section', 'exercises.*', 'body_parts.name as parts')
+//                ->groupBy('exercises.id')
+                ->get();
+
+        dd($aa);
+
+
         $warmUp = Exercise::take(2)->get();
 //        dd($warmUp);
         $training = Exercise::skip(2)->take(3)->get();

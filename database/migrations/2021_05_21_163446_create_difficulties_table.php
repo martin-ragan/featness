@@ -3,8 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-class CreateExercisesTable extends Migration
+class CreateDifficultiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +14,18 @@ class CreateExercisesTable extends Migration
      */
     public function up()
     {
-        Schema::create('exercises', function (Blueprint $table) {
+        Schema::create('difficulties', function (Blueprint $table) {
             $table->id();
-            $table->string('url')->unique();
-            $table->string('name')->unique();
-
+            $table->string("name");
 
         });
 
 
+        DB::table('difficulties')->insert([
+            ['name' => 'Ľahký'],
+            ['name' => 'Stredný'],
+            ['name' => 'Ťažký'],
+        ]);
     }
 
     /**
@@ -31,6 +35,6 @@ class CreateExercisesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('exercises');
+        Schema::dropIfExists('difficulties');
     }
 }
