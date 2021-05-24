@@ -55,11 +55,11 @@ class AddForeignIdToExercisesTable extends Migration
             ],
             [
                 'id' => 5,
-                'name' => 'Drep pulz',
+                'name' => 'Drep - pulz',
                 'url' => '549608189',
                 'body_section_id' => 2,
                 'body_part_id' => 1,
-                'type_id' => 1,
+                'type_id' => 4,
             ],
             [
                 'id' => 6,
@@ -98,7 +98,7 @@ class AddForeignIdToExercisesTable extends Migration
                 'name' => 'Dvíhanie panvy',
                 'url' => '549623434',
                 'body_section_id' => 2,
-                'body_part_id' => 1,
+                'body_part_id' => 2,
                 'type_id' => 1,
             ],
             [
