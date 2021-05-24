@@ -35,27 +35,52 @@ class ExerciseController extends Controller {
             ->limit(2)
             ->get();
 
-        dd($warmUp);
-
-
-        $aa = DB::table('exercises')
-            ->join('body_sections', 'exercises.body_section_id', '=', 'body_sections.id')
-            ->join('body_parts', 'body_sections.id', '=', 'body_parts.body_section_id')
-            ->select('body_sections.name as section', 'exercises.*', 'body_parts.name as parts')
-//                ->groupBy('exercises.id')
-            ->get();
-
-        dd($aa);
-
-
-//        $warmUp = Exercise::take(2)->get();
 //        dd($warmUp);
-        $training = Exercise::skip(2)->take(3)->get();
-//        dd($training);
+
+        $trainingRound = [];
+$parts = ['Celé nohy', 'Zadok', 'Celý vrch', 'Horný chrbát'];
+
+        for($i = 0; $i < count($parts); $i++) {
+//            dd($i);
+
+            $celeNohy = DB::table('exercises')
+                ->join('difficulty_exercise', 'exercises.id', '=', 'difficulty_exercise.exercise_id')
+                ->join('difficulties', 'difficulty_exercise.difficulty_id', '=', 'difficulties.id')
+                ->where('difficulties.name', '=', 'Ľahký')
+                ->join('area_exercise', 'exercises.id', '=', 'area_exercise.exercise_id')
+                ->join('areas', 'area_exercise.area_id', '=', 'areas.id')
+                ->where('areas.name', '=', 'Tréning')
+                ->join('body_parts', 'exercises.body_part_id', '=', 'body_parts.id')
+                ->where('body_parts.name', '=', $parts[$i])
+                ->select('exercises.*')
+                ->inRandomOrder()
+                ->first();
+            array_push($trainingRound, $celeNohy);
+        }
+
+
+        $trainingCardio = DB::table('exercises')
+            ->join('difficulty_exercise', 'exercises.id', '=', 'difficulty_exercise.exercise_id')
+            ->join('difficulties', 'difficulty_exercise.difficulty_id', '=', 'difficulties.id')
+            ->where('difficulties.name', '=', 'Ľahký')
+            ->join('area_exercise', 'exercises.id', '=', 'area_exercise.exercise_id')
+            ->join('areas', 'area_exercise.area_id', '=', 'areas.id')
+            ->where('areas.name', '=', 'Tréning')
+            ->join('types', 'types.id', '=', 'exercises.type_id')
+            ->where('types.name', '=', 'Kardio')
+            ->select('exercises.*')
+            ->inRandomOrder()
+            ->first();
+
+        array_push($trainingRound, $trainingCardio);
+
+
+
+
         return view('current-training',
             [
                 "warmUp" => $warmUp,
-                "training" => $training
+                "training" => $trainingRound
             ]
         );
     }
