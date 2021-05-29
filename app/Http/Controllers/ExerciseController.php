@@ -36,7 +36,6 @@ class ExerciseController extends Controller {
         $countOfRounds = 2;
 
         for ($i = 0; $i < $countOfRounds; $i++) {
-            echo "hu";
 
             $round = [];
 
@@ -66,12 +65,10 @@ class ExerciseController extends Controller {
             array_push($round, $trainingCardio);
 
 
-//            dd($trainingRounds);
             array_push($training, $round);
 
         }
 
-//        dd($training);
 
 
 //$query = $this->generateQuery('Ľahký', 'Tréning');
@@ -82,8 +79,8 @@ class ExerciseController extends Controller {
 ////            ->groupBy('body_parts.id')
 //            ->get()->toArray();
 //        dd($groupByLogic);
-
-
+//        $training = (object)$training;
+//dd($training);
 
 
         return view('current-training',
