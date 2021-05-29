@@ -14,19 +14,6 @@ use App\Http\Controllers\ExerciseController;
 |
 */
 
-//Route::get('/ajo', function() {
-//    $e = \App\Models\Exercise::first();
-//    $e->bodySection;
-//    $e->bodyPart;
-//    $e->type;
-//    $e->areas;
-//    $e->difficulties;
-//    dd($e->toArray());
-////    dd(\App\Models\Exercise::with(['bodySection', 'bodyPart', 'type'])->first()->toArray());
-////    dd(\App\Models\Exercise::first()->areas()->get()->toArray());
-//});
-
-Route::get('/current-training', [ExerciseController::class, 'currentTraining']);
 
 
 Route::get('/', function() {
@@ -43,6 +30,11 @@ Route::middleware('auth')->group(function() {
     Route::get('/jedalnicek', function() {
         return view('jedalnicek');
     });
+
+    Route::post('/generate-training', [ExerciseController::class, 'generateTraining']);
+
+
+    Route::get('/current-training', [ExerciseController::class, 'currentTraining']);
 
 
 

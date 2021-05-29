@@ -2,7 +2,10 @@
 
 @section('content')
     <h1 class="heading-brown">tréning</h1>
-    <form action="" method="post" class="flex flex-col w-full items-center">
+    <form action="generate-training" method="post" class="flex flex-col w-full items-center">
+
+        @csrf
+
         <div class="flex w-full justify-center items-center">
 
             <div class="card-dark w-1/3 justify-center items-center">
