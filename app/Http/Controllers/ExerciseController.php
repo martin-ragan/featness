@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Difficulty;
 use App\Models\Exercise;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ExerciseController extends Controller {
 
-    public function currentTraining(Request $request) {
-//        dd($request->all());
+
+
+    public function generateTraining(Request $request) {
+
         // validate data if they are OK
         $data = $request->validate([
-            'body_section' => ['string', 'in:Horná,Spodná,Celé telo'],
-            'type' => ['string', 'in:Ľahký,Stredný,Ťažký'],
-            'time' => ['string', 'in:short,long']
+            'body-part' => ['string', 'in:upper-body,lower-body,whole-body'],
+            'difficulty' => ['string', 'in:easy-training,medium-training,hard-training'],
+            'training-time' => ['string', 'in:short-time,long-time']
         ]);
 
 
@@ -73,12 +74,10 @@ class ExerciseController extends Controller {
             array_push($round, $trainingCardio);
 
 
-//            dd($trainingRounds);
             array_push($training, $round);
 
         }
 
-//        dd($training);
 
 
 //$query = $this->generateQuery('Ľahký', 'Tréning');
@@ -89,8 +88,8 @@ class ExerciseController extends Controller {
 ////            ->groupBy('body_parts.id')
 //            ->get()->toArray();
 //        dd($groupByLogic);
-
-
+//        $training = (object)$training;
+//dd($warmUp);
 
 
         return view('current-training',
