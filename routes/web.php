@@ -13,6 +13,11 @@ use App\Http\Controllers\ExerciseController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/aho', function() {
+    $res = \Illuminate\Support\Facades\DB::table('exercises')
+        ->select('exercises.*')
+        ->addSelect(\Illuminate\Support\Facades\DB::raw("'fakeValue' as fakeColumn"))
+        ->get();
 
 Route::get('/ajo', function() {
     $e = \App\Models\Exercise::first();
@@ -44,6 +49,8 @@ Route::middleware('auth')->group(function() {
         return view('jedalnicek');
     });
 
+    dd($res);
+});
 
 
     Route::middleware('verified')->get('/dashboard', function() {

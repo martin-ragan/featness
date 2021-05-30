@@ -17,18 +17,66 @@ class CreateBodyPartsTable extends Migration
         Schema::create('body_parts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->json('reps_easy');
+            $table->json('reps_medium');
+            $table->json('reps_hard');
         });
 
         DB::table('body_parts')->insert([
-            [ 'name' => 'Celé nohy' ],
-            [ 'name' => 'Zadok' ],
-            [ 'name' => 'Predné stehná' ],
-            [ 'name' => 'Lýtka' ],
-            [ 'name' => 'Celý vrch' ],
-            [ 'name' => 'Horný chrbát' ],
-            [ 'name' => 'Spodný chrbát' ],
-            [ 'name' => 'Priame brucho' ],
-            [ 'name' => 'Šikmé brucho' ],
+            [
+                'name' => 'Celé nohy',
+                'reps_easy' => '[8, 10, 12]',
+                'reps_medium' => '[10, 12, 15]',
+                'reps_hard' => '[12, 15, 20]',
+            ],
+            [
+                'name' => 'Zadok',
+                'reps_easy' => '[8, 10, 12]',
+                'reps_medium' => '[10, 12, 15]',
+                'reps_hard' => '[12, 15, 20]',
+            ],
+            [
+                'name' => 'Predné stehná',
+                'reps_easy' => '[8, 10, 12]',
+                'reps_medium' => '[10, 12, 15]',
+                'reps_hard' => '[12, 15, 20]',
+            ],
+            [
+                'name' => 'Lýtka',
+                'reps_easy' => '[8, 10, 12]',
+                'reps_medium' => '[10, 12, 15]',
+                'reps_hard' => '[12, 15, 20]',
+            ],
+            [
+                'name' => 'Celý vrch',
+                'reps_easy' => '[5, 6]',
+                'reps_medium' => '[10, 12, 15]',
+                'reps_hard' => '[12, 15, 20]',
+            ],
+            [
+                'name' => 'Horný chrbát',
+                'reps_easy' => '[8, 10]',
+                'reps_medium' => '[10, 12, 15]',
+                'reps_hard' => '[12, 15, 20]',
+            ],
+            [
+                'name' => 'Spodný chrbát',
+                'reps_easy' => '[8, 10]',
+                'reps_medium' => '[10, 12, 15]',
+                'reps_hard' => '[12, 15, 20]',
+            ],
+            [
+                'name' => 'Priame brucho',
+                'reps_easy' => '[8, 10]',
+                'reps_medium' => '[10, 12, 15]',
+                'reps_hard' => '[12, 15, 20]',
+            ],
+            [
+                'name' => 'Šikmé brucho',
+                'reps_easy' => '[8, 10]',
+                'reps_medium' => '[10, 12, 15]',
+                'reps_hard' => '[12, 15, 20]',
+            ],
         ]);
 
 

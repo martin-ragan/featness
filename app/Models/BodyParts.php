@@ -11,6 +11,10 @@ class BodyParts extends Model
 
     public $timestamps = false;
 
+    protected $casts = [
+        'reps' => 'array'
+    ];
+
     public function exercises(){
         return $this->hasMany(Exercise::class);
     }

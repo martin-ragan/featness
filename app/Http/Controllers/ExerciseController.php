@@ -30,13 +30,20 @@ class ExerciseController extends Controller {
             ->limit(2)
             ->get();
 
+//        $queryWarmUp = $this->generateQuery('Ľahký', 'Rozcvička');
+//
+//        $e = $queryWarmUp
+//            ->select('exercises.*')
+//            ->get();
+////        $e[0]->name = "jou";
+//        dd($e);
+
 
         $training = [];
         $parts = ['Celé nohy', 'Zadok', 'Celý vrch', 'Horný chrbát'];
         $countOfRounds = 2;
 
         for ($i = 0; $i < $countOfRounds; $i++) {
-            echo "hu";
 
             $round = [];
 
