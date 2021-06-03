@@ -11,6 +11,13 @@ class Type extends Model
 
     public $timestamps = false;
 
+
+    protected $casts = [
+        'time_easy' => 'array',
+        'time_medium' => 'array',
+        'time_hard' => 'array',
+    ];
+
     public function exercises(){
         return $this->hasMany(Type::class);
     }

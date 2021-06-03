@@ -31,13 +31,13 @@ class ExerciseController extends Controller {
             ->limit(2)
             ->get();
 
-//        $queryWarmUp = $this->generateQuery('Ľahký', 'Rozcvička');
-//
-//        $e = $queryWarmUp
-//            ->select('exercises.*')
-//            ->get();
-////        $e[0]->name = "jou";
-//        dd($e);
+        $queryWarmUp = $this->generateQuery('Ľahký', 'Rozcvička');
+
+        $e = $queryWarmUp
+            ->select('exercises.*')
+            ->get();
+//        $e[0]->name = "jou";
+        dd($e);
 
 
         $training = [];

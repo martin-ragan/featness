@@ -15,6 +15,12 @@ class BodyParts extends Model
         'reps' => 'array'
     ];
 
+    protected $casts = [
+        'reps_easy' => 'array',
+        'reps_medium' => 'array',
+        'reps_hard' => 'array',
+    ];
+
     public function exercises(){
         return $this->hasMany(Exercise::class);
     }
