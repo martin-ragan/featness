@@ -37,23 +37,23 @@ class CreateTypesTable extends Migration
             [
                 'name' => 'Kardio',
                 'cardio_type' => 'Nohy',
-                'time_easy' => '[20, 25]',
-                'time_medium' => '[10, 12, 15]',
-                'time_hard' => '[12, 15, 20]',
+                'time_easy' => '[30, 35]',
+                'time_medium' => '[30, 35, 40]',
+                'time_hard' => '[35, 40, 45]',
             ],
             [
                 'name' => 'Kardio',
                 'cardio_type' => 'Brucho',
-                'time_easy' => '[20, 25]',
-                'time_medium' => '[10, 12, 15]',
-                'time_hard' => '[12, 15, 20]',
+                'time_easy' => '[25, 30]',
+                'time_medium' => '[25, 30, 35]',
+                'time_hard' => '[30, 35, 40]',
             ],
             [
                 'name' => 'Statický',
                 'cardio_type' => null,
                 'time_easy' => '[20, 25]',
-                'time_medium' => '[10, 12, 15]',
-                'time_hard' => '[12, 15, 20]',
+                'time_medium' => '[25, 30, 35]',
+                'time_hard' => '[30, 35, 40]',
             ]
         ]);
     }
