@@ -12,15 +12,15 @@
                 <h1 class="heading-brown text-xl mt-12">čo chceš dnes cvičiť ?</h1>
                 <div class="flex flex-col flex-1 w-full h-4/5 items-center">
                     <div class="checkbox-holder">
-                        <input type="radio" value="upper-body" name="body-part" id="upper-body" class="appearance-none bg-transparent text-primary ml-4 mr-4">
+                        <input type="radio" value="upper-body" name="body-section" id="upper-body" class="appearance-none bg-transparent text-primary ml-4 mr-4">
                         <label for="upper-body" class="text-white">vrchná časť tela</label>
                     </div>
                     <div class="checkbox-holder">
-                        <input type="radio" value="lower-body" name="body-part" id="lower-body" class="appearance-none bg-transparent text-primary ml-4 mr-4">
+                        <input type="radio" value="lower-body" name="body-section" id="lower-body" class="appearance-none bg-transparent text-primary ml-4 mr-4">
                         <label for="lower-body" class="text-white">spodná časť tela</label>
                     </div>
                     <div class="checkbox-holder">
-                        <input type="radio" value="whole-body" name="body-part" id="whole-body" class="appearance-none bg-transparent text-primary ml-4 mr-4">
+                        <input type="radio" value="whole-body" name="body-section" id="whole-body" class="appearance-none bg-transparent text-primary ml-4 mr-4">
                         <label for="whole-body" class="text-white">celé telo</label>
                     </div>
                 </div>

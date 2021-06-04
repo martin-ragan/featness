@@ -22,9 +22,9 @@ class CreateDifficultiesTable extends Migration
 
 
         DB::table('difficulties')->insert([
-            ['name' => 'Ľahký'],
-            ['name' => 'Stredný'],
-            ['name' => 'Ťažký'],
+            ['name' => 'easy-training'],
+            ['name' => 'medium-training'],
+            ['name' => 'hard-training'],
         ]);
     }
 

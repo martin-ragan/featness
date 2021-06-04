@@ -9,16 +9,17 @@ use Illuminate\Support\Facades\DB;
 class ExerciseController extends Controller {
 
 
-
     public function generateTraining(Request $request) {
 
         // validate data if they are OK
         $data = $request->validate([
-            'body-part' => ['string', 'in:upper-body,lower-body,whole-body'],
+            'body-section' => ['string', 'in:upper-body,lower-body,whole-body'],
             'difficulty' => ['string', 'in:easy-training,medium-training,hard-training'],
             'training-time' => ['string', 'in:short-time,long-time']
         ]);
 
+
+        $warmUpp = $this->generateWarmUpByData($data);
 
         //generate warm up query and use it for get two kardio results
         $queryWarmUp = $this->generateQuery('Ľahký', 'Rozcvička');
@@ -77,7 +78,6 @@ class ExerciseController extends Controller {
             array_push($training, $round);
 
         }
-
 
 
 //$query = $this->generateQuery('Ľahký', 'Tréning');
@@ -161,8 +161,8 @@ class ExerciseController extends Controller {
     }
 
 
-    public function generateQuery($difficulty, $area){
-        $query =  DB::table('exercises')
+    public function generateQuery($difficulty, $area) {
+        return DB::table('exercises')
             ->join('difficulty_exercise', 'exercises.id', '=', 'difficulty_exercise.exercise_id')
             ->join('difficulties', 'difficulty_exercise.difficulty_id', '=', 'difficulties.id')
             ->where('difficulties.name', '=', $difficulty)
@@ -170,6 +170,85 @@ class ExerciseController extends Controller {
             ->join('areas', 'area_exercise.area_id', '=', 'areas.id')
             ->where('areas.name', '=', $area)
             ->inRandomOrder();
-        return $query;
+    }
+
+
+    public function generateWarmUpByData($data) {
+        $fullWarmUp = [];
+        switch ($data['body-section']) {
+            case "upper-body":
+
+                switch ($data['difficulty']) {
+
+                    case "easy-training":
+
+                        break;
+                    case "medium-training":
+
+
+                        break;
+
+                    case "hard-training":
+
+                        break;
+                }
+                break;
+
+
+            case "lower-body":
+                switch ($data['difficulty']) {
+
+                    case "easy-training":
+
+                        break;
+                    case "medium-training":
+
+
+                        break;
+
+                    case "hard-training":
+
+                        break;
+                }
+                break;
+
+
+            case "whole-body":
+                switch ($data['difficulty']) {
+
+                    case "easy-training":
+                        //generate warm up query and use it for get two kardio results
+                        $queryWarmUp = $this->generateQuery($data['difficulty'], 'Rozcvička');
+
+                        $warmUp = $queryWarmUp
+                            ->join('types', 'types.id', '=', 'exercises.type_id')
+                            ->where('types.name', '=', 'Kardio')
+                            ->where('cardio_type', '=', 'Nohy')
+                            ->select('exercises.*', 'types.time_easy')
+                            ->limit(2)
+                            ->get();
+
+                        foreach ($warmUp as $value){
+
+                            $j = json_decode($value->time_easy);
+                            $random_number = rand(0, count($j)-1);
+                            $value->time = $j[$random_number];
+
+                            array_push($fullWarmUp, $value);
+                        }
+
+                        dd($fullWarmUp);
+
+                        break;
+                    case "medium-training":
+
+
+                        break;
+
+                    case "hard-training":
+
+                        break;
+                }
+        }
     }
 }
