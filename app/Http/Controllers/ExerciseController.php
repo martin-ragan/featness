@@ -21,57 +21,6 @@ class ExerciseController extends Controller {
 
         $fullTraining = $this->generateData($data);
 
-//        dd($warmUp);
-//        $training = [];
-//        $parts = ['Celé nohy', 'Zadok', 'Celý vrch', 'Horný chrbát'];
-//        $countOfRounds = 2;
-//
-//        for ($i = 0; $i < $countOfRounds; $i++) {
-//
-//            $round = [];
-//
-//            for ($j = 0; $j < count($parts); $j++) {
-//                $queryTraining = $this->generateQuery('Ľahký', 'Tréning');
-//
-//                $celeNohy = $queryTraining
-//                    ->join('body_parts', 'exercises.body_part_id', '=', 'body_parts.id')
-//                    ->where('body_parts.name', '=', $parts[$j])
-//                    ->select('exercises.*')
-//                    ->inRandomOrder()
-//                    ->first();
-//                array_push($round, $celeNohy);
-//            }
-//
-//
-//            $queryTraining = $this->generateQuery('Ľahký', 'Tréning');
-//
-//            $trainingCardio = $queryTraining
-//                ->join('types', 'types.id', '=', 'exercises.type_id')
-//                ->where('types.name', '=', 'Kardio')
-//                ->where('cardio_type', '=', 'Nohy')
-//                ->select('exercises.*')
-//                ->inRandomOrder()
-//                ->first();
-//
-//            array_push($round, $trainingCardio);
-//
-//
-//            array_push($training, $round);
-//
-//        }
-
-
-//$query = $this->generateQuery('Ľahký', 'Tréning');
-//        $groupByLogic = $query->join('body_parts', 'exercises.body_part_id', '=', 'body_parts.id')
-////            ->distinct()
-//            ->select('exercises.name', 'body_parts.name as arna')
-//            ->inRandomOrder()
-////            ->groupBy('body_parts.id')
-//            ->get()->toArray();
-//        dd($groupByLogic);
-//        $training = (object)$training;
-//dd($warmUp);
-//dd($fullTraining);
 
         return view('current-training',
             [
@@ -150,7 +99,9 @@ class ExerciseController extends Controller {
             ->join('area_exercise', 'exercises.id', '=', 'area_exercise.exercise_id')
             ->join('areas', 'area_exercise.area_id', '=', 'areas.id')
             ->where('areas.name', '=', $area)
-            ->inRandomOrder();
+            ->join('types', 'types.id', '=', 'exercises.type_id')
+            ->inRandomOrder()
+            ->select('exercises.*', 'types.name as typeName', 'types.time_easy', 'types.time_medium', 'types.time_hard');
     }
 
 
@@ -203,15 +154,14 @@ class ExerciseController extends Controller {
                         $queryWarmUp = $this->generateQuery($data['difficulty'], 'Rozcvička');
 
                         $warmUp = $queryWarmUp
-                            ->join('types', 'types.id', '=', 'exercises.type_id')
                             ->where('types.name', '=', 'Kardio')
                             ->where('cardio_type', '=', 'Nohy')
-                            ->select('exercises.*', 'types.time_easy')
                             ->limit(2)
                             ->get();
 
+
                         foreach ($warmUp as $value){
-                            array_push($fullWarmUp, $this->randomRepsOrTime($value, "time"));
+                            array_push($fullWarmUp, $this->randomRepsOrTime($value));
                         }
 
                         $queryWarmUp = $this->generateQuery($data['difficulty'], 'Rozcvička');
@@ -220,13 +170,14 @@ class ExerciseController extends Controller {
                             ->join('body_sections', 'body_sections.id', '=', 'exercises.body_section_id')
                             ->join('body_parts', 'exercises.body_part_id', '=', 'body_parts.id')
                             ->where('body_sections.name', '=', 'upper-body')
-                            ->select('exercises.*', 'body_parts.reps_easy')
+                            ->addSelect('body_parts.reps_easy')
                             ->first();
 
-                        array_push($fullWarmUp, $this->randomRepsOrTime($warmUpUpperBody, "reps"));
+                        array_push($fullWarmUp, $this->randomRepsOrTime($warmUpUpperBody));
 
                         $partsForTraining = ['Celé nohy', 'Zadok', 'Celý vrch', 'Horný chrbát'];
                         $countOfRounds = 2;
+//                        dd($fullWarmUp);
 
                         for ($i = 0; $i < $countOfRounds; $i++) {
 
@@ -238,32 +189,26 @@ class ExerciseController extends Controller {
                                 $onePart = $queryTraining
                                     ->join('body_parts', 'exercises.body_part_id', '=', 'body_parts.id')
                                     ->where('body_parts.name', '=', $partsForTraining[$j])
-                                    ->select('exercises.*', 'body_parts.reps_easy')
-                                    ->inRandomOrder()
+                                    ->addSelect('body_parts.reps_easy')
                                     ->first();
                                 array_push($round, $this->randomRepsOrTime($onePart));
                             }
 
-
                             $queryTraining = $this->generateQuery($data['difficulty'], 'Tréning');
 
                             $trainingCardio = $queryTraining
-                                ->join('types', 'types.id', '=', 'exercises.type_id')
                                 ->where('types.name', '=', 'Kardio')
                                 ->where('cardio_type', '=', 'Nohy')
-                                ->select('exercises.*', 'types.time_easy')
-                                ->inRandomOrder()
                                 ->first();
 
-//                            dd($trainingCardio);
 
-                            array_push($round, $this->randomRepsOrTime($trainingCardio, "time"));
+                            array_push($round, $this->randomRepsOrTime($trainingCardio));
 
 
                             array_push($fullTraining, $round);
 
                         }
-//                                dd($fullTraining);
+
                         return array('warmUp' => $fullWarmUp, 'training' => $fullTraining);
 
                         break;
@@ -279,7 +224,8 @@ class ExerciseController extends Controller {
         }
     }
 
-    public function randomRepsOrTime($exercise, $category = "reps", $difficulty = "easy"){
+    public function randomRepsOrTime($exercise, $difficulty = "easy"){
+        $category = $exercise->typeName == "Silový" ? "reps" : "time";
         $kind = ($category."_".$difficulty);
 
         $j = json_decode($exercise->$kind);
