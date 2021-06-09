@@ -48,7 +48,7 @@ class AddForeignIdToExercisesTable extends Migration {
                 'name' => 'Drep na úzko',
                 'url' => '549607900',
                 'body_section_id' => 2,
-                'body_part_id' => 5,
+                'body_part_id' => 1,
                 'type_id' => 1,
             ],
             [
@@ -439,7 +439,7 @@ class AddForeignIdToExercisesTable extends Migration {
                 'name' => 'Dvíhanie rúk a nôh v ľahu',
                 'url' => '549635156',
                 'body_section_id' => 1,
-                'body_part_id' => 9,
+                'body_part_id' => 7,
                 'type_id' => 1,
             ],
             [
