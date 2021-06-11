@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ExerciseController extends Controller {
+class ExerciseController extends Controller
+{
 
 
-    public function generateTraining(Request $request) {
+    public function generateTraining(Request $request)
+    {
 
         // validate data if they are OK
         $data = $request->validate([
@@ -20,7 +22,8 @@ class ExerciseController extends Controller {
 
         $fullTraining = $this->generateData($data);
 
-//dd($fullTraining);
+        dd($fullTraining);
+
         return view('current-training',
             [
                 "warmUp" => $fullTraining['warmUp'],
@@ -31,9 +34,9 @@ class ExerciseController extends Controller {
     }
 
 
-
-    public function generateQuery($difficulty, $area) {
-        $query =  DB::table('exercises')
+    public function generateQuery($difficulty, $area)
+    {
+        $query = DB::table('exercises')
             ->join('difficulty_exercise', 'exercises.id', '=', 'difficulty_exercise.exercise_id')
             ->join('difficulties', 'difficulty_exercise.difficulty_id', '=', 'difficulties.id')
             ->where('difficulties.name', '=', $difficulty)
@@ -43,7 +46,7 @@ class ExerciseController extends Controller {
             ->inRandomOrder()
             ->select('exercises.*');
 
-        if ($area != "Strečing"){
+        if ($area != "Strečing") {
             $query
                 ->join('types', 'types.id', '=', 'exercises.type_id')
                 ->addSelect('types.name as typeName', 'types.time_easy', 'types.time_medium', 'types.time_hard');
@@ -53,114 +56,246 @@ class ExerciseController extends Controller {
     }
 
 
-    public function generateData($data) {
+    public function generateData($data)
+    {
         $fullWarmUp = [];
         $fullTraining = [];
         $fullStretching = [];
-        switch ($data['body-section']) {
-            case "upper-body":
 
-                switch ($data['difficulty']) {
+        $exerciseDivide = [
 
-                    case "easy-training":
+            'upper-body' => [
 
-                        break;
-                    case "medium-training":
+                'easy-training' => [
+                    'warm-up' => [
+                        'Horný chrbát',
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+
+                    ],
+                    'training' => [
+                        'short-time' => [
+                            ["Horný chrbát", "Priame brucho", "Priame brucho", "Šikmé brucho"],
+                            ["Horný chrbát", "Horný chrbát", "Priame brucho", ['Kardio', 'Brucho']]
+                        ],
+                        'long-time' => [
+                            ["Horný chrbát", "Celý vrch", "Priame brucho", ['Kardio', 'Brucho']],
+                            ["Horný chrbát", "Priame brucho", "Priame brucho", "Šikmé brucho"],
+                            ["Horný chrbát", "Horný chrbát", "Priame brucho", ['Kardio', 'Brucho']]
+                        ]
+                    ],
+                    'stretching' => [
+                        'Krk', 'Ramená', "Spodný chrbát", "Spodný chrbát"
+                    ],
+                ],
+
+                'medium-training' => [
+                    'warm-up' => [
+
+                    ],
+                    'training' => [
+                        'short-time' => [
+
+                        ],
+                        'long-time' => [
+
+                        ]
+                    ],
+                    'stretching' => [
+
+                    ],
+                ],
+
+                'hard-training' => [
+                    'warm-up' => [
+
+                    ],
+                    'training' => [
+                        'short-time' => [
+
+                        ],
+                        'long-time' => [
+
+                        ]
+                    ],
+                    'stretching' => [
+
+                    ],
+                ],
+
+            ],
+
+            'lower-body' => [
+                'easy-training' => [
+                    'warm-up' => [
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"]
+                    ],
+                    'training' => [
+                        'short-time' => [
+                            ['Celé nohy', "Zadok", 'Celé nohy', 'Priame brucho'],
+                            ['Celé nohy', "Zadok", 'Celé nohy', 'Priame brucho']
+                        ],
+                        'long-time' => [
+                            ['Celé nohy', "Zadok", 'Zadok', 'Priame brucho'],
+                            ['Celé nohy', "Zadok", 'Celé nohy', 'Priame brucho'],
+                            ['Celé nohy', "Zadok", 'Celé nohy', 'Priame brucho']
+                        ]
+                    ],
+                    'stretching' => [
+                        'Spodný chrbát', 'Spodný chrbát', 'Zadné stehná', 'Zadné stehná'
+                    ],
+                ],
+
+                'medium-training' => [
+                    'warm-up' => [
+
+                    ],
+                    'training' => [
+                        'short-time' => [
+
+                        ],
+                        'long-time' => [
+
+                        ]
+                    ],
+                    'stretching' => [
+
+                    ],
+                ],
+
+                'hard-training' => [
+                    'warm-up' => [
+
+                    ],
+                    'training' => [
+                        'short-time' => [
+
+                        ],
+                        'long-time' => [
+
+                        ]
+                    ],
+                    'stretching' => [
+
+                    ],
+                ],
+            ],
 
 
-                        break;
+            'whole-body' => [
+                'easy-training' => [
+                    'warm-up' => [
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"]
+                    ],
+                    'training' => [
+                        'short-time' => [
+                            ['Celé nohy', ["Kardio", "Nohy"], 'Horný chrbát', 'Horný chrbát', 'Priame brucho'],
+                            ['Celé nohy', "Zadok", "Horný chrbát", "Šikmé brucho", ["Kardio", "Brucho"]]
+                        ],
+                        'long-time' => [
+                            ['Celé nohy', 'Celé nohy', 'Horný chrbát', 'Priame brucho', 'Priame brucho'],
+                            ['Celé nohy', ["Kardio", "Nohy"], "Horný chrbát", "Horný chrbát", 'Priame brucho'],
+                            ['Celé nohy', "Zadok", "Horný chrbát", "Šikmé brucho", ["Kardio", "Brucho"]]
+                        ]
+                    ],
+                    'stretching' => [
+                        'Spodný chrbát', 'Spodný chrbát', 'Zadné stehná', 'Zadné stehná'
+                    ],
+                ],
 
-                    case "hard-training":
+                'medium-training' => [
+                    'warm-up' => [
 
-                        break;
-                }
-                break;
+                    ],
+                    'training' => [
+                        'short-time' => [
 
+                        ],
+                        'long-time' => [
 
-            case "lower-body":
-                switch ($data['difficulty']) {
+                        ]
+                    ],
+                    'stretching' => [
 
-                    case "easy-training":
+                    ],
+                ],
 
-                        break;
-                    case "medium-training":
+                'hard-training' => [
+                    'warm-up' => [
 
+                    ],
+                    'training' => [
+                        'short-time' => [
 
-                        break;
+                        ],
+                        'long-time' => [
 
-                    case "hard-training":
+                        ]
+                    ],
+                    'stretching' => [
 
-                        break;
-                }
-                break;
-
-
-            case "whole-body":
-                switch ($data['difficulty']) {
-                    case "easy-training":
-
-                        $warmUpArray = [["types" => "Kardio", "cardio_type" => "Nohy"],["types" => "Kardio", "cardio_type" => "Nohy"],["types" => "Kardio", "cardio_type" => "Nohy"]];
-                        $fullWarmUp = $this->generateExercisesByArray($warmUpArray, $data['difficulty'], "Rozcvička");
-//dd($fullWarmUp);
-                        $partsForTraining = ['Celé nohy', ["types" => "Kardio", "cardio_type" => "Nohy"], 'Horný chrbát', 'Horný chrbát', 'Priame brucho'];
-                        array_push($fullTraining, $this->generateExercisesByArray($partsForTraining, $data['difficulty'], 'Tréning'));
-
-                        $partsForTraining = ['Celé nohy', "Zadok", "Horný chrbát", "Šikmé brucho", ["types" => "Kardio", "cardio_type" => "Nohy"]];
-                        array_push($fullTraining, $this->generateExercisesByArray($partsForTraining, $data['difficulty'], 'Tréning'));
+                    ],
+                ],
+            ]
+        ];
 
 
+        $trainingExercises = $exerciseDivide[$data['body-section']][$data['difficulty']]['training'][$data['training-time']];
 
-                        $stretchingArray = ['Spodný chrbát', 'Spodný chrbát', 'Zadné stehná', 'Zadné stehná'];
-                        $fullStretching = $this->generateExercisesByArray($stretchingArray, $data['difficulty'], 'Strečing');
+        $fullWarmUp = $this->generateExercisesByArray($exerciseDivide[$data['body-section']][$data['difficulty']]['warm-up'], $data['difficulty'], "Rozcvička");
 
-                        return array('warmUp' => $fullWarmUp, 'training' => $fullTraining, 'stretching' => $fullStretching);
-
-                    case "medium-training":
-
-
-                        break;
-
-                    case "hard-training":
-
-                        break;
-                }
+        for ($i = 0; $i < count($trainingExercises); $i++) {
+            array_push($fullTraining, $this->generateExercisesByArray($trainingExercises[$i], $data['difficulty'], 'Tréning'));
         }
+
+        $fullStretching = $this->generateExercisesByArray($exerciseDivide[$data['body-section']][$data['difficulty']]['stretching'], $data['difficulty'], 'Strečing');
+
+        return array('warmUp' => $fullWarmUp, 'training' => $fullTraining, 'stretching' => $fullStretching);
+
+
     }
 
-    public function randomRepsOrTime($exercise, $difficulty = "easy-training", $isStretching = false){
+    public function randomRepsOrTime($exercise, $difficulty = "easy-training", $isStretchinOrWarmUp = false)
+    {
 
-        $difficulty = substr($difficulty, 0, strpos($difficulty,"-"));
-        if ($isStretching){
+        $difficulty = substr($difficulty, 0, strpos($difficulty, "-"));
+        if ($isStretchinOrWarmUp) {
             $exercise->time = 30;
             return $exercise;
         }
 
         $category = $exercise->typeName == "Silový" ? "reps" : "time";
-        $kind = ($category."_".$difficulty);
+        $kind = ($category . "_" . $difficulty);
 
         $j = json_decode($exercise->$kind);
-        $random_number = rand(0, count($j)-1);
+        $random_number = rand(0, count($j) - 1);
         $exercise->$category = $j[$random_number];
 
         return $exercise;
 
     }
 
-    public function generateExercisesByArray($parts, $difficulty, $area){
+    public function generateExercisesByArray($parts, $difficulty, $area)
+    {
 
         $full = [];
         $count = count($parts);
 
         for ($i = 0; $i < $count; $i++) {
+
             $limit = 1;
             //check if parts are not same
-            if ($count > $i+1){
-                if ($parts[$i] == $parts[$i+1]){
+            if ($count > $i + 1) {
+                if ($parts[$i] == $parts[$i + 1]) {
                     $limit++;
                     $i++;
 
-                    if ($count > $i+1){
-                        if ($parts[$i] == $parts[$i+1]){
+                    if ($count > $i + 1) {
+                        if ($parts[$i] == $parts[$i + 1]) {
                             $limit++;
                             $i++;
                         }
@@ -173,12 +308,12 @@ class ExerciseController extends Controller {
             if (is_array($parts[$i])) {
 
                 $oneExercise = $queryTraining
-                    ->where('types.name', '=', $parts[$i]['types'])
-                    ->where('cardio_type', '=', $parts[$i]['cardio_type'])
+                    ->where('types.name', '=', $parts[$i][0])
+                    ->where('cardio_type', '=', $parts[$i][1])
                     ->limit($limit)
                     ->get();
 
-                foreach ($oneExercise as $exercise){
+                foreach ($oneExercise as $exercise) {
                     array_push($full, $this->randomRepsOrTime($exercise, $difficulty));
                 }
 
@@ -193,8 +328,8 @@ class ExerciseController extends Controller {
                 ->limit($limit)
                 ->get();
 
-            foreach ($oneExercise as $exercise){
-                array_push($full, $this->randomRepsOrTime($exercise, $difficulty, $area == "Strečing"));
+            foreach ($oneExercise as $exercise) {
+                array_push($full, $this->randomRepsOrTime($exercise, $difficulty, $area == "Strečing" || $area == "Rozcvička" && $exercise->body_part_id));
             }
 
         }
