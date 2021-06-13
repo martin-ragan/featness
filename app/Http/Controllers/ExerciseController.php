@@ -209,7 +209,10 @@ class ExerciseController extends Controller
 
                 'medium-training' => [
                     'warm-up' => [
-
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"]
                     ],
                     'training' => [
                         'short-time' => [
@@ -220,7 +223,7 @@ class ExerciseController extends Controller
                         ]
                     ],
                     'stretching' => [
-
+                        (object) ["Krk", "Ramená"], 'Spodný chrbát', 'Spodný chrbát', 'Zadné stehná'
                     ],
                 ],
 
@@ -242,6 +245,7 @@ class ExerciseController extends Controller
                 ],
             ]
         ];
+        $fullStretching = $this->generateExercisesByArray($exerciseDivide[$data['body-section']][$data['difficulty']]['stretching'], $data['difficulty'], 'Strečing');
 
 
         $trainingExercises = $exerciseDivide[$data['body-section']][$data['difficulty']]['training'][$data['training-time']];
@@ -320,11 +324,26 @@ class ExerciseController extends Controller
                 continue;
             }
 
+            if (is_object($parts[$i])){
+
+                $oneExercise = $queryTraining
+                    ->join('body_parts', 'exercises.body_part_id', '=', 'body_parts.id')
+                    ->where('body_parts.name', '=', $parts[$i]->{'0'})
+                    ->orWhere('body_parts.name', '=', $parts[$i]->{'1'})
+                    ->limit($limit)
+                    ->get();
+
+                foreach ($oneExercise as $exercise) {
+                    array_push($full, $this->randomRepsOrTime($exercise, $difficulty, $area == "Strečing" || $area == "Rozcvička" && $exercise->body_part_id));
+                }
+
+                continue;
+            }
 
             $oneExercise = $queryTraining
                 ->join('body_parts', 'exercises.body_part_id', '=', 'body_parts.id')
                 ->where('body_parts.name', '=', $parts[$i])
-                ->addSelect('body_parts.reps_easy')
+                ->addSelect('body_parts.reps_easy', 'body_parts.reps_medium', 'body_parts.reps_hard')
                 ->limit($limit)
                 ->get();
 
