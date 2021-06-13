@@ -16,7 +16,7 @@ class ExerciseController extends Controller
         $data = $request->validate([
             'body-section' => ['string', 'in:upper-body,lower-body,whole-body'],
             'difficulty' => ['string', 'in:easy-training,medium-training,hard-training'],
-            'training-time' => ['string', 'in:short-time,long-time']
+            'training-time' => ['string', 'in:short-time,medium-time,long-time']
         ]);
 
 
@@ -60,9 +60,7 @@ class ExerciseController extends Controller
 
     public function generateData($data)
     {
-        $fullWarmUp = [];
         $fullTraining = [];
-        $fullStretching = [];
 
         $exerciseDivide = [
 
@@ -362,22 +360,41 @@ class ExerciseController extends Controller
 
                 'hard-training' => [
                     'warm-up' => [
-
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"]
                     ],
                     'training' => [
                         'short-time' => [
+                            ['Celé nohy', "Zadok", ["Kardio", "Nohy"], 'Priame brucho', "Šikmé brucho"],
+                            ['Celý vrch', "Horný chrbát", "Horný chrbát", "Zadok", ["Kardio", "Brucho"]],
 
+                            'fullTime' => 16
+                        ],
+                        'medium-time' => [
+                            ["Horný chrbát", 'Celý vrch', 'Celý vrch', 'Celé nohy', 'Priame brucho'],
+                            ['Celé nohy', "Zadok", ["Kardio", "Nohy"], 'Priame brucho', "Šikmé brucho"],
+                            ['Celý vrch', "Horný chrbát", "Horný chrbát", "Zadok", ["Kardio", "Brucho"]],
+
+                            'fullTime' => 22
                         ],
                         'long-time' => [
+                            ["Horný chrbát", 'Celý vrch', 'Celé nohy', 'Celé nohy', 'Priame brucho'],
+                            ['Celé nohy', "Zadok", ["Kardio", "Nohy"], 'Priame brucho', "Šikmé brucho"],
+                            ["Zadok", "Zadok", ["Kardio", "Nohy"], ["Kardio", "Brucho"], "Horný chrbát"],
+                            ['Celý vrch', "Horný chrbát", "Horný chrbát", "Zadok", ["Kardio", "Brucho"]],
+
+                            'fullTime' => 28
 
                         ]
                     ],
                     'stretching' => [
-
+                        (object)["Krk", "Ramená"], 'Spodný chrbát', 'Spodný chrbát', 'Zadné stehná'
                     ],
                     'pauses' => [
-                        'betweenExercises' => 60,
-                        'betweenRounds' => 120
+                        'betweenExercises' => 30,
+                        'betweenRounds' => 60
                     ]
                 ],
             ]
