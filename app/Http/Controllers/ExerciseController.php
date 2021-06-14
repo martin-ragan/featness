@@ -461,6 +461,13 @@ class ExerciseController extends Controller
                         if ($parts[$i] == $parts[$i + 1]) {
                             $limit++;
                             $i++;
+
+                            if ($count > $i + 1) {
+                                if ($parts[$i] == $parts[$i + 1]) {
+                                    $limit++;
+                                    $i++;
+                                }
+                            }
                         }
                     }
                 }
