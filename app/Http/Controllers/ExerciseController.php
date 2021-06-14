@@ -445,6 +445,8 @@ class ExerciseController extends Controller
     public function generateExercisesByArray($parts, $difficulty, $area)
     {
 
+//        dd($parts);
+
         $full = [];
         $count = count($parts);
 
@@ -506,6 +508,7 @@ class ExerciseController extends Controller
                 continue;
             }
 
+
             $oneExercise = $queryTraining
                 ->join('body_parts', 'exercises.body_part_id', '=', 'body_parts.id')
                 ->where('body_parts.name', '=', $parts[$i])
@@ -514,7 +517,14 @@ class ExerciseController extends Controller
                 ->get();
 
             foreach ($oneExercise as $exercise) {
+//                dd($oneExercise[0]);
+//                if ($oneExercise[0]->id ==  $full[0]->id){
+//                    dd($full);
+//                }
+
+
                 array_push($full, $this->randomRepsOrTime($exercise, $difficulty, $area == "Strečing" || $area == "Rozcvička" && $exercise->body_part_id));
+//                if ($i == 3)dd($full);
             }
 
         }

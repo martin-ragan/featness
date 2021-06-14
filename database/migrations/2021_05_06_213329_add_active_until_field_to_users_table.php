@@ -15,7 +15,27 @@ class AddActiveUntilFieldToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->timestamp('active_until')->nullable();
+
+
+            $table->boolean('isAdmin')->default(false);
         });
+
+
+        \Illuminate\Support\Facades\DB::table('users')->insert([
+
+            [
+                'name' => 'admin',
+                'surname' => 'admin',
+                'height' => 182,
+                'weight' => 165,
+                'age' => 32,
+                'life_style' => "dog",
+                'my_goal' => "dog",
+                'email' => "admin@admin.com",
+                'password' => bcrypt("admin12345"),
+                'isAdmin' => true,
+                'active_until' => now()->addYear(),
+            ],]);
     }
 
     /**
