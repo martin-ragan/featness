@@ -2,292 +2,524 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Exercise;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ExerciseController extends Controller {
+class ExerciseController extends Controller
+{
 
 
-    public function generateTraining(Request $request) {
+    public function generateTraining(Request $request)
+    {
 
         // validate data if they are OK
         $data = $request->validate([
             'body-section' => ['string', 'in:upper-body,lower-body,whole-body'],
             'difficulty' => ['string', 'in:easy-training,medium-training,hard-training'],
-            'training-time' => ['string', 'in:short-time,long-time']
+            'training-time' => ['string', 'in:short-time,medium-time,long-time']
         ]);
 
 
         $fullTraining = $this->generateData($data);
 
-//        dd($warmUp);
-//        $training = [];
-//        $parts = ['Celé nohy', 'Zadok', 'Celý vrch', 'Horný chrbát'];
-//        $countOfRounds = 2;
-//
-//        for ($i = 0; $i < $countOfRounds; $i++) {
-//
-//            $round = [];
-//
-//            for ($j = 0; $j < count($parts); $j++) {
-//                $queryTraining = $this->generateQuery('Ľahký', 'Tréning');
-//
-//                $celeNohy = $queryTraining
-//                    ->join('body_parts', 'exercises.body_part_id', '=', 'body_parts.id')
-//                    ->where('body_parts.name', '=', $parts[$j])
-//                    ->select('exercises.*')
-//                    ->inRandomOrder()
-//                    ->first();
-//                array_push($round, $celeNohy);
-//            }
-//
-//
-//            $queryTraining = $this->generateQuery('Ľahký', 'Tréning');
-//
-//            $trainingCardio = $queryTraining
-//                ->join('types', 'types.id', '=', 'exercises.type_id')
-//                ->where('types.name', '=', 'Kardio')
-//                ->where('cardio_type', '=', 'Nohy')
-//                ->select('exercises.*')
-//                ->inRandomOrder()
-//                ->first();
-//
-//            array_push($round, $trainingCardio);
-//
-//
-//            array_push($training, $round);
-//
-//        }
-
-
-//$query = $this->generateQuery('Ľahký', 'Tréning');
-//        $groupByLogic = $query->join('body_parts', 'exercises.body_part_id', '=', 'body_parts.id')
-////            ->distinct()
-//            ->select('exercises.name', 'body_parts.name as arna')
-//            ->inRandomOrder()
-////            ->groupBy('body_parts.id')
-//            ->get()->toArray();
-//        dd($groupByLogic);
-//        $training = (object)$training;
-//dd($warmUp);
-//dd($fullTraining);
+//        dd($fullTraining);
 
         return view('current-training',
             [
                 "warmUp" => $fullTraining['warmUp'],
-                "training" => $fullTraining['training']
+                "training" => $fullTraining['training'],
+                "stretching" => $fullTraining['stretching'],
+                "pauses" => $fullTraining['pauses'],
+                "fullTime" => $fullTraining['fullTime']
             ]
         );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create() {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request) {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Exercise $exercise
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Exercise $exercise) {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Exercise $exercise
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Exercise $exercise) {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Exercise $exercise
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Exercise $exercise) {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Exercise $exercise
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Exercise $exercise) {
-        //
-    }
-
-
-    public function generateQuery($difficulty, $area) {
-        return DB::table('exercises')
+    public function generateQuery($difficulty, $area)
+    {
+        $query = DB::table('exercises')
             ->join('difficulty_exercise', 'exercises.id', '=', 'difficulty_exercise.exercise_id')
             ->join('difficulties', 'difficulty_exercise.difficulty_id', '=', 'difficulties.id')
             ->where('difficulties.name', '=', $difficulty)
             ->join('area_exercise', 'exercises.id', '=', 'area_exercise.exercise_id')
             ->join('areas', 'area_exercise.area_id', '=', 'areas.id')
             ->where('areas.name', '=', $area)
-            ->inRandomOrder();
-    }
+            ->inRandomOrder()
+            ->select('exercises.*');
 
-
-    public function generateData($data) {
-        $fullWarmUp = [];
-        $fullTraining = [];
-        switch ($data['body-section']) {
-            case "upper-body":
-
-                switch ($data['difficulty']) {
-
-                    case "easy-training":
-
-                        break;
-                    case "medium-training":
-
-
-                        break;
-
-                    case "hard-training":
-
-                        break;
-                }
-                break;
-
-
-            case "lower-body":
-                switch ($data['difficulty']) {
-
-                    case "easy-training":
-
-                        break;
-                    case "medium-training":
-
-
-                        break;
-
-                    case "hard-training":
-
-                        break;
-                }
-                break;
-
-
-            case "whole-body":
-                switch ($data['difficulty']) {
-
-                    case "easy-training":
-
-                        $queryWarmUp = $this->generateQuery($data['difficulty'], 'Rozcvička');
-
-                        $warmUp = $queryWarmUp
-                            ->join('types', 'types.id', '=', 'exercises.type_id')
-                            ->where('types.name', '=', 'Kardio')
-                            ->where('cardio_type', '=', 'Nohy')
-                            ->select('exercises.*', 'types.time_easy')
-                            ->limit(2)
-                            ->get();
-
-                        foreach ($warmUp as $value){
-                            array_push($fullWarmUp, $this->randomRepsOrTime($value, "time"));
-                        }
-
-                        $queryWarmUp = $this->generateQuery($data['difficulty'], 'Rozcvička');
-
-                        $warmUpUpperBody = $queryWarmUp
-                            ->join('body_sections', 'body_sections.id', '=', 'exercises.body_section_id')
-                            ->join('body_parts', 'exercises.body_part_id', '=', 'body_parts.id')
-                            ->where('body_sections.name', '=', 'upper-body')
-                            ->select('exercises.*', 'body_parts.reps_easy')
-                            ->first();
-
-                        array_push($fullWarmUp, $this->randomRepsOrTime($warmUpUpperBody, "reps"));
-
-                        $partsForTraining = ['Celé nohy', 'Zadok', 'Celý vrch', 'Horný chrbát'];
-                        $countOfRounds = 2;
-
-                        for ($i = 0; $i < $countOfRounds; $i++) {
-
-                            $round = [];
-
-                            for ($j = 0; $j < count($partsForTraining); $j++) {
-                                $queryTraining = $this->generateQuery($data['difficulty'], 'Tréning');
-
-                                $onePart = $queryTraining
-                                    ->join('body_parts', 'exercises.body_part_id', '=', 'body_parts.id')
-                                    ->where('body_parts.name', '=', $partsForTraining[$j])
-                                    ->select('exercises.*', 'body_parts.reps_easy')
-                                    ->inRandomOrder()
-                                    ->first();
-                                array_push($round, $this->randomRepsOrTime($onePart));
-                            }
-
-
-                            $queryTraining = $this->generateQuery($data['difficulty'], 'Tréning');
-
-                            $trainingCardio = $queryTraining
-                                ->join('types', 'types.id', '=', 'exercises.type_id')
-                                ->where('types.name', '=', 'Kardio')
-                                ->where('cardio_type', '=', 'Nohy')
-                                ->select('exercises.*', 'types.time_easy')
-                                ->inRandomOrder()
-                                ->first();
-
-//                            dd($trainingCardio);
-
-                            array_push($round, $this->randomRepsOrTime($trainingCardio, "time"));
-
-
-                            array_push($fullTraining, $round);
-
-                        }
-//                                dd($fullTraining);
-                        return array('warmUp' => $fullWarmUp, 'training' => $fullTraining);
-
-                        break;
-                    case "medium-training":
-
-
-                        break;
-
-                    case "hard-training":
-
-                        break;
-                }
+        if ($area != "Strečing") {
+            $query
+                ->join('types', 'types.id', '=', 'exercises.type_id')
+                ->addSelect('types.name as typeName', 'types.time_easy', 'types.time_medium', 'types.time_hard');
         }
+
+        return $query;
     }
 
-    public function randomRepsOrTime($exercise, $category = "reps", $difficulty = "easy"){
-        $kind = ($category."_".$difficulty);
+
+    public function generateData($data)
+    {
+        $fullTraining = [];
+
+        $exerciseDivide = [
+
+            'upper-body' => [
+
+                'easy-training' => [
+                    'warm-up' => [
+                        'Horný chrbát',
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                    ],
+                    'training' => [
+                        'short-time' => [
+                            ["Horný chrbát", "Priame brucho", "Priame brucho", "Šikmé brucho"],
+                            ["Horný chrbát", "Horný chrbát", "Priame brucho", ['Kardio', 'Brucho']],
+
+                            'fullTime' => 16
+                        ],
+                        'long-time' => [
+                            ["Horný chrbát", "Celý vrch", "Priame brucho", ['Kardio', 'Brucho']],
+                            ["Horný chrbát", "Priame brucho", "Priame brucho", "Šikmé brucho"],
+                            ["Horný chrbát", "Horný chrbát", "Priame brucho", ['Kardio', 'Brucho']],
+
+                            'fullTime' => 20
+                        ]
+                    ],
+                    'stretching' => [
+                        'Krk', 'Ramená', "Spodný chrbát", "Spodný chrbát"
+                    ],
+                    'pauses' => [
+                        'betweenExercises' => 60,
+                        'betweenRounds' => 120
+                    ]
+                ],
+
+                'medium-training' => [
+                    'warm-up' => [
+                        'Horný chrbát',
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"]
+                    ],
+                    'training' => [
+                        'short-time' => [
+                            ["Celý vrch", "Horný chrbát", "Horný chrbát", "Priame brucho", "Priame brucho"],
+                            ["Celý vrch", "Horný chrbát", "Priame brucho", "Priame brucho", "Šikmé brucho"],
+
+                            'fullTime' => 18
+                        ],
+                        'medium-time' => [
+                            ["Celý vrch", "Horný chrbát", "Priame brucho", ['Kardio', 'Brucho'], "Šikmé brucho"],
+                            ["Celý vrch", "Horný chrbát", "Horný chrbát", "Priame brucho", "Priame brucho"],
+                            ["Celý vrch", "Horný chrbát", "Priame brucho", "Priame brucho", "Šikmé brucho"],
+
+                            'fullTime' => 25
+                        ],
+                        'long-time' => [
+                            ["Celý vrch", "Horný chrbát", "Horný chrbát", "Priame brucho", "Priame brucho"],
+                            ["Horný chrbát", "Celý vrch", ['Kardio', 'Brucho'], ['Kardio', 'Brucho']],
+                            ["Celý vrch", "Horný chrbát", ['Kardio', 'Brucho'], "Priame brucho", "Šikmé brucho"],
+                            ["Horný chrbát", "Priame brucho", "Šikmé brucho", "Šikmé brucho"],
+
+                            'fullTime' => 30
+                        ]
+                    ],
+                    'stretching' => [
+                        'Krk', 'Ramená', "Spodný chrbát", "Spodný chrbát"
+                    ],
+                    'pauses' => [
+                        'betweenExercises' => 45,
+                        'betweenRounds' => 90
+                    ]
+                ],
+
+                'hard-training' => [
+                    'warm-up' => [
+                        'Horný chrbát',
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"]
+                    ],
+                    'training' => [
+                        'short-time' => [
+                            ["Celý vrch", "Horný chrbát", "Horný chrbát", "Priame brucho", "Priame brucho"],
+                            ["Celý vrch", "Horný chrbát", "Priame brucho", "Priame brucho", "Šikmé brucho"],
+
+                            'fullTime' => 16
+                        ],
+                        'medium-time' => [
+                            ["Celý vrch", "Horný chrbát", "Priame brucho", ['Kardio', 'Brucho'], "Šikmé brucho"],
+                            ["Celý vrch", "Horný chrbát", "Horný chrbát", "Priame brucho", "Priame brucho"],
+                            ["Celý vrch", "Horný chrbát", "Priame brucho", "Priame brucho", "Šikmé brucho"],
+
+                            'fullTime' => 22
+                        ],
+                        'long-time' => [
+                            ["Celý vrch", "Horný chrbát", "Horný chrbát", "Priame brucho", "Priame brucho"],
+                            ["Horný chrbát", "Celý vrch", "Priame brucho", ['Kardio', 'Brucho'], ['Kardio', 'Brucho']],
+                            ["Celý vrch", "Horný chrbát", ['Kardio', 'Brucho'], "Priame brucho", "Šikmé brucho"],
+                            ["Horný chrbát", "Celý vrch", "Priame brucho", "Šikmé brucho", "Šikmé brucho"],
+
+                            'fullTime' => 28
+                        ]
+                    ],
+                    'stretching' => [
+                        'Krk', 'Ramená', "Spodný chrbát", "Spodný chrbát"
+                    ],
+                    'pauses' => [
+                        'betweenExercises' => 30,
+                        'betweenRounds' => 60
+                    ]
+                ],
+
+            ],
+
+            'lower-body' => [
+                'easy-training' => [
+                    'warm-up' => [
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"]
+                    ],
+                    'training' => [
+                        'short-time' => [
+                            ['Celé nohy', "Zadok", 'Celé nohy', 'Priame brucho'],
+                            ['Celé nohy', "Zadok", 'Celé nohy', 'Priame brucho'],
+
+                            'fullTime' => 16
+                        ],
+                        'long-time' => [
+                            ['Celé nohy', "Zadok", 'Zadok', 'Priame brucho'],
+                            ['Celé nohy', "Zadok", 'Celé nohy', 'Priame brucho'],
+                            ['Celé nohy', "Zadok", 'Celé nohy', 'Priame brucho'],
+
+                            'fullTime' => 20
+                        ]
+                    ],
+                    'stretching' => [
+                        'Spodný chrbát', 'Spodný chrbát', 'Zadné stehná', 'Zadné stehná'
+                    ],
+                    'pauses' => [
+                        'betweenExercises' => 60,
+                        'betweenRounds' => 120
+                    ]
+                ],
+
+                'medium-training' => [
+                    'warm-up' => [
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"]
+                    ],
+                    'training' => [
+                        'short-time' => [
+                            ['Celé nohy', 'Celé nohy', "Zadok", "Zadok", 'Priame brucho'],
+                            ['Celé nohy', 'Celé nohy', 'Celé nohy', "Zadok", "Šikmé brucho"],
+
+                            'fullTime' => 18
+                        ],
+                        'medium-time' => [
+                            ['Celé nohy', 'Celé nohy', "Zadok", "Zadok", 'Priame brucho'],
+                            ['Celé nohy', 'Celé nohy', "Zadok", "Zadok", 'Priame brucho'],
+                            ['Celé nohy', 'Celé nohy', "Zadok", "Zadok", "Šikmé brucho"],
+
+                            'fullTime' => 25
+                        ],
+                        'long-time' => [
+                            ['Celé nohy', 'Celé nohy', "Zadok", "Zadok", 'Priame brucho'],
+                            ['Celé nohy', "Zadok", ["Kardio", "Nohy"], ["Kardio", "Brucho"]],
+                            ['Celé nohy', 'Celé nohy', "Zadok", "Zadok", 'Priame brucho'],
+                            ['Celé nohy', "Zadok", ["Kardio", "Nohy"], ["Kardio", "Brucho"]],
+
+                            'fullTime' => 30
+                        ]
+                    ],
+                    'stretching' => [
+                        'Spodný chrbát', 'Spodný chrbát', 'Zadné stehná', 'Zadné stehná'
+                    ],
+                    'pauses' => [
+                        'betweenExercises' => 45,
+                        'betweenRounds' => 90
+                    ]
+                ],
+
+                'hard-training' => [
+                    'warm-up' => [
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"]
+                    ],
+                    'training' => [
+                        'short-time' => [
+                            ['Celé nohy', 'Celé nohy', "Zadok", "Zadok", 'Priame brucho'],
+                            ['Celé nohy', 'Celé nohy', 'Celé nohy', "Zadok", "Šikmé brucho"],
+
+                            'fullTime' => 16
+                        ],
+                        'medium-time' => [
+                            ['Celé nohy', 'Celé nohy', "Zadok", "Zadok", 'Priame brucho'],
+                            ['Celé nohy', 'Celé nohy', "Zadok", "Zadok", 'Priame brucho'],
+                            ['Celé nohy', 'Celé nohy', "Zadok", "Zadok", "Šikmé brucho"],
+
+                            'fullTime' => 22
+                        ],
+                        'long-time' => [
+                            ['Celé nohy', 'Celé nohy', "Zadok", "Zadok", 'Priame brucho'],
+                            ['Celé nohy', 'Celé nohy', "Zadok", ["Kardio", "Nohy"], ["Kardio", "Brucho"]],
+                            ['Celé nohy', 'Celé nohy', "Zadok", "Zadok", 'Priame brucho'],
+                            ['Celé nohy', 'Celé nohy', "Zadok", ["Kardio", "Nohy"], ["Kardio", "Brucho"]],
+
+                            'fullTime' => 28
+                        ]
+                    ],
+                    'stretching' => [
+                        'Spodný chrbát', 'Spodný chrbát', 'Zadné stehná', 'Zadné stehná'
+                    ],
+                    'pauses' => [
+                        'betweenExercises' => 30,
+                        'betweenRounds' => 60
+                    ]
+                ],
+            ],
+
+
+            'whole-body' => [
+                'easy-training' => [
+                    'warm-up' => [
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"]
+                    ],
+                    'training' => [
+                        'short-time' => [
+                            ['Celé nohy', ["Kardio", "Nohy"], 'Horný chrbát', 'Horný chrbát', 'Priame brucho'],
+                            ['Celé nohy', "Zadok", "Horný chrbát", "Šikmé brucho", ["Kardio", "Brucho"]],
+
+                            'fullTime' => 20
+                        ],
+                        'long-time' => [
+                            ['Celé nohy', 'Celé nohy', 'Horný chrbát', 'Priame brucho', 'Priame brucho'],
+                            ['Celé nohy', ["Kardio", "Nohy"], "Horný chrbát", "Horný chrbát", 'Priame brucho'],
+                            ['Celé nohy', "Zadok", "Horný chrbát", "Šikmé brucho", ["Kardio", "Brucho"]],
+
+                            'fullTime' => 25
+                        ]
+                    ],
+                    'stretching' => [
+                        (object)["Krk", "Ramená"], 'Spodný chrbát', 'Spodný chrbát', 'Zadné stehná'
+                    ],
+                    'pauses' => [
+                        'betweenExercises' => 60,
+                        'betweenRounds' => 120
+                    ]
+                ],
+
+                'medium-training' => [
+                    'warm-up' => [
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"]
+                    ],
+                    'training' => [
+                        'short-time' => [
+                            ['Celé nohy', "Zadok", ["Kardio", "Nohy"], 'Priame brucho', "Šikmé brucho"],
+                            ['Celý vrch', "Horný chrbát", "Horný chrbát", "Zadok", ["Kardio", "Brucho"]],
+
+                            'fullTime' => 18
+                        ],
+                        'medium-time' => [
+                            ["Horný chrbát", 'Celý vrch', 'Celý vrch', 'Celé nohy', 'Priame brucho'],
+                            ['Celé nohy', "Zadok", ["Kardio", "Nohy"], 'Priame brucho', "Šikmé brucho"],
+                            ['Celý vrch', "Horný chrbát", "Horný chrbát", "Zadok", ["Kardio", "Brucho"]],
+
+                            'fullTime' => 25
+                        ],
+                        'long-time' => [
+                            ["Horný chrbát", 'Celý vrch', 'Celé nohy', 'Celé nohy', 'Priame brucho'],
+                            ['Celé nohy', "Zadok", ["Kardio", "Nohy"], 'Priame brucho', "Šikmé brucho"],
+                            ["Zadok", "Zadok", ["Kardio", "Nohy"], ["Kardio", "Brucho"], "Horný chrbát"],
+                            ['Celý vrch', "Horný chrbát", "Horný chrbát", "Zadok", ["Kardio", "Brucho"]],
+
+                            'fullTime' => 32
+
+                        ]
+                    ],
+                    'stretching' => [
+                        (object)["Krk", "Ramená"], 'Spodný chrbát', 'Spodný chrbát', 'Zadné stehná'
+                    ],
+                    'pauses' => [
+                        'betweenExercises' => 45,
+                        'betweenRounds' => 90
+                    ]
+                ],
+
+                'hard-training' => [
+                    'warm-up' => [
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"],
+                        ["Kardio", "Nohy"]
+                    ],
+                    'training' => [
+                        'short-time' => [
+                            ['Celé nohy', "Zadok", ["Kardio", "Nohy"], 'Priame brucho', "Šikmé brucho"],
+                            ['Celý vrch', "Horný chrbát", "Horný chrbát", "Zadok", ["Kardio", "Brucho"]],
+
+                            'fullTime' => 16
+                        ],
+                        'medium-time' => [
+                            ["Horný chrbát", 'Celý vrch', 'Celý vrch', 'Celé nohy', 'Priame brucho'],
+                            ['Celé nohy', "Zadok", ["Kardio", "Nohy"], 'Priame brucho', "Šikmé brucho"],
+                            ['Celý vrch', "Horný chrbát", "Horný chrbát", "Zadok", ["Kardio", "Brucho"]],
+
+                            'fullTime' => 22
+                        ],
+                        'long-time' => [
+                            ["Horný chrbát", 'Celý vrch', 'Celé nohy', 'Celé nohy', 'Priame brucho'],
+                            ['Celé nohy', "Zadok", ["Kardio", "Nohy"], 'Priame brucho', "Šikmé brucho"],
+                            ["Zadok", "Zadok", ["Kardio", "Nohy"], ["Kardio", "Brucho"], "Horný chrbát"],
+                            ['Celý vrch', "Horný chrbát", "Horný chrbát", "Zadok", ["Kardio", "Brucho"]],
+
+                            'fullTime' => 28
+
+                        ]
+                    ],
+                    'stretching' => [
+                        (object)["Krk", "Ramená"], 'Spodný chrbát', 'Spodný chrbát', 'Zadné stehná'
+                    ],
+                    'pauses' => [
+                        'betweenExercises' => 30,
+                        'betweenRounds' => 60
+                    ]
+                ],
+            ]
+        ];
+
+
+        $trainingExercises = $exerciseDivide[$data['body-section']][$data['difficulty']]['training'][$data['training-time']];
+
+
+        $pauses = $exerciseDivide[$data['body-section']][$data['difficulty']]['pauses'];
+        $fullTime = $trainingExercises['fullTime'];
+        unset($trainingExercises['fullTime']);
+
+        $fullWarmUp = $this->generateExercisesByArray($exerciseDivide[$data['body-section']][$data['difficulty']]['warm-up'], $data['difficulty'], "Rozcvička");
+
+
+        for ($i = 0; $i < count($trainingExercises); $i++) {
+            array_push($fullTraining, $this->generateExercisesByArray($trainingExercises[$i], $data['difficulty'], 'Tréning'));
+        }
+
+        $fullStretching = $this->generateExercisesByArray($exerciseDivide[$data['body-section']][$data['difficulty']]['stretching'], $data['difficulty'], 'Strečing');
+
+        return array('warmUp' => $fullWarmUp, 'training' => $fullTraining, 'stretching' => $fullStretching, 'pauses' => $pauses, 'fullTime' => $fullTime);
+
+
+    }
+
+    public function randomRepsOrTime($exercise, $difficulty = "easy-training", $isStretchinOrWarmUp = false)
+    {
+
+        $difficulty = substr($difficulty, 0, strpos($difficulty, "-"));
+        if ($isStretchinOrWarmUp) {
+            $exercise->time = 30;
+            return $exercise;
+        }
+
+        $category = $exercise->typeName == "Silový" ? "reps" : "time";
+        $kind = ($category . "_" . $difficulty);
 
         $j = json_decode($exercise->$kind);
-        $random_number = rand(0, count($j)-1);
+        $random_number = rand(0, count($j) - 1);
         $exercise->$category = $j[$random_number];
 
         return $exercise;
 
+    }
+
+    public function generateExercisesByArray($parts, $difficulty, $area)
+    {
+
+        $full = [];
+        $count = count($parts);
+
+        for ($i = 0; $i < $count; $i++) {
+
+            $limit = 1;
+            //check if parts are not same
+            if ($count > $i + 1) {
+                if ($parts[$i] == $parts[$i + 1]) {
+                    $limit++;
+                    $i++;
+
+                    if ($count > $i + 1) {
+                        if ($parts[$i] == $parts[$i + 1]) {
+                            $limit++;
+                            $i++;
+
+                            if ($count > $i + 1) {
+                                if ($parts[$i] == $parts[$i + 1]) {
+                                    $limit++;
+                                    $i++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            $queryTraining = $this->generateQuery($difficulty, $area);
+
+            if (is_array($parts[$i])) {
+
+                $oneExercise = $queryTraining
+                    ->where('types.name', '=', $parts[$i][0])
+                    ->where('cardio_type', '=', $parts[$i][1])
+                    ->limit($limit)
+                    ->get();
+
+                foreach ($oneExercise as $exercise) {
+                    array_push($full, $this->randomRepsOrTime($exercise, $difficulty));
+                }
+
+                continue;
+            }
+
+            if (is_object($parts[$i])) {
+
+                $oneExercise = $queryTraining
+                    ->join('body_parts', 'exercises.body_part_id', '=', 'body_parts.id')
+                    ->where('body_parts.name', '=', $parts[$i]->{'0'})
+                    ->orWhere('body_parts.name', '=', $parts[$i]->{'1'})
+                    ->limit($limit)
+                    ->get();
+
+                foreach ($oneExercise as $exercise) {
+                    array_push($full, $this->randomRepsOrTime($exercise, $difficulty, $area == "Strečing" || $area == "Rozcvička" && $exercise->body_part_id));
+                }
+
+                continue;
+            }
+
+            $oneExercise = $queryTraining
+                ->join('body_parts', 'exercises.body_part_id', '=', 'body_parts.id')
+                ->where('body_parts.name', '=', $parts[$i])
+                ->addSelect('body_parts.reps_easy', 'body_parts.reps_medium', 'body_parts.reps_hard')
+                ->limit($limit)
+                ->get();
+
+            foreach ($oneExercise as $exercise) {
+                array_push($full, $this->randomRepsOrTime($exercise, $difficulty, $area == "Strečing" || $area == "Rozcvička" && $exercise->body_part_id));
+            }
+
+        }
+
+        return $full;
 
     }
 }

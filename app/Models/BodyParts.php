@@ -11,9 +11,6 @@ class BodyParts extends Model
 
     public $timestamps = false;
 
-    protected $casts = [
-        'reps' => 'array'
-    ];
 
     protected $casts = [
         'reps_easy' => 'array',
