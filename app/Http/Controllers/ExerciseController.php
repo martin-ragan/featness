@@ -410,7 +410,6 @@ class ExerciseController extends Controller
 
         $fullWarmUp = $this->generateExercisesByArray($exerciseDivide[$data['body-section']][$data['difficulty']]['warm-up'], $data['difficulty'], "Rozcvička");
 
-
         for ($i = 0; $i < count($trainingExercises); $i++) {
             array_push($fullTraining, $this->generateExercisesByArray($trainingExercises[$i], $data['difficulty'], 'Tréning'));
         }
@@ -486,7 +485,7 @@ class ExerciseController extends Controller
                     ->get();
 
                 foreach ($oneExercise as $exercise) {
-                    array_push($full, $this->randomRepsOrTime($exercise, $difficulty));
+                    array_push($full, $this->randomRepsOrTime($exercise, $difficulty, $area == "Strečing" || $area == "Rozcvička"));
                 }
 
                 continue;
@@ -502,7 +501,7 @@ class ExerciseController extends Controller
                     ->get();
 
                 foreach ($oneExercise as $exercise) {
-                    array_push($full, $this->randomRepsOrTime($exercise, $difficulty, $area == "Strečing" || $area == "Rozcvička" && $exercise->body_part_id));
+                    array_push($full, $this->randomRepsOrTime($exercise, $difficulty, $area == "Strečing" || $area == "Rozcvička"));
                 }
 
                 continue;
@@ -523,7 +522,7 @@ class ExerciseController extends Controller
 //                }
 
 
-                array_push($full, $this->randomRepsOrTime($exercise, $difficulty, $area == "Strečing" || $area == "Rozcvička" && $exercise->body_part_id));
+                array_push($full, $this->randomRepsOrTime($exercise, $difficulty, $area == "Strečing" || $area == "Rozcvička"));
 //                if ($i == 3)dd($full);
             }
 
