@@ -27,6 +27,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->text('profile_photo_path')->nullable();
+
+            $table->integer('finishedTrainings')->default(0);
+
             $table->timestamps();
         });
     }

@@ -15,8 +15,8 @@ class CreateAreaExerciseTable extends Migration
     {
         Schema::create('area_exercise', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreignId('exercise_id')->references('id')->on('exercises');
-            $table->foreignId('area_id')->references('id')->on('areas');
+            $table->foreignId('exercise_id')->references('id')->on('exercises')->cascadeOnDelete();
+            $table->foreignId('area_id')->references('id')->on('areas')->cascadeOnDelete();
         });
     }
 

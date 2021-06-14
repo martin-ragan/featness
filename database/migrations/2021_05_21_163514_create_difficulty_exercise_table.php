@@ -15,8 +15,8 @@ class CreateDifficultyExerciseTable extends Migration
     {
         Schema::create('difficulty_exercise', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('exercise_id')->references('id')->on('exercises');
-            $table->foreignId('difficulty_id')->references('id')->on('difficulties');
+            $table->foreignId('exercise_id')->references('id')->on('exercises')->cascadeOnDelete();
+            $table->foreignId('difficulty_id')->references('id')->on('difficulties')->cascadeOnDelete();
         });
 
     }
