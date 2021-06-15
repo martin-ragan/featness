@@ -4325,6 +4325,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -4333,19 +4337,39 @@ __webpack_require__.r(__webpack_exports__);
     return {
       iframeVisibility: false,
       visibleText: "",
-      visibleUrl: ""
+      visibleUrl: "",
+      elapsedTime: 0,
+      timer: undefined
     };
+  },
+  computed: {
+    formattedElapsedTime: function formattedElapsedTime() {
+      var date = new Date(null);
+      date.setSeconds(this.elapsedTime / 1000);
+      var utc = date.toUTCString();
+      return utc.substr(utc.indexOf(":") - 2, 8);
+    }
   },
   methods: {
     showVideo: function showVideo(url, text) {
       this.visibleUrl = url;
       this.visibleText = text;
       this.iframeVisibility = true;
+    },
+    start: function start() {
+      var _this = this;
+
+      this.timer = setInterval(function () {
+        _this.elapsedTime += 1000;
+      }, 1000);
     }
   },
   components: {
     Exercise: _Exercise__WEBPACK_IMPORTED_MODULE_0__.default,
     VideoComponent: _VideoComponent__WEBPACK_IMPORTED_MODULE_1__.default
+  },
+  created: function created() {
+    this.start();
   }
 });
 
@@ -27876,6 +27900,26 @@ var render = function() {
               staticClass: "uppercase tracking-widest  text-5xl font-bold py-2"
             },
             [_vm._v(_vm._s(_vm.pauses.betweenRounds) + " sekúnd")]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "flex justify-center items-center w-full mt-6" },
+            [
+              _c("i", {
+                staticClass:
+                  "fas fa-stopwatch text-2xl text-white cursor-pointer"
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass:
+                    "text-white text-2xl ml-4 uppercase tracking-widest"
+                },
+                [_vm._v(_vm._s(_vm.formattedElapsedTime))]
+              )
+            ]
           )
         ]
       )

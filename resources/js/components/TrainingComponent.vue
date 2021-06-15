@@ -48,6 +48,10 @@
             <h1 class="uppercase tracking-widest  text-5xl py-2 font-bold">{{ pauses.betweenExercises }} sekúnd</h1>
             <h2 class="uppercase tracking-widest  text-2xl py-2 text-white mt-20">Medzi kolami</h2>
             <h1 class="uppercase tracking-widest  text-5xl font-bold py-2">{{ pauses.betweenRounds }} sekúnd</h1>
+            <div class="flex justify-center items-center w-full mt-6">
+                <i class="fas fa-stopwatch text-2xl text-white cursor-pointer"></i>
+                <span class="text-white text-2xl ml-4 uppercase tracking-widest">{{formattedElapsedTime}}</span>
+            </div>
         </div>
 
     </div>
@@ -65,7 +69,17 @@ export default {
         return {
             iframeVisibility: false,
             visibleText: "",
-            visibleUrl: ""
+            visibleUrl: "",
+            elapsedTime: 0,
+            timer: undefined
+        }
+    },
+    computed: {
+        formattedElapsedTime() {
+            const date = new Date(null);
+            date.setSeconds(this.elapsedTime / 1000);
+            const utc = date.toUTCString();
+            return utc.substr(utc.indexOf(":") - 2, 8);
         }
     },
     methods: {
@@ -74,11 +88,19 @@ export default {
             this.visibleText = text;
             this.iframeVisibility = true;
         },
+        start() {
+            this.timer = setInterval(() => {
+                this.elapsedTime += 1000;
+            }, 1000);
+        },
     },
     components: {
         Exercise,
         VideoComponent
     },
+    created() {
+        this.start();
+    }
 
 }
 </script>
