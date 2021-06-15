@@ -7,6 +7,6 @@
         :training="{{json_encode($training)}}"
         :stretching="{{json_encode($stretching)}}"
         :pauses="{{json_encode($pauses)}}"
-        :fullTime="{{$fullTime}}"
+        :full-time="{{json_encode($fullTime)}}"
     ></training-component>
 @endsection

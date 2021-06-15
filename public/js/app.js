@@ -3851,6 +3851,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     exerciseName: {
@@ -3859,7 +3862,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     reps: {
       type: Number,
-      "default": 8
+      "default": 89
+    },
+    time: {
+      type: Number,
+      "default": 89
     }
   }
 });
@@ -4312,27 +4319,57 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['warmUp', 'training'],
+  props: ['warmUp', 'training', 'stretching', 'pauses', 'fullTime'],
   data: function data() {
     return {
       iframeVisibility: false,
       visibleText: "",
-      visibleUrl: ""
+      visibleUrl: "",
+      elapsedTime: 0,
+      timer: undefined
     };
+  },
+  computed: {
+    formattedElapsedTime: function formattedElapsedTime() {
+      var date = new Date(null);
+      date.setSeconds(this.elapsedTime / 1000);
+      var utc = date.toUTCString();
+      return utc.substr(utc.indexOf(":") + 1, 5);
+    }
   },
   methods: {
     showVideo: function showVideo(url, text) {
       this.visibleUrl = url;
       this.visibleText = text;
       this.iframeVisibility = true;
+    },
+    start: function start() {
+      var _this = this;
+
+      this.timer = setInterval(function () {
+        _this.elapsedTime += 1000;
+      }, 1000);
     }
   },
   components: {
     Exercise: _Exercise__WEBPACK_IMPORTED_MODULE_0__.default,
     VideoComponent: _VideoComponent__WEBPACK_IMPORTED_MODULE_1__.default
+  },
+  created: function created() {
+    this.start();
   }
 });
 
@@ -26481,13 +26518,15 @@ var render = function() {
       [
         _vm._m(0),
         _vm._v(" "),
-        _c("h1", [
+        _c("h1", { staticClass: "w-2/3" }, [
           _vm._v("\n            " + _vm._s(this.exerciseName) + "\n        ")
         ])
       ]
     ),
     _vm._v(" "),
-    _c("h1", [_vm._v("\n        " + _vm._s(this.reps) + "x\n    ")])
+    this.reps !== 0
+      ? _c("h1", [_vm._v("\n        " + _vm._s(this.reps) + "x\n    ")])
+      : _c("h1", [_vm._v("\n        " + _vm._s(this.time) + "sec\n    ")])
   ])
 }
 var staticRenderFns = [
@@ -27708,7 +27747,11 @@ var render = function() {
             _vm._l(_vm.warmUp, function(warmUpExercise) {
               return _c("exercise", {
                 key: warmUpExercise.id,
-                attrs: { "exercise-name": warmUpExercise.name, reps: 10 },
+                attrs: {
+                  "exercise-name": warmUpExercise.name,
+                  reps: warmUpExercise.reps ? warmUpExercise.reps : 0,
+                  time: warmUpExercise.time ? warmUpExercise.time : 0
+                },
                 nativeOn: {
                   click: function($event) {
                     return _vm.showVideo(
@@ -27748,7 +27791,11 @@ var render = function() {
                   _vm._l(trainingExercise, function(thisExercise) {
                     return _c("exercise", {
                       key: thisExercise.id,
-                      attrs: { "exercise-name": thisExercise.name, reps: 10 },
+                      attrs: {
+                        "exercise-name": thisExercise.name,
+                        reps: thisExercise.reps ? thisExercise.reps : 0,
+                        time: thisExercise.time ? thisExercise.time : 0
+                      },
                       nativeOn: {
                         click: function($event) {
                           return _vm.showVideo(
@@ -27768,16 +27815,114 @@ var render = function() {
         ),
         _vm._v(" "),
         _c(
+          "div",
+          {
+            staticClass: "flex flex-col w-full mt-5",
+            attrs: { id: "stretching" }
+          },
+          [
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._l(_vm.stretching, function(exercise) {
+              return _c("exercise", {
+                key: exercise.id,
+                attrs: {
+                  "exercise-name": exercise.name,
+                  reps: exercise.reps ? exercise.reps : 0,
+                  time: exercise.time ? exercise.time : 0
+                },
+                nativeOn: {
+                  click: function($event) {
+                    return _vm.showVideo(exercise.url, exercise.name)
+                  }
+                }
+              })
+            })
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c(
           "button",
           {
             staticClass:
               "bg-secondary w-2/3 tracking-widest rounded-sm text-white text-xl py-3 font-sans uppercase text-center mx-auto mt-5"
           },
-          [_vm._v("\n                Ukončiť tréning\n            ")]
+          [_vm._v("\n            Ukončiť tréning\n        ")]
         )
       ]),
       _vm._v(" "),
-      _vm._m(2)
+      _c(
+        "div",
+        {
+          staticClass:
+            "flex flex-col bg-primaryBg w-2/5 ml-20 h-full p-4 items-center justify-center rounded-3xl"
+        },
+        [
+          _c(
+            "h1",
+            {
+              staticClass:
+                "uppercase tracking-widest  text-4xl py-2 font-bold border-b border-white"
+            },
+            [_vm._v("Maximálne pauzy")]
+          ),
+          _vm._v(" "),
+          _c(
+            "h2",
+            {
+              staticClass:
+                "uppercase tracking-widest  text-2xl py-2 text-white mt-20"
+            },
+            [_vm._v("Medzi cvikmi")]
+          ),
+          _vm._v(" "),
+          _c(
+            "h1",
+            {
+              staticClass: "uppercase tracking-widest  text-5xl py-2 font-bold"
+            },
+            [_vm._v(_vm._s(_vm.pauses.betweenExercises) + " sekúnd")]
+          ),
+          _vm._v(" "),
+          _c(
+            "h2",
+            {
+              staticClass:
+                "uppercase tracking-widest  text-2xl py-2 text-white mt-20"
+            },
+            [_vm._v("Medzi kolami")]
+          ),
+          _vm._v(" "),
+          _c(
+            "h1",
+            {
+              staticClass: "uppercase tracking-widest  text-5xl font-bold py-2"
+            },
+            [_vm._v(_vm._s(_vm.pauses.betweenRounds) + " sekúnd")]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "flex justify-center items-center w-full mt-6" },
+            [
+              _c("i", {
+                staticClass:
+                  "fas fa-stopwatch text-2xl text-white cursor-pointer"
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass:
+                    "text-white text-2xl ml-4 uppercase tracking-widest"
+                },
+                [_vm._v(_vm._s(_vm.formattedElapsedTime))]
+              )
+            ]
+          )
+        ]
+      )
     ],
     1
   )
@@ -27820,53 +27965,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "flex flex-col bg-primaryBg w-2/5 ml-20 h-full p-4 items-center justify-center rounded-3xl"
-      },
-      [
-        _c(
-          "h1",
-          {
-            staticClass:
-              "uppercase tracking-widest  text-4xl py-2 font-bold border-b border-white"
-          },
-          [_vm._v("Maximálne pauzy")]
-        ),
-        _vm._v(" "),
-        _c(
-          "h2",
-          {
-            staticClass:
-              "uppercase tracking-widest  text-2xl py-2 text-white mt-20"
-          },
-          [_vm._v("Medzi cvikmi")]
-        ),
-        _vm._v(" "),
-        _c(
-          "h1",
-          { staticClass: "uppercase tracking-widest  text-5xl py-2 font-bold" },
-          [_vm._v("30 sekúnd")]
-        ),
-        _vm._v(" "),
-        _c(
-          "h2",
-          {
-            staticClass:
-              "uppercase tracking-widest  text-2xl py-2 text-white mt-20"
-          },
-          [_vm._v("Medzi kolami")]
-        ),
-        _vm._v(" "),
-        _c(
-          "h1",
-          { staticClass: "uppercase tracking-widest  text-5xl font-bold py-2" },
-          [_vm._v("2 minúty")]
-        )
-      ]
-    )
+    return _c("div", { staticClass: "t-heading" }, [
+      _c("h1", [_vm._v("strečing")]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "w-20 h-20",
+        attrs: { src: "/images/dark-arrow.PNG", alt: "" }
+      })
+    ])
   }
 ]
 render._withStripped = true

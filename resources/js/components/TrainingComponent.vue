@@ -17,7 +17,7 @@
                     </div>
                     <img class="w-20 h-20" src="/images/hint-icon.png" alt="">
                 </div>
-                <exercise v-for="warmUpExercise in warmUp" :key="warmUpExercise.id" v-on:click.native="showVideo(warmUpExercise.url, warmUpExercise.name)" :exercise-name="warmUpExercise.name" :reps="10"></exercise>
+                <exercise v-for="warmUpExercise in warmUp" :key="warmUpExercise.id" v-on:click.native="showVideo(warmUpExercise.url, warmUpExercise.name)" :exercise-name="warmUpExercise.name" :reps="warmUpExercise.reps ? warmUpExercise.reps : 0" :time="warmUpExercise.time ? warmUpExercise.time : 0"></exercise>
             </div>
             <div class="flex flex-col w-full mt-5" id="training">
                 <div class="t-heading">
@@ -26,9 +26,15 @@
                 </div>
                 <div v-for="(trainingExercise, index) in training">
                     <h1 class="text-secondary uppercase my-4 pl-2 font-bold tracking-widest">{{index+1}}. kolo</h1>
-                    <exercise v-for="thisExercise in trainingExercise" :key="thisExercise.id" v-on:click.native="showVideo(thisExercise.url, thisExercise.name)" :exercise-name="thisExercise.name" :reps="10"></exercise>
+                    <exercise v-for="thisExercise in trainingExercise" :key="thisExercise.id" v-on:click.native="showVideo(thisExercise.url, thisExercise.name)" :exercise-name="thisExercise.name" :reps="thisExercise.reps ? thisExercise.reps : 0" :time="thisExercise.time ? thisExercise.time : 0"></exercise>
                 </div>
-<!--                <exercise v-for="(trainingExercise, index) in training" :key="trainingExercise.id" v-on:click.native="showVideo(trainingExercise.url, trainingExercise.name)" :exercise-name="trainingExercise.name" :reps="10"></exercise>-->
+            </div>
+            <div class="flex flex-col w-full mt-5" id="stretching">
+                <div class="t-heading">
+                    <h1>strečing</h1>
+                    <img class="w-20 h-20" src="/images/dark-arrow.PNG" alt="">
+                </div>
+                <exercise v-for="exercise in stretching" :key="exercise.id" v-on:click.native="showVideo(exercise.url, exercise.name)" :exercise-name="exercise.name" :reps="exercise.reps ? exercise.reps : 0" :time="exercise.time ? exercise.time : 0"></exercise>
             </div>
             <button
                 class="bg-secondary w-2/3 tracking-widest rounded-sm text-white text-xl py-3 font-sans uppercase text-center mx-auto mt-5">
@@ -39,9 +45,13 @@
         <div class="flex flex-col bg-primaryBg w-2/5 ml-20 h-full p-4 items-center justify-center rounded-3xl">
             <h1 class="uppercase tracking-widest  text-4xl py-2 font-bold border-b border-white">Maximálne pauzy</h1>
             <h2 class="uppercase tracking-widest  text-2xl py-2 text-white mt-20">Medzi cvikmi</h2>
-            <h1 class="uppercase tracking-widest  text-5xl py-2 font-bold">30 sekúnd</h1>
+            <h1 class="uppercase tracking-widest  text-5xl py-2 font-bold">{{ pauses.betweenExercises }} sekúnd</h1>
             <h2 class="uppercase tracking-widest  text-2xl py-2 text-white mt-20">Medzi kolami</h2>
-            <h1 class="uppercase tracking-widest  text-5xl font-bold py-2">2 minúty</h1>
+            <h1 class="uppercase tracking-widest  text-5xl font-bold py-2">{{ pauses.betweenRounds }} sekúnd</h1>
+            <div class="flex justify-center items-center w-full mt-6">
+                <i class="fas fa-stopwatch text-2xl text-white cursor-pointer"></i>
+                <span class="text-white text-2xl ml-4 uppercase tracking-widest">{{formattedElapsedTime}}</span>
+            </div>
         </div>
 
     </div>
@@ -53,13 +63,23 @@ import VideoComponent from "./VideoComponent";
 
 export default {
 
-    props: ['warmUp', 'training'],
+    props: ['warmUp', 'training', 'stretching', 'pauses', 'fullTime'],
 
     data() {
         return {
             iframeVisibility: false,
             visibleText: "",
-            visibleUrl: ""
+            visibleUrl: "",
+            elapsedTime: 0,
+            timer: undefined
+        }
+    },
+    computed: {
+        formattedElapsedTime() {
+            const date = new Date(null);
+            date.setSeconds(this.elapsedTime / 1000);
+            const utc = date.toUTCString();
+            return utc.substr(utc.indexOf(":") + 1, 5);
         }
     },
     methods: {
@@ -68,11 +88,19 @@ export default {
             this.visibleText = text;
             this.iframeVisibility = true;
         },
+        start() {
+            this.timer = setInterval(() => {
+                this.elapsedTime += 1000;
+            }, 1000);
+        },
     },
     components: {
         Exercise,
         VideoComponent
     },
+    created() {
+        this.start();
+    }
 
 }
 </script>
