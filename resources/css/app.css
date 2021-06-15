@@ -17,6 +17,15 @@ body {
         @apply bg-select-arrow;
         background-size: 5rem;
     }
+    article p {
+        @apply my-4;
+    }
+    article a {
+        @apply text-primary hover:text-secondary;
+    }
+    article .bold {
+        @apply text-primary font-bold;
+    }
     /*body {*/
     /*    background: url("../images/bg-dark-desktop.png") no-repeat;*/
     /*    background-size: cover;*/

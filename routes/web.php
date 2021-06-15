@@ -20,6 +20,23 @@ Route::get('/', function() {
     return view('welcome');
 });
 
+Route::get('/clenstvo', function() {
+    return view('membership');
+});
+Route::get('/kontakt', function() {
+    return view('contact');
+});
+Route::get('/ochrana-osobnych-udajov', function() {
+    return view('ochrana-osobnych-udajov');
+});
+Route::get('/obchodne-podmienky', function() {
+    return view('obchodne-podmienky');
+});
+Route::get('/cookies', function() {
+    return view('cookies');
+});
+
+
 // Routes protected for logged users
 Route::middleware('auth')->group(function() {
     Route::middleware('isAdmin')->group(function () {

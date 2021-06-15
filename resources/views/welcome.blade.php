@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <script src="https://kit.fontawesome.com/c196f76230.js" crossorigin="anonymous"></script>
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -32,15 +33,25 @@
                         <a href="#" class="text-white uppercase tracking-widest block font-bold text-2xl lg:inline-block hover:text-white mr-12">
                             Blog
                         </a>
-                        <a href="#" class="text-white uppercase tracking-widest block font-bold text-2xl lg:inline-block hover:text-white mr-12">
+                        <a href="/clenstvo" class="text-white uppercase tracking-widest block font-bold text-2xl lg:inline-block hover:text-white mr-12">
                             Členstvo
                         </a>
-                        <a href="#" class="text-white uppercase tracking-widest block font-bold text-2xl lg:inline-block hover:text-white">
-                            Prihlásiť sa
-                        </a>
+                        @if (Route::has('login'))
+                                @auth
+                                    <a href="{{ url('/dashboard') }}" class="text-white uppercase tracking-widest block font-bold text-2xl lg:inline-block hover:text-white">Profil</a>
+                                @else
+                                    <a href="{{ route('login') }}" class="text-white uppercase tracking-widest block font-bold text-2xl lg:inline-block hover:text-white">
+                                        Prihlásiť sa
+                                    </a>
+
+{{--                                    @if (Route::has('register'))--}}
+{{--                                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>--}}
+{{--                                    @endif--}}
+                                @endauth
+                        @endif
                     </div>
                 </nav>
-                <div class="flex flex-col w-full h-full items-center justify-center">
+                <div class="flex flex-col w-full h-2/3 items-center justify-end">
                     <div class="bg-primaryBg text-white w-2/3 py-8 px-8 rounded-xl text-center">
                         <h1 class="tracking-widest text-4xl uppercase">Online tréningy a jedálníčky</h1>
                         <h1 class="tracking-widest text-4xl uppercase">Pre teba a tvoju vysnívanú postavu</h1>
@@ -52,37 +63,23 @@
                     <h1 class="text-center text-white text-xl uppercase mt-12">Zaregistruj sa na 7 dní úplne zadarmo</h1>
                     <h1 class="text-center text-white text-xl uppercase">Bez vyplnenia platobných údajov!</h1>
                 </div>
-                <footer class="flex justify-end items-center w-full">
-                    <img class="" src="{{ asset('/images/icon-s.jpeg') }}" alt="">
-                </footer>
+                <div class="flex items-center w-full justify-end">
+                    <a href="https://www.facebook.com/Featness-108198664817252/" target="_blank"><i class="fab fa-facebook-square text-5xl text-white hover:text-secondary"></i></a>
+                    <a href="https://instagram.com/featness_sk?utm_medium=copy_link" target="_blank"><i class="fab fa-instagram text-5xl text-white ml-6 hover:text-secondary"></i></a>
+                </div>
             </div>
         </header>
-{{--        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">--}}
-{{--            @if (Route::has('login'))--}}
-{{--                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">--}}
-{{--                    @auth--}}
-{{--                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>--}}
-{{--                    @else--}}
-{{--                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>--}}
 
-{{--                        @if (Route::has('register'))--}}
-{{--                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>--}}
-{{--                        @endif--}}
-{{--                    @endauth--}}
-{{--                </div>--}}
-{{--            @endif--}}
-{{--        </div>--}}
-
-        <footer class="footer bg-white relative pt-1 border-b-2 border-blue-700">
+        <footer class="footer bg-white relative pt-1 border-b-2 border-primary">
             <div class="container mx-auto px-6">
 
                 <div class="sm:flex sm:mt-8">
                     <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
                         <div class="flex flex-col">
-                            <span class="font-bold text-gray-700 uppercase mb-2">Footer header 1</span>
-                            <span class="my-2"><a href="#" class="text-primary text-md hover:text-secondary">link 1</a></span>
-                            <span class="my-2"><a href="#" class="text-primary text-md hover:text-secondary">link 1</a></span>
-                            <span class="my-2"><a href="#" class="text-primary text-md hover:text-secondary">link 1</a></span>
+                            <span class="font-bold text-gray-700 uppercase mb-2">Podpora</span>
+                            <span class="my-2"><a href="/kontakt" class="text-primary text-md hover:text-secondary">Kontaktujte nás</a></span>
+                            <span class="my-2"><a href="/ochrana-osobnych-udajov" class="text-primary text-md hover:text-secondary">Ochrana osobných údajov</a></span>
+                            <span class="my-2"><a href="/obchodne-podmienky" class="text-primary text-md hover:text-secondary">Obchodné podmienky</a></span>
                         </div>
                         <div class="flex flex-col">
                             <span class="font-bold text-gray-700 uppercase mt-4 md:mt-0 mb-2">Footer header 2</span>
