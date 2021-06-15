@@ -79,7 +79,7 @@ export default {
             const date = new Date(null);
             date.setSeconds(this.elapsedTime / 1000);
             const utc = date.toUTCString();
-            return utc.substr(utc.indexOf(":") - 2, 8);
+            return utc.substr(utc.indexOf(":") + 1, 5);
         }
     },
     methods: {

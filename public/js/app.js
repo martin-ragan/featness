@@ -4347,7 +4347,7 @@ __webpack_require__.r(__webpack_exports__);
       var date = new Date(null);
       date.setSeconds(this.elapsedTime / 1000);
       var utc = date.toUTCString();
-      return utc.substr(utc.indexOf(":") - 2, 8);
+      return utc.substr(utc.indexOf(":") + 1, 5);
     }
   },
   methods: {
