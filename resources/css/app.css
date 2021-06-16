@@ -99,36 +99,4 @@ body {
         @apply flex-1 uppercase text-xl tracking-widest text-white;
     }
 
-/*    Current training section of styles @Martin Ragan*/
-    .t-heading {
-        @apply bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-1/2;
-    }
-    .t-heading h1 {
-        @apply text-white text-3xl uppercase font-bold tracking-widest;
-    }
-    .exercise-holder{
-        @apply bg-primaryBg pr-4 mt-2 flex flex-row justify-between items-center rounded-2xl w-11/12;
-    }
-    .exercise-holder h1 {
-        @apply text-white text-xl uppercase tracking-widest;
-    }
-
-    .training-holder {
-        @apply flex flex-col w-1/2 h-96 overflow-y-scroll;
-    }
-    .training-holder::-webkit-scrollbar {
-        @apply w-5 rounded-xl;
-    }
-
-    .training-holder::-webkit-scrollbar-track {
-        background-color: rgba(40, 60, 80, 0.50);
-        @apply rounded-xl;
-    }
-
-    .training-holder::-webkit-scrollbar-thumb {
-        @apply bg-secondary rounded-xl;
-    }
-    .heading-round {
-        @apply text-secondary w-full text-left uppercase my-4 text-3xl pl-4;
-    }
 }

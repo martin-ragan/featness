@@ -8,11 +8,11 @@
 
             />
         </transition>
-        <div class="training-holder">
+        <div class="training-holder flex flex-col w-1/2 h-96 overflow-y-scroll">
             <div class="flex flex-col w-full" id="warm-up">
                 <div class="flex flex-row w-full justify-between">
-                    <div class="t-heading mb-5">
-                        <h1>Rozcvička</h1>
+                    <div class="bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-1/2 mb-5">
+                        <h1 class="text-white text-3xl uppercase font-bold tracking-widest">Rozcvička</h1>
                         <img class="w-20 h-20" src="/images/dark-arrow.PNG" alt="">
                     </div>
                     <img class="w-20 h-20" src="/images/hint-icon.png" alt="">
@@ -20,8 +20,8 @@
                 <exercise v-for="warmUpExercise in warmUp" :key="warmUpExercise.id" v-on:click.native="showVideo(warmUpExercise.url, warmUpExercise.name)" :exercise-name="warmUpExercise.name" :reps="warmUpExercise.reps ? warmUpExercise.reps : 0" :time="warmUpExercise.time ? warmUpExercise.time : 0"></exercise>
             </div>
             <div class="flex flex-col w-full mt-5" id="training">
-                <div class="t-heading">
-                    <h1>tréning</h1>
+                <div class="bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-1/2">
+                    <h1 class="text-white text-3xl uppercase font-bold tracking-widest">tréning</h1>
                     <img class="w-20 h-20" src="/images/dark-arrow.PNG" alt="">
                 </div>
                 <div v-for="(trainingExercise, index) in training">
@@ -30,8 +30,8 @@
                 </div>
             </div>
             <div class="flex flex-col w-full mt-5" id="stretching">
-                <div class="t-heading">
-                    <h1>strečing</h1>
+                <div class="bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-1/2">
+                    <h1 class="text-white text-3xl uppercase font-bold tracking-widest">strečing</h1>
                     <img class="w-20 h-20" src="/images/dark-arrow.PNG" alt="">
                 </div>
                 <exercise v-for="exercise in stretching" :key="exercise.id" v-on:click.native="showVideo(exercise.url, exercise.name)" :exercise-name="exercise.name" :reps="exercise.reps ? exercise.reps : 0" :time="exercise.time ? exercise.time : 0"></exercise>
@@ -111,5 +111,19 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
+}
+.training-holder::-webkit-scrollbar {
+    width: 1.25rem;
+    border-radius: 0.75rem;
+}
+
+.training-holder::-webkit-scrollbar-track {
+    background-color: rgba(40, 60, 80, 0.50);
+    border-radius: 0.75rem;
+}
+
+.training-holder::-webkit-scrollbar-thumb {
+    background-color: rgba(40, 60, 80, 1);
+    border-radius: 0.75rem;
 }
 </style>

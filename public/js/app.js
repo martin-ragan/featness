@@ -4554,7 +4554,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active[data-v-e8160630], .fade-leave-active[data-v-e8160630] {\r\n    transition: opacity .5s;\n}\n.fade-enter[data-v-e8160630], .fade-leave-to[data-v-e8160630] /* .fade-leave-active below version 2.1.8 */ {\r\n    opacity: 0;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active[data-v-e8160630], .fade-leave-active[data-v-e8160630] {\n    transition: opacity .5s;\n}\n.fade-enter[data-v-e8160630], .fade-leave-to[data-v-e8160630] /* .fade-leave-active below version 2.1.8 */ {\n    opacity: 0;\n}\n.training-holder[data-v-e8160630]::-webkit-scrollbar {\n    width: 1.25rem;\n    border-radius: 0.75rem;\n}\n.training-holder[data-v-e8160630]::-webkit-scrollbar-track {\n    background-color: rgba(40, 60, 80, 0.50);\n    border-radius: 0.75rem;\n}\n.training-holder[data-v-e8160630]::-webkit-scrollbar-thumb {\n    background-color: rgba(40, 60, 80, 1);\n    border-radius: 0.75rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -25926,7 +25926,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Exercise_vue_vue_type_template_id_0339297a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Exercise.vue?vue&type=template&id=0339297a& */ "./resources/js/components/Exercise.vue?vue&type=template&id=0339297a&");
+/* harmony import */ var _Exercise_vue_vue_type_template_id_0339297a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Exercise.vue?vue&type=template&id=0339297a&scoped=true& */ "./resources/js/components/Exercise.vue?vue&type=template&id=0339297a&scoped=true&");
 /* harmony import */ var _Exercise_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Exercise.vue?vue&type=script&lang=js& */ "./resources/js/components/Exercise.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -25938,11 +25938,11 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
   _Exercise_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _Exercise_vue_vue_type_template_id_0339297a___WEBPACK_IMPORTED_MODULE_0__.render,
-  _Exercise_vue_vue_type_template_id_0339297a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _Exercise_vue_vue_type_template_id_0339297a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Exercise_vue_vue_type_template_id_0339297a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  null,
+  "0339297a",
   null
   
 )
@@ -26286,19 +26286,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Exercise.vue?vue&type=template&id=0339297a&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/components/Exercise.vue?vue&type=template&id=0339297a& ***!
-  \*****************************************************************************/
+/***/ "./resources/js/components/Exercise.vue?vue&type=template&id=0339297a&scoped=true&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/Exercise.vue?vue&type=template&id=0339297a&scoped=true& ***!
+  \*****************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Exercise_vue_vue_type_template_id_0339297a___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Exercise_vue_vue_type_template_id_0339297a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Exercise_vue_vue_type_template_id_0339297a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Exercise_vue_vue_type_template_id_0339297a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Exercise_vue_vue_type_template_id_0339297a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Exercise.vue?vue&type=template&id=0339297a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Exercise.vue?vue&type=template&id=0339297a&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Exercise_vue_vue_type_template_id_0339297a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Exercise.vue?vue&type=template&id=0339297a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Exercise.vue?vue&type=template&id=0339297a&scoped=true&");
 
 
 /***/ }),
@@ -26495,10 +26495,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Exercise.vue?vue&type=template&id=0339297a&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Exercise.vue?vue&type=template&id=0339297a& ***!
-  \********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Exercise.vue?vue&type=template&id=0339297a&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Exercise.vue?vue&type=template&id=0339297a&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -26511,23 +26511,48 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "exercise-holder cursor-pointer" }, [
-    _c(
-      "div",
-      { staticClass: "flex flex-row flex-1 h-full items-center justify-start" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("h1", { staticClass: "w-2/3" }, [
-          _vm._v("\n            " + _vm._s(this.exerciseName) + "\n        ")
-        ])
-      ]
-    ),
-    _vm._v(" "),
-    this.reps !== 0
-      ? _c("h1", [_vm._v("\n        " + _vm._s(this.reps) + "x\n    ")])
-      : _c("h1", [_vm._v("\n        " + _vm._s(this.time) + "sec\n    ")])
-  ])
+  return _c(
+    "div",
+    {
+      staticClass:
+        "cursor-pointer bg-primaryBg pr-4 mt-2 flex flex-row justify-between items-center rounded-2xl w-11/12"
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "flex flex-row flex-1 h-full items-center justify-start"
+        },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "h1",
+            {
+              staticClass: "text-white text-xl uppercase tracking-widest w-2/3"
+            },
+            [
+              _vm._v(
+                "\n            " + _vm._s(this.exerciseName) + "\n        "
+              )
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      this.reps !== 0
+        ? _c(
+            "h1",
+            { staticClass: "text-white text-xl uppercase tracking-widest" },
+            [_vm._v("\n        " + _vm._s(this.reps) + "x\n    ")]
+          )
+        : _c(
+            "h1",
+            { staticClass: "text-white text-xl uppercase tracking-widest" },
+            [_vm._v("\n        " + _vm._s(this.time) + "sec\n    ")]
+          )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -27737,120 +27762,127 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "training-holder" }, [
-        _c(
-          "div",
-          { staticClass: "flex flex-col w-full", attrs: { id: "warm-up" } },
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _vm._l(_vm.warmUp, function(warmUpExercise) {
-              return _c("exercise", {
-                key: warmUpExercise.id,
-                attrs: {
-                  "exercise-name": warmUpExercise.name,
-                  reps: warmUpExercise.reps ? warmUpExercise.reps : 0,
-                  time: warmUpExercise.time ? warmUpExercise.time : 0
-                },
-                nativeOn: {
-                  click: function($event) {
-                    return _vm.showVideo(
-                      warmUpExercise.url,
-                      warmUpExercise.name
-                    )
+      _c(
+        "div",
+        {
+          staticClass:
+            "training-holder flex flex-col w-1/2 h-96 overflow-y-scroll"
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "flex flex-col w-full", attrs: { id: "warm-up" } },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._l(_vm.warmUp, function(warmUpExercise) {
+                return _c("exercise", {
+                  key: warmUpExercise.id,
+                  attrs: {
+                    "exercise-name": warmUpExercise.name,
+                    reps: warmUpExercise.reps ? warmUpExercise.reps : 0,
+                    time: warmUpExercise.time ? warmUpExercise.time : 0
+                  },
+                  nativeOn: {
+                    click: function($event) {
+                      return _vm.showVideo(
+                        warmUpExercise.url,
+                        warmUpExercise.name
+                      )
+                    }
                   }
-                }
+                })
               })
-            })
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "flex flex-col w-full mt-5",
-            attrs: { id: "training" }
-          },
-          [
-            _vm._m(1),
-            _vm._v(" "),
-            _vm._l(_vm.training, function(trainingExercise, index) {
-              return _c(
-                "div",
-                [
-                  _c(
-                    "h1",
-                    {
-                      staticClass:
-                        "text-secondary uppercase my-4 pl-2 font-bold tracking-widest"
-                    },
-                    [_vm._v(_vm._s(index + 1) + ". kolo")]
-                  ),
-                  _vm._v(" "),
-                  _vm._l(trainingExercise, function(thisExercise) {
-                    return _c("exercise", {
-                      key: thisExercise.id,
-                      attrs: {
-                        "exercise-name": thisExercise.name,
-                        reps: thisExercise.reps ? thisExercise.reps : 0,
-                        time: thisExercise.time ? thisExercise.time : 0
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "flex flex-col w-full mt-5",
+              attrs: { id: "training" }
+            },
+            [
+              _vm._m(1),
+              _vm._v(" "),
+              _vm._l(_vm.training, function(trainingExercise, index) {
+                return _c(
+                  "div",
+                  [
+                    _c(
+                      "h1",
+                      {
+                        staticClass:
+                          "text-secondary uppercase my-4 pl-2 font-bold tracking-widest"
                       },
-                      nativeOn: {
-                        click: function($event) {
-                          return _vm.showVideo(
-                            thisExercise.url,
-                            thisExercise.name
-                          )
+                      [_vm._v(_vm._s(index + 1) + ". kolo")]
+                    ),
+                    _vm._v(" "),
+                    _vm._l(trainingExercise, function(thisExercise) {
+                      return _c("exercise", {
+                        key: thisExercise.id,
+                        attrs: {
+                          "exercise-name": thisExercise.name,
+                          reps: thisExercise.reps ? thisExercise.reps : 0,
+                          time: thisExercise.time ? thisExercise.time : 0
+                        },
+                        nativeOn: {
+                          click: function($event) {
+                            return _vm.showVideo(
+                              thisExercise.url,
+                              thisExercise.name
+                            )
+                          }
                         }
-                      }
+                      })
                     })
-                  })
-                ],
-                2
-              )
-            })
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "flex flex-col w-full mt-5",
-            attrs: { id: "stretching" }
-          },
-          [
-            _vm._m(2),
-            _vm._v(" "),
-            _vm._l(_vm.stretching, function(exercise) {
-              return _c("exercise", {
-                key: exercise.id,
-                attrs: {
-                  "exercise-name": exercise.name,
-                  reps: exercise.reps ? exercise.reps : 0,
-                  time: exercise.time ? exercise.time : 0
-                },
-                nativeOn: {
-                  click: function($event) {
-                    return _vm.showVideo(exercise.url, exercise.name)
-                  }
-                }
+                  ],
+                  2
+                )
               })
-            })
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass:
-              "bg-secondary w-2/3 tracking-widest rounded-sm text-white text-xl py-3 font-sans uppercase text-center mx-auto mt-5"
-          },
-          [_vm._v("\n            Ukončiť tréning\n        ")]
-        )
-      ]),
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "flex flex-col w-full mt-5",
+              attrs: { id: "stretching" }
+            },
+            [
+              _vm._m(2),
+              _vm._v(" "),
+              _vm._l(_vm.stretching, function(exercise) {
+                return _c("exercise", {
+                  key: exercise.id,
+                  attrs: {
+                    "exercise-name": exercise.name,
+                    reps: exercise.reps ? exercise.reps : 0,
+                    time: exercise.time ? exercise.time : 0
+                  },
+                  nativeOn: {
+                    click: function($event) {
+                      return _vm.showVideo(exercise.url, exercise.name)
+                    }
+                  }
+                })
+              })
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "bg-secondary w-2/3 tracking-widest rounded-sm text-white text-xl py-3 font-sans uppercase text-center mx-auto mt-5"
+            },
+            [_vm._v("\n            Ukončiť tréning\n        ")]
+          )
+        ]
+      ),
       _vm._v(" "),
       _c(
         "div",
@@ -27933,14 +27965,28 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex flex-row w-full justify-between" }, [
-      _c("div", { staticClass: "t-heading mb-5" }, [
-        _c("h1", [_vm._v("Rozcvička")]),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "w-20 h-20",
-          attrs: { src: "/images/dark-arrow.PNG", alt: "" }
-        })
-      ]),
+      _c(
+        "div",
+        {
+          staticClass:
+            "bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-1/2 mb-5"
+        },
+        [
+          _c(
+            "h1",
+            {
+              staticClass:
+                "text-white text-3xl uppercase font-bold tracking-widest"
+            },
+            [_vm._v("Rozcvička")]
+          ),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "w-20 h-20",
+            attrs: { src: "/images/dark-arrow.PNG", alt: "" }
+          })
+        ]
+      ),
       _vm._v(" "),
       _c("img", {
         staticClass: "w-20 h-20",
@@ -27952,27 +27998,55 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "t-heading" }, [
-      _c("h1", [_vm._v("tréning")]),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: "w-20 h-20",
-        attrs: { src: "/images/dark-arrow.PNG", alt: "" }
-      })
-    ])
+    return _c(
+      "div",
+      {
+        staticClass:
+          "bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-1/2"
+      },
+      [
+        _c(
+          "h1",
+          {
+            staticClass:
+              "text-white text-3xl uppercase font-bold tracking-widest"
+          },
+          [_vm._v("tréning")]
+        ),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "w-20 h-20",
+          attrs: { src: "/images/dark-arrow.PNG", alt: "" }
+        })
+      ]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "t-heading" }, [
-      _c("h1", [_vm._v("strečing")]),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: "w-20 h-20",
-        attrs: { src: "/images/dark-arrow.PNG", alt: "" }
-      })
-    ])
+    return _c(
+      "div",
+      {
+        staticClass:
+          "bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-1/2"
+      },
+      [
+        _c(
+          "h1",
+          {
+            staticClass:
+              "text-white text-3xl uppercase font-bold tracking-widest"
+          },
+          [_vm._v("strečing")]
+        ),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "w-20 h-20",
+          attrs: { src: "/images/dark-arrow.PNG", alt: "" }
+        })
+      ]
+    )
   }
 ]
 render._withStripped = true

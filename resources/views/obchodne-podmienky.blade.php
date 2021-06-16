@@ -3,14 +3,14 @@
 @section('content')
     <div class="container flex justify-center">
         <article class="w-4/5 shadow-lg p-8">
-            <p> <span class="bold"> Obchodné meno:</span> Power Body, s. r. o.</p>
-            <p> <span class="bold">Sídlo:</span> Dilongova 12758/84A, 080 01 Prešov</p>
-            <p> <span class="bold">IČO:</span> 53 479 122</p>
-            <p> <span class="bold">DIČ:</span> 2121388665</p>
-            <p> <span class="bold">Zastúpená:</span> Viliam Poch, Vanesa Petrasová - konatelia <</p>
-            <p> <span class="bold">Zapísaná:</span> v Obchodnom registri Okresného súdu Prešov</p>
-            <p> <span class="bold">oddiel:</span> Sro, vložka číslo: 41412/P</p>
-            <p> <span class="bold">e-mail:</span> info@featness.sk</p>
+{{--            <p> <span class="bold"> Obchodné meno:</span> Power Body, s. r. o.</p>--}}
+{{--            <p> <span class="bold">Sídlo:</span> Dilongova 12758/84A, 080 01 Prešov</p>--}}
+{{--            <p> <span class="bold">IČO:</span> 53 479 122</p>--}}
+{{--            <p> <span class="bold">DIČ:</span> 2121388665</p>--}}
+{{--            <p> <span class="bold">Zastúpená:</span> Viliam Poch, Vanesa Petrasová - konatelia <</p>--}}
+{{--            <p> <span class="bold">Zapísaná:</span> v Obchodnom registri Okresného súdu Prešov</p>--}}
+{{--            <p> <span class="bold">oddiel:</span> Sro, vložka číslo: 41412/P</p>--}}
+{{--            <p> <span class="bold">e-mail:</span> info@featness.sk</p>--}}
             <h1 class="text-2xl text-primary tracking-widest w-full text-center font-bold">VŠEOBECNÉ OBCHODNÉ PODMIENKY</h1>
             <h2 class="text-xl text-secondary tracking-widest w-full text-center font-bold">Všeobecné obchodné podmienky internetového obchodu (e-shopu)</h2>
             <h2 class="bold w-full text-center">Článok I</h2>

@@ -163,7 +163,7 @@
                 Na našej webovej stránke používame cookies. Je to bežná prax webových stránok.
                 Pokračovaním v používaní našej webovej stránky súhlasíte s ich používaním. Pre
                 podrobnejšie informácie o tom, ako používame cookies, sa prosím oboznámte s
-                našimi pravidlami používania cookies.
+                našimi <a href="/cookies">pravidlami používania cookies</a>.
             </p>
             <p>
                 <span class="bold">Máte otázky? Napíšte nám.</span>
