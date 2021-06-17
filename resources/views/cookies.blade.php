@@ -70,10 +70,10 @@
             </p>
             <p>Zistite, ako spravovať cookies v jednotlivých prehliadačoch:</p>
             <ul class="list-disc ml-24">
-                <li><a href="">Chrome</a></li>
-                <li><a href="">Internet Explorer</a></li>
-                <li><a href="">Mozilla</a></li>
-                <li><a href="">Safari</a></li>
+                <li><a href="https://support.google.com/accounts/answer/61416?co=GENIE.Platform%3DDesktop&hl=sk" target="_blank">Chrome</a></li>
+                <li><a href="https://support.microsoft.com/sk-sk/windows/odstr%C3%A1nenie-a-spr%C3%A1va-s%C3%BAborov-cookie-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank">Internet Explorer</a></li>
+                <li><a href="https://support.mozilla.org/sk/kb/enhanced-tracking-protection-firefox-desktop?redirectslug=povolenie-zakazanie-cookies&redirectlocale=sk" target="_blank">Mozilla</a></li>
+                <li><a href="https://support.apple.com/kb/PH21411?locale=en_US&viewlocale=sk_SK" target="_blank">Safari</a></li>
             </ul>
             <span class="bold">Viac o cookies</span>
             <p>

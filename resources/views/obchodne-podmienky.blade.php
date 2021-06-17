@@ -62,7 +62,7 @@
             základe ktorej je realizovaný predaj Služieb. Neoddeliteľnou súčasťou Kúpnej zmluvy sú
             tieto VOP.
             </p>
-            <p> <span class="bold">6. </span>Klient plne uznáva elektronickú komunikáciu predovšetkým prostredníctvom E-shopu, emailovej komunikácie a telefonickej komunikácie.
+            <p> <span class="bold">6. </span>Klient plne uznáva elektronickú komunikáciu predovšetkým prostredníctvom E-shopu, e-mailovej komunikácie a telefonickej komunikácie.
             </p>
             <p> <span class="bold">7. </span>Kúpna cena znamená kúpnu cenu za Službu.</p>
             <h2 class="bold w-full text-center">Článok III</h2>

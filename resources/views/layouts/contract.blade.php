@@ -32,15 +32,25 @@
                         </button>
                     </div>
                     <div class="w-full block flex-grow lg:flex lg:items-center lg:justify-end lg:w-auto">
-                        <a href="#" class="text-secondary uppercase tracking-widest block font-bold text-2xl lg:inline-block hover:text-white mr-12">
+                        <a href="#" class="text-secondary uppercase tracking-widest block font-bold text-2xl lg:inline-block hover:text-primary mr-12">
                             Blog
                         </a>
-                        <a href="/clenstvo" class="text-secondary uppercase tracking-widest block font-bold text-2xl lg:inline-block hover:text-white mr-12">
+                        <a href="/clenstvo" class="text-secondary uppercase tracking-widest block font-bold text-2xl lg:inline-block hover:text-primary mr-12">
                             Členstvo
                         </a>
-                        <a href="#" class="text-secondary uppercase tracking-widest block font-bold text-2xl lg:inline-block hover:text-white">
-                            Prihlásiť sa
-                        </a>
+                        @if (Route::has('login'))
+                            @auth
+                                <a href="{{ url('/dashboard') }}" class="text-secondary uppercase tracking-widest block font-bold text-2xl lg:inline-block hover:text-primary">Profil</a>
+                            @else
+                                <a href="{{ route('login') }}" class="text-secondary uppercase tracking-widest block font-bold text-2xl lg:inline-block hover:text-primary">
+                                    Prihlásiť sa
+                                </a>
+
+                                {{--                                    @if (Route::has('register'))--}}
+                                {{--                                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>--}}
+                                {{--                                    @endif--}}
+                            @endauth
+                        @endif
                     </div>
                 </nav>
             </div>

@@ -8,12 +8,12 @@
 
             />
         </transition>
-        <div class="training-holder flex flex-col w-1/2 h-96 overflow-y-scroll">
+        <div class="flex flex-col w-1/2 h-96 overflow-y-scroll training-holder">
             <div class="flex flex-col w-full" id="warm-up">
                 <div class="flex flex-row w-full justify-between">
                     <div class="bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-1/2 mb-5">
                         <h1 class="text-white text-3xl uppercase font-bold tracking-widest">Rozcvička</h1>
-                        <img class="w-20 h-20" src="/images/dark-arrow.PNG" alt="">
+                        <img class="w-20 h-20" src="/images/dark-arrow.png" alt="">
                     </div>
                     <img class="w-20 h-20" src="/images/hint-icon.png" alt="">
                 </div>
@@ -22,7 +22,7 @@
             <div class="flex flex-col w-full mt-5" id="training">
                 <div class="bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-1/2">
                     <h1 class="text-white text-3xl uppercase font-bold tracking-widest">tréning</h1>
-                    <img class="w-20 h-20" src="/images/dark-arrow.PNG" alt="">
+                    <img class="w-20 h-20" src="/images/dark-arrow.png" alt="">
                 </div>
                 <div v-for="(trainingExercise, index) in training">
                     <h1 class="text-secondary uppercase my-4 pl-2 font-bold tracking-widest">{{index+1}}. kolo</h1>
@@ -32,7 +32,7 @@
             <div class="flex flex-col w-full mt-5" id="stretching">
                 <div class="bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-1/2">
                     <h1 class="text-white text-3xl uppercase font-bold tracking-widest">strečing</h1>
-                    <img class="w-20 h-20" src="/images/dark-arrow.PNG" alt="">
+                    <img class="w-20 h-20" src="/images/dark-arrow.png" alt="">
                 </div>
                 <exercise v-for="exercise in stretching" :key="exercise.id" v-on:click.native="showVideo(exercise.url, exercise.name)" :exercise-name="exercise.name" :reps="exercise.reps ? exercise.reps : 0" :time="exercise.time ? exercise.time : 0"></exercise>
             </div>
@@ -105,7 +105,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .fade-enter-active, .fade-leave-active {
     transition: opacity .5s;
 }

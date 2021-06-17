@@ -1,5 +1,5 @@
 <template>
-    <div class="cursor-pointer bg-primaryBg pr-4 mt-2 flex flex-row justify-between items-center rounded-2xl w-11/12">
+    <div class="rounded-2xl w-11/12 cursor-pointer bg-primaryBg pr-4 mt-2 flex flex-row justify-between items-center">
         <div class="flex flex-row flex-1 h-full items-center justify-start">
             <button>
                 <img class="w-20 h-20" src="/images/play-icon.png" alt="">
@@ -35,7 +35,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-
-</style>
