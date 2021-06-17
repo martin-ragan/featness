@@ -23,7 +23,7 @@
 <div id="app" class="h-full w-full">
     @section('navbar')
         <header class="h-1/6 w-screen">
-            <div class="container mx-auto mt-12 h-full">
+            <div class="container-fluid mx-auto mt-12 h-full">
                 <nav class="flex items-center justify-between h-full flex-wrap">
                     <a href="/" class="h-logo text-secondary font-medium text-5xl">F<span class="text-primary">EAT</span>NESS</a>
                     <div class="block lg:hidden">
@@ -63,7 +63,7 @@
 
     @section('footer')
             <footer class="footer bg-white relative pt-1 border-b-2 border-primary">
-                <div class="container mx-auto px-6">
+                <div class="container-fluid mx-auto px-6">
 
                     <div class="sm:flex sm:mt-8">
                         <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">

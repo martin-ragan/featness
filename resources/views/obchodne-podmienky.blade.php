@@ -40,7 +40,7 @@
             </p>
             <p> <span class="bold">3. </span>Uskutočnením Objednávky Klienti vyhlasuje, že sa oboznámil s týmito VOP a že s nimi
             súhlasí.</p>
-            <p> <span class="bold">4. </span>Tieto VOP sú prístupné v e-shope na internetovej stránke www.dmnaradie.sk a sú
+            <p> <span class="bold">4. </span>Tieto VOP sú prístupné v e-shope na internetovej stránke <a href="https://featness.sk/">www.featness.sk</a> a sú
             platné a účinné odo dňa zverejnenia.
             </p>
             <h2 class="bold w-full text-center">Článok II</h2>

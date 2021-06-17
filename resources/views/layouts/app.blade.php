@@ -19,17 +19,15 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
 
-    <body class="h-screen container mx-auto bg-dark-background bg-cover bg-no-repeat">
-        <div id="app" class="h-full w-full">
+    <body class="bg-dark-background bg-cover bg-no-repeat">
+        <div id="app" class="h-auto xl:h-screen xl:w-screen">
             @section('navbar')
-               <header class="h-1/6 w-full">
-                   <nav class="flex items-center container mx-auto h-full w-full">
+                   <nav class="flex items-center container-fluid mx-auto h-36 xl:h-1/6">
                        <a href="/" class="h-logo" href="">F<span class="text-primary">EAT</span>NESS</a>
                    </nav>
-               </header>
             @show
 
-            <div class="container mx-auto flex items-center justify-center h-5/6">
+            <div class="mt-6 container-fluid mx-auto flex h-5/6 py-4 xl:mt-0">
                 @yield('content')
             </div>
         </div>

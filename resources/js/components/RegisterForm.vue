@@ -5,7 +5,7 @@
 
         <input type="hidden" name="_token" :value="csrf">
 
-        <div class="flex flex-row justify-between items-center w-full">
+        <div class="flex flex-col justify-start items-center w-full xl:flex-row xl:justify-between">
 
                 <div class="card-dark px-0 py-8">
 
@@ -37,26 +37,26 @@
 
                 </div>
 
-                <div class="ml-10 card-dark px-0 py-8">
+                <div class="mt-6 card-dark px-0 py-8 xl:ml-10 xl:mt-0">
                     <div class="flex flex-row justify-between w-4/5">
 
                         <div class="register-input-holder">
                             <label class="input-label" for="height">výška</label>
                             <div class="h-full flex items-center">
-                                <button type="button" class="change-v-button ml-5" v-on:click="decreaseHeight">-</button>
+<!--                                <button type="button" class="change-v-button ml-5" v-on:click="decreaseHeight">-</button>-->
                                 <input type="number" class="register-input" name="height" id="height" v-model.number="heightValue">
                                 <span class="text-white mr-4">cm</span>
-                                <button type="button" class="change-v-button" v-on:click="increaseHeight">+</button>
+<!--                                <button type="button" class="change-v-button" v-on:click="increaseHeight">+</button>-->
                             </div>
                         </div>
 
                         <div class="register-input-holder ml-12">
                             <label class="input-label" for="weight">váha</label>
                             <div class="h-full flex items-center">
-                                <button type="button" class="change-v-button ml-5" v-on:click="decreaseWeight">-</button>
+<!--                                <button type="button" class="change-v-button ml-5" v-on:click="decreaseWeight">-</button>-->
                                 <input class="register-input" type="number" v-model.number="weightValue" name="weight" id="weight">
                                 <span class="text-white mr-4">kg</span>
-                                <button type="button" class="change-v-button" v-on:click="increaseWeight">+</button>
+<!--                                <button type="button" class="change-v-button" v-on:click="increaseWeight">+</button>-->
                             </div>
                         </div>
 
@@ -66,9 +66,9 @@
                         <div class="register-input-holder">
                             <label class="input-label" for="age" >VEK</label>
                             <div class="h-full flex items-center">
-                                <button type="button" class="change-v-button ml-5" v-on:click="decreaseAge">-</button>
+<!--                                <button type="button" class="change-v-button ml-5" v-on:click="decreaseAge">-</button>-->
                                 <input class="register-input" type="number" v-model.number="ageValue" name="age" id="age">
-                                <button type="button" class="change-v-button" v-on:click="increaseAge">+</button>
+<!--                                <button type="button" class="change-v-button" v-on:click="increaseAge">+</button>-->
                             </div>
                         </div>
                         <div class="h-12  w-1/2 ml-12"></div>

@@ -20,11 +20,10 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
-<body class="h-screen container mx-auto bg-light-background bg-cover bg-no-repeat">
+<body class="bg-light-mobile-background bg-cover bg-no-repeat h-auto sm:h-screen sm:bg-light-background lx:w-screen">
 <div id="app" class="h-full w-full">
     @section('navbar')
-        <header class="h-1/6">
-            <nav class="flex items-center container mx-auto h-full">
+            <nav class="flex items-center container-fluid mx-auto h-36 xl:h-1/6">
                 <a href="/" class="h-logo">F<span class="text-primary">EAT</span>NESS</a>
 
                 <ul class="flex-1 h-full flex items-center justify-end">
@@ -47,12 +46,10 @@
                         <input type="submit" id="logout" class="hidden">
                     </form>
                 </ul>
-
             </nav>
-        </header>
     @show
 
-    <div class="container mx-auto flex flex-col h-5/6">
+    <div class="container-fluid mx-auto flex flex-col items-center justify-center lx:h-5/6">
         @yield('content')
     </div>
 </div>

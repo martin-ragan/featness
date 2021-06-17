@@ -8,7 +8,7 @@ body {
 
 @layer base {
     h1 {
-          @apply text-4xl text-white uppercase tracking-widest;
+          @apply text-2xl text-white uppercase tracking-widest md:text-4xl;
     }
     input {
         @apply tracking-widest font-sans;
@@ -26,6 +26,9 @@ body {
     article .bold {
         @apply text-primary font-bold;
     }
+    .container-fluid {
+        @apply w-11/12;
+    }
     /*body {*/
     /*    background: url("../images/bg-dark-desktop.png") no-repeat;*/
     /*    background-size: cover;*/
@@ -38,14 +41,17 @@ body {
     .h-logo {
         @apply text-4xl text-secondary tracking-widest;
     }
-      .card-dark {
-          @apply flex flex-col bg-secondaryBg h-80 w-1/2 rounded-3xl justify-start items-center;
-      }
+    .card-dark {
+          @apply flex flex-col bg-secondaryBg h-80 rounded-3xl w-full justify-start items-center py-4 xl:w-2/3;
+    }
+    .card-dark-without-prop {
+        @apply flex flex-col py-10 bg-secondaryBg rounded-3xl justify-start items-center;
+    }
       .change-v-button {
           @apply h-full text-primary font-semibold text-3xl;
       }
       .register-select {
-          @apply text-2xl mt-7 tracking-widest w-4/5 bg-transparent rounded-none p-0 h-12 border-0 border-b border-white uppercase text-white;
+          @apply text-base mt-7 tracking-widest w-4/5 bg-transparent rounded-none p-0 h-12 border-0 border-b border-white uppercase text-white md:text-2xl;
       }
       .register-input-holder {
           @apply flex flex-row h-16 w-1/2 items-center justify-between border-b border-white;
@@ -54,25 +60,25 @@ body {
           @apply bg-transparent text-white text-center w-14 border-0 placeholder-white;
       }
     .input-label {
-        @apply text-white uppercase text-2xl tracking-widest;
+        @apply text-white uppercase text-base tracking-widest md:text-2xl;
     }
     .login-input {
-        @apply flex-1 p-2 text-white text-2xl block mt-1 w-full bg-transparent border-0 placeholder-white tracking-widest;
+        @apply flex-1 p-2 text-white text-base block mt-1 w-full bg-transparent border-0 placeholder-white tracking-widest md:text-2xl;
     }
       .input-icon {
           @apply w-auto h-full;
       }
       .register-input-w-full {
-          @apply flex-1 p-2 text-white text-2xl block mt-1 w-full bg-transparent border-0 placeholder-white tracking-widest;
+          @apply flex-1 p-2 text-white text-base block mt-1 w-full bg-transparent border-0 placeholder-white tracking-widest md:text-2xl;
       }
       .register-input-w-full-holder {
           @apply flex border-0 border-b border-white h-16 mt-4 w-4/5;
       }
       .btn-brown {
-          @apply text-center h-12 text-lg font-light rounded-sm px-4 py-2 mt-4 bg-primary border border-transparent text-white uppercase tracking-widest transition hover:bg-secondary;
+          @apply text-center py-2 text-sm md:text-lg font-light rounded-sm px-4 py-2 mt-4 bg-primary border border-transparent text-white uppercase tracking-widest transition hover:bg-secondary;
       }
       .heading-brown {
-          @apply w-full text-center text-primary uppercase font-bold text-4xl pb-8 tracking-widest;
+          @apply w-full text-center text-primary uppercase font-bold pb-8 tracking-widest text-4xl;
       }
 
     .checkbox-holder {
@@ -96,7 +102,7 @@ body {
     /*}*/
 
     .checkbox-holder label {
-        @apply flex-1 uppercase text-xl tracking-widest text-white;
+        @apply flex-1 uppercase text-base tracking-widest text-white 2xl:text-lg;
     }
 
 }

@@ -27,6 +27,7 @@ module.exports = {
                 'icon': "url('../images/1.png')",
                 'dark-background': "url('../images/bg-dark-desktop.png')",
                 'light-background': "url('../images/bg-light-desktop.png')",
+                'light-mobile-background': "url('../images/bg-light-desktop.png')",
                 'main-page-background': "url('../images/main-page-bg.png')",
                 'select-arrow': "url('../images/select-arrow.png')"
                })

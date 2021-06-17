@@ -1,5 +1,5 @@
 <template>
-    <div class="h-screen w-screen bg-secondaryBg absolute top-0 left-0 z-50 flex flex-col items-center justify-center">
+    <div class="h-full w-full bg-secondaryBg fixed top-0 left-0 z-50 flex flex-col items-center justify-center overflow-x-hidden">
         <div v-show="!loaded" class="loader"></div>
         <div v-show="loaded" class="w-full h-full flex flex-col justify-center items-center">
             <iframe :src="`https://player.vimeo.com/video/`+ visibleUrl + `?autoplay=1&amp;player_id=0&amp;app_id=58479`" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen

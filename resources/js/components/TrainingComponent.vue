@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-row w-full h-full mb-20 justify-center items-center">
+    <div class="flex flex-col w-full justify-center flex-1 items-center xl:flex-row">
         <transition name="fade">
             <video-component v-if="iframeVisibility"
                              :visible-url="visibleUrl"
@@ -8,7 +8,7 @@
 
             />
         </transition>
-        <div class="flex flex-col w-1/2 h-96 overflow-y-scroll training-holder">
+        <div class="flex flex-col w-full h-96 overflow-y-scroll training-holder xl:w-1/2">
             <div class="flex flex-col w-full" id="warm-up">
                 <div class="flex flex-row w-full justify-between">
                     <div class="bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-1/2 mb-5">
@@ -42,7 +42,7 @@
             </button>
         </div>
 
-        <div class="flex flex-col bg-primaryBg w-2/5 ml-20 h-full p-4 items-center justify-center rounded-3xl">
+        <div class="flex flex-col bg-primaryBg mt-12 w-full h-96 p-4 items-center justify-center rounded-3xl xl:ml-20 xl:mt-0 xl:w-1/2">
             <h1 class="uppercase tracking-widest  text-4xl py-2 font-bold border-b border-white">Maximálne pauzy</h1>
             <h2 class="uppercase tracking-widest  text-2xl py-2 text-white mt-20">Medzi cvikmi</h2>
             <h1 class="uppercase tracking-widest  text-5xl py-2 font-bold">{{ pauses.betweenExercises }} sekúnd</h1>
