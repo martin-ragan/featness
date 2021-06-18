@@ -10,6 +10,13 @@ module.exports = {
 
     theme: {
         extend: {
+            fontSize: {
+                'tiny': ['0.7rem', '0.8rem'],
+            },
+            minHeight: {
+                '1/6v': '16vh',
+                '5/6v': '84vh',
+            },
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },

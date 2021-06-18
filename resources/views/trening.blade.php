@@ -1,9 +1,8 @@
 @extends('layouts.logged-in')
 
 @section('content')
-    <h1 class="heading-brown mb-6">tréning</h1>
-    <form action="generate-training" method="post" class="flex flex-col w-full items-center">
-
+    <form action="generate-training" method="post" class="flex flex-col w-full items-center h-full">
+        <h1 class="heading-brown mb-6">tréning</h1>
         @csrf
 
         <div class="grid gap-8 items-stretch grid-flow-row w-full xl:grid-flow-col xl:auto-cols-fr">
@@ -67,6 +66,6 @@
         </div>
 
         <button type="submit" class="btn-brown w-72 mt-12">vytvoriť tréning</button>
-        <a href="{{route('dashboard')}}" class="text-primary text-xl tracking-widest uppercase font-bold my-6"> < naspäť</a>
+        <a href="{{route('dashboard')}}" class="text-primary text-xl tracking-widest uppercase font-bold mt-6"> < naspäť</a>
     </form>
 @endsection

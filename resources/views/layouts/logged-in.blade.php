@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="height=device-height, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
@@ -22,7 +23,7 @@
 <body class="bg-dark-background bg-cover bg-no-repeat overflow-x-hidden">
     <div id="app" class="h-auto xl:h-screen xl:w-screen">
         @section('navbar')
-                <nav class="flex items-center container-fluid mx-auto h-36 xl:h-1/6">
+                <nav class="flex items-center container-fluid mx-auto min-h-1/6v">
                     <a href="/" class="h-logo">F<span class="text-primary">EAT</span>NESS</a>
 
                     <ul class="flex-1 h-full flex items-center justify-end">
@@ -48,7 +49,7 @@
                 </nav>
         @show
 
-        <div class="container-fluid mx-auto flex flex-col items-center justify-center h-5/6">
+        <div class="container-fluid mx-auto flex flex-col pt-6 min-h-5/6v">
             @yield('content')
         </div>
     </div>

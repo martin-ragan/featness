@@ -4329,6 +4329,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -26912,7 +26916,8 @@ var render = function() {
           _c(
             "h1",
             {
-              staticClass: "text-white text-xl uppercase tracking-widest w-2/3"
+              staticClass:
+                "text-white text-tiny sm:text-xl uppercase tracking-widest w-2/3"
             },
             [
               _vm._v(
@@ -26926,12 +26931,18 @@ var render = function() {
       this.reps !== 0
         ? _c(
             "h1",
-            { staticClass: "text-white text-xl uppercase tracking-widest" },
+            {
+              staticClass:
+                "text-white text-tiny sm:text-xl uppercase tracking-widest"
+            },
             [_vm._v("\n        " + _vm._s(this.reps) + "x\n    ")]
           )
         : _c(
             "h1",
-            { staticClass: "text-white text-xl uppercase tracking-widest" },
+            {
+              staticClass:
+                "text-white text-tiny sm:text-xl uppercase tracking-widest"
+            },
             [_vm._v("\n        " + _vm._s(this.time) + "sec\n    ")]
           )
     ]
@@ -28100,7 +28111,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "flex flex-col w-full h-96 overflow-y-scroll training-holder xl:w-1/2"
+            "flex flex-col w-full overflow-y-scroll training-holder h-56 sm:h-72 xl:h-96 xl:w-1/2"
         },
         [
           _c(
@@ -28211,7 +28222,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "bg-secondary w-2/3 tracking-widest rounded-sm text-white text-xl py-3 font-sans uppercase text-center mx-auto mt-5"
+                "bg-secondary w-2/3 tracking-widest rounded-sm text-white text-base sm:text-xl py-3 font-sans uppercase text-center mx-auto mt-5"
             },
             [_vm._v("\n            Ukončiť tréning\n        ")]
           )
@@ -28222,51 +28233,57 @@ var render = function() {
         "div",
         {
           staticClass:
-            "flex flex-col bg-primaryBg mt-12 w-full h-96 p-4 items-center justify-center rounded-3xl xl:ml-20 xl:mt-0 xl:w-1/2"
+            "flex flex-col bg-primaryBg h-min-32 mt-6 w-full p-4 items-center justify-center rounded-3xl xl:ml-20 xl:mt-0 xl:w-1/2 xl:h-96"
         },
         [
           _c(
             "h1",
             {
               staticClass:
-                "uppercase tracking-widest  text-4xl py-2 font-bold border-b border-white"
+                "uppercase tracking-widest text-base  xl:text-4xl py-2 font-bold border-b border-white"
             },
             [_vm._v("Maximálne pauzy")]
           ),
           _vm._v(" "),
-          _c(
-            "h2",
-            {
-              staticClass:
-                "uppercase tracking-widest  text-2xl py-2 text-white mt-20"
-            },
-            [_vm._v("Medzi cvikmi")]
-          ),
+          _c("div", { staticClass: "flex xl:flex-col xl:items-center" }, [
+            _c(
+              "h2",
+              {
+                staticClass:
+                  "uppercase tracking-widest  text-base xl:text-2xl py-2 text-white xl:mt-20"
+              },
+              [_vm._v("Medzi cvikmi")]
+            ),
+            _vm._v(" "),
+            _c(
+              "h1",
+              {
+                staticClass:
+                  "uppercase tracking-widest ml-2 text-base xl:ml-0 xl:text-5xl py-2 font-bold"
+              },
+              [_vm._v(_vm._s(_vm.pauses.betweenExercises) + " sekúnd")]
+            )
+          ]),
           _vm._v(" "),
-          _c(
-            "h1",
-            {
-              staticClass: "uppercase tracking-widest  text-5xl py-2 font-bold"
-            },
-            [_vm._v(_vm._s(_vm.pauses.betweenExercises) + " sekúnd")]
-          ),
-          _vm._v(" "),
-          _c(
-            "h2",
-            {
-              staticClass:
-                "uppercase tracking-widest  text-2xl py-2 text-white mt-20"
-            },
-            [_vm._v("Medzi kolami")]
-          ),
-          _vm._v(" "),
-          _c(
-            "h1",
-            {
-              staticClass: "uppercase tracking-widest  text-5xl font-bold py-2"
-            },
-            [_vm._v(_vm._s(_vm.pauses.betweenRounds) + " sekúnd")]
-          ),
+          _c("div", { staticClass: "flex xl:flex-col xl:items-center" }, [
+            _c(
+              "h2",
+              {
+                staticClass:
+                  "uppercase tracking-widest  text-base xl:text-2xl py-2 text-white xl:mt-20"
+              },
+              [_vm._v("Medzi kolami")]
+            ),
+            _vm._v(" "),
+            _c(
+              "h1",
+              {
+                staticClass:
+                  "uppercase tracking-widest ml-2 text-base xl:ml-0 xl:text-5xl font-bold py-2"
+              },
+              [_vm._v(_vm._s(_vm.pauses.betweenRounds) + " sekúnd")]
+            )
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -28274,14 +28291,14 @@ var render = function() {
             [
               _c("i", {
                 staticClass:
-                  "fas fa-stopwatch text-2xl text-white cursor-pointer"
+                  "fas fa-stopwatch text-base xl:text-2xl text-white cursor-pointer"
               }),
               _vm._v(" "),
               _c(
                 "span",
                 {
                   staticClass:
-                    "text-white text-2xl ml-4 uppercase tracking-widest"
+                    "text-white text-base xl:text-2xl ml-4 uppercase tracking-widest"
                 },
                 [_vm._v(_vm._s(_vm.formattedElapsedTime))]
               )
@@ -28303,14 +28320,14 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-1/2 mb-5"
+            "bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-4/5 sm:w-1/2 mb-5"
         },
         [
           _c(
             "h1",
             {
               staticClass:
-                "text-white text-3xl uppercase font-bold tracking-widest"
+                "text-white text-lg sm:text-3xl uppercase font-bold tracking-widest"
             },
             [_vm._v("Rozcvička")]
           ),
@@ -28336,14 +28353,14 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-1/2"
+          "bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-4/5 sm:w-1/2"
       },
       [
         _c(
           "h1",
           {
             staticClass:
-              "text-white text-3xl uppercase font-bold tracking-widest"
+              "text-white text-lg sm:text-3xl uppercase font-bold tracking-widest"
           },
           [_vm._v("tréning")]
         ),
@@ -28363,14 +28380,14 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-1/2"
+          "bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-4/5 sm:w-1/2"
       },
       [
         _c(
           "h1",
           {
             staticClass:
-              "text-white text-3xl uppercase font-bold tracking-widest"
+              "text-white text-lg sm:text-3xl uppercase font-bold tracking-widest"
           },
           [_vm._v("strečing")]
         ),
