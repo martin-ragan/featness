@@ -20,36 +20,15 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
-<body class="bg-light-mobile-background bg-cover bg-no-repeat h-auto sm:h-screen sm:bg-light-background lx:w-screen">
-<div id="app" class="h-full w-full">
-    @section('navbar')
-            <nav class="flex items-center container-fluid mx-auto h-36 xl:h-1/6">
-                <a href="/" class="h-logo">F<span class="text-primary">EAT</span>NESS</a>
+<body class="bg-light-mobile-background bg-cover bg-no-repeat h-auto sm:bg-light-background lx:w-screen">
+<div id="app" class="h-screen w-full">
+        @section('navbar')
+            <div class="container-fluid mx-auto">
+                <top-navigation></top-navigation>
+            </div>
+        @show
 
-                <ul class="flex-1 h-full flex items-center justify-end">
-                    <li class="p-4">
-                        <a class="text-primary text-2xl font-semibold mr-4 tracking-widest" href="">BLOG</a>
-                    </li>
-                    <li class="">
-                        <a href="">
-                            <img class="w-20 h-20" src="{{ asset('/images/1.png') }}" alt="">
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="">
-                            <img class="w-20 h-20" src="{{ asset('/images/2.png') }}" alt="">
-                        </a>
-                    </li>
-                    <form action="{{route('logout')}}" method="post">
-                        @csrf
-                        <label for="logout" class="cursor-pointer"><img class="w-20 h-20" src="{{ asset('/images/3.png') }}" alt=""></label>
-                        <input type="submit" id="logout" class="hidden">
-                    </form>
-                </ul>
-            </nav>
-    @show
-
-    <div class="container-fluid mx-auto flex flex-col items-center justify-center lx:h-5/6">
+    <div class="container-fluid mx-auto h-5/6">
         @yield('content')
     </div>
 </div>

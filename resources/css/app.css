@@ -78,7 +78,7 @@ body {
           @apply text-center py-2 text-sm md:text-lg font-light rounded-sm px-4 py-2 mt-4 bg-primary border border-transparent text-white uppercase tracking-widest transition hover:bg-secondary;
       }
       .heading-brown {
-          @apply w-full text-center text-primary uppercase font-bold pb-8 tracking-widest text-4xl;
+          @apply w-full text-center p-0 text-primary uppercase font-bold tracking-widest text-4xl;
       }
 
     .checkbox-holder {
@@ -102,7 +102,12 @@ body {
     /*}*/
 
     .checkbox-holder label {
-        @apply flex-1 uppercase text-base tracking-widest text-white 2xl:text-lg;
+        @apply flex-1 uppercase text-sm tracking-widest text-white 2xl:text-lg;
     }
 
 }
+/*@media (max-height: 860px) {*/
+/*    .light-card {*/
+/*        height: 32rem !important;*/
+/*    }*/
+/*}*/

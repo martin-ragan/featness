@@ -10,6 +10,7 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <script src="https://kit.fontawesome.com/c196f76230.js" crossorigin="anonymous"></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -21,35 +22,11 @@
 </head>
 
 <body class="bg-dark-background bg-cover bg-no-repeat overflow-x-hidden">
-    <div id="app" class="h-auto xl:h-screen xl:w-screen">
-        @section('navbar')
-                <nav class="flex items-center container-fluid mx-auto min-h-1/6v">
-                    <a href="/" class="h-logo">F<span class="text-primary">EAT</span>NESS</a>
-
-                    <ul class="flex-1 h-full flex items-center justify-end">
-                        <li class="p-4">
-                            <a class="text-primary text-2xl font-semibold mr-4 tracking-widest" href="">BLOG</a>
-                        </li>
-                        <li class="">
-                            <a href="">
-                                <img class="w-20 h-20" src="{{ asset('/images/1.png') }}" alt="">
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="">
-                                <img class="w-20 h-20" src="{{ asset('/images/2.png') }}" alt="">
-                            </a>
-                        </li>
-                        <form action="{{route('logout')}}" method="post">
-                            @csrf
-                            <label for="logout" class="cursor-pointer"><img class="w-20 h-20" src="{{ asset('/images/3.png') }}" alt=""></label>
-                            <input type="submit" id="logout" class="hidden">
-                        </form>
-                    </ul>
-                </nav>
-        @show
-
-        <div class="container-fluid mx-auto flex flex-col pt-6 min-h-5/6v">
+    <div id="app">
+        <div class="container-fluid flex flex-col min-h-screen mx-auto">
+            @section('navbar')
+                <top-navigation></top-navigation>
+            @show
             @yield('content')
         </div>
     </div>

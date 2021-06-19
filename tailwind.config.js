@@ -14,7 +14,7 @@ module.exports = {
                 'tiny': ['0.7rem', '0.8rem'],
             },
             minHeight: {
-                '1/6v': '16vh',
+                '1/6v': '12vh',
                 '5/6v': '84vh',
             },
             fontFamily: {
@@ -28,7 +28,8 @@ module.exports = {
             },
             spacing: {
                 '80': '28rem',
-                '96': '40rem'
+                '96': '40rem',
+                '18': '3rem'
             },
             backgroundImage: theme => ({
                 'icon': "url('../images/1.png')",

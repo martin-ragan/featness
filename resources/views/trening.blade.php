@@ -1,14 +1,14 @@
 @extends('layouts.logged-in')
 
 @section('content')
-    <form action="generate-training" method="post" class="flex flex-col w-full items-center h-full">
-        <h1 class="heading-brown mb-6">tréning</h1>
+    <form action="generate-training" method="post" class="flex flex-col w-full items-center justify-center flex-1">
+        <h1 class="heading-brown mb-6 text-lg sm:text-2xl">tréning</h1>
         @csrf
 
         <div class="grid gap-8 items-stretch grid-flow-row w-full xl:grid-flow-col xl:auto-cols-fr">
 
-            <div class="card-dark-without-prop w-auto h-auto justify-center items-center">
-                <h1 class="heading-brown mt-12 text-lg 2xl:text-xl">čo chceš dnes cvičiť ?</h1>
+            <div class="card-dark-without-prop w-full h-64 xl:w-auto xl:h-auto justify-center items-center">
+                <h1 class="heading-brown text-lg 2xl:text-xl">čo chceš dnes cvičiť ?</h1>
                 <div class="flex flex-col flex-1 w-full h-4/5 items-center">
                     <div class="checkbox-holder">
                         <input type="radio" value="upper-body" name="body-section" id="upper-body" class="appearance-none bg-transparent text-primary ml-4 mr-4">
@@ -25,8 +25,8 @@
                 </div>
             </div>
 
-            <div class="card-dark-without-prop w-auto h-auto justify-center items-center">
-                <h1 class="heading-brown mt-12 text-lg 2xl:text-xl">ako chceš dnes cvičiť ?</h1>
+            <div class="card-dark-without-prop w-full h-64 xl:w-auto xl:h-auto justify-center items-center">
+                <h1 class="heading-brown text-lg 2xl:text-xl">ako chceš dnes cvičiť ?</h1>
                 <div class="flex flex-col flex-1 w-full h-4/5 items-center">
 
                     <div class="checkbox-holder">
@@ -44,8 +44,8 @@
                 </div>
             </div>
 
-            <div class="card-dark-without-prop w-auto h-auto justify-center items-center">
-                <h1 class="heading-brown mt-12 text-lg 2xl:text-xl">ako dlho chceš dnes cvičiť ?</h1>
+            <div class="card-dark-without-prop w-full h-64 xl:w-auto xl:h-auto justify-center items-center">
+                <h1 class="heading-brown text-lg 2xl:text-xl">ako dlho chceš dnes cvičiť ?</h1>
 
                 <div class="flex flex-col flex-1 w-full h-4/5 items-center">
                     <div class="checkbox-holder">
