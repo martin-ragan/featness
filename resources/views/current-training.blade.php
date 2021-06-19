@@ -1,7 +1,7 @@
 @extends('layouts.training-layout')
 
 @section('content')
-    <h1 class="heading-brown text-secondary text-lg sm:text-2xl font-bold">tréning</h1>
+    <h1 class="heading-brown text-secondary text-lg sm:text-2xl font-bold xl:py-4">tréning</h1>
     <training-component
         :warm-up="{{json_encode($warmUp)}}"
         :training="{{json_encode($training)}}"
