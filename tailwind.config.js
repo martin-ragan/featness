@@ -10,6 +10,19 @@ module.exports = {
 
     theme: {
         extend: {
+            inset:{
+              '10vh':'10vh'
+            },
+            height: {
+                'vh-large': '80vh',
+                'vh-larger': '90vh',
+                'vh-small': '20vh',
+                'vh-smaller': '10vh',
+                '9/10': '90%'
+            },
+            width: {
+                '12/25': '48%',
+            },
             fontSize: {
                 'tiny': ['0.7rem', '0.8rem'],
             },

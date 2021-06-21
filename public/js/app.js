@@ -4391,6 +4391,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -4432,6 +4433,88 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.start();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/TrainingForm.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/TrainingForm.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "TrainingForm",
+  data: function data() {
+    return {
+      checkedType: 'upper-body',
+      checkedLevel: 'easy-training',
+      types: ['upper-body', 'lower-body', 'whole-body'],
+      timesNamed: ['short-time', 'medium-time', 'long-time'],
+      levels: ['easy-training', 'medium-training', 'hard-training'],
+      times: [[[16, 20], [18, 25, 30], [16, 22, 28]], [[16, 20], [18, 25, 30], [16, 22, 28]], [[20, 25], [18, 25, 32], [16, 22, 28]]]
+    };
   }
 });
 
@@ -4514,6 +4597,7 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.component('training-component', __webpa
 vue__WEBPACK_IMPORTED_MODULE_0__.default.component('video-component', __webpack_require__(/*! ./components/VideoComponent.vue */ "./resources/js/components/VideoComponent.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_0__.default.component('meal-carousel', __webpack_require__(/*! ./components/MealCarousel.vue */ "./resources/js/components/MealCarousel.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_0__.default.component('meals-holder', __webpack_require__(/*! ./components/MealsHolder.vue */ "./resources/js/components/MealsHolder.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_0__.default.component('training-form', __webpack_require__(/*! ./components/TrainingForm.vue */ "./resources/js/components/TrainingForm.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_0__.default.component('top-navigation', __webpack_require__(/*! ./components/TopNavigation.vue */ "./resources/js/components/TopNavigation.vue").default);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
   el: '#app'
@@ -26617,6 +26701,45 @@ component.options.__file = "resources/js/components/TrainingComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/TrainingForm.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/TrainingForm.vue ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _TrainingForm_vue_vue_type_template_id_2cb071a9_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TrainingForm.vue?vue&type=template&id=2cb071a9&scoped=true& */ "./resources/js/components/TrainingForm.vue?vue&type=template&id=2cb071a9&scoped=true&");
+/* harmony import */ var _TrainingForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TrainingForm.vue?vue&type=script&lang=js& */ "./resources/js/components/TrainingForm.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _TrainingForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _TrainingForm_vue_vue_type_template_id_2cb071a9_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _TrainingForm_vue_vue_type_template_id_2cb071a9_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "2cb071a9",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/TrainingForm.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/VideoComponent.vue":
 /*!****************************************************!*\
   !*** ./resources/js/components/VideoComponent.vue ***!
@@ -26767,6 +26890,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TrainingComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TrainingComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/TrainingComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TrainingComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/TrainingForm.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/TrainingForm.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TrainingForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TrainingForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/TrainingForm.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TrainingForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -26957,6 +27096,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/TrainingForm.vue?vue&type=template&id=2cb071a9&scoped=true&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/TrainingForm.vue?vue&type=template&id=2cb071a9&scoped=true& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TrainingForm_vue_vue_type_template_id_2cb071a9_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TrainingForm_vue_vue_type_template_id_2cb071a9_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TrainingForm_vue_vue_type_template_id_2cb071a9_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TrainingForm.vue?vue&type=template&id=2cb071a9&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/TrainingForm.vue?vue&type=template&id=2cb071a9&scoped=true&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/VideoComponent.vue?vue&type=template&id=26d38626&scoped=true&":
 /*!***********************************************************************************************!*\
   !*** ./resources/js/components/VideoComponent.vue?vue&type=template&id=26d38626&scoped=true& ***!
@@ -26994,7 +27150,7 @@ var render = function() {
     "a",
     {
       staticClass:
-        "card-dark w-full h-40 xl:w-80 xl:h-80 justify-center cursor-pointer hover:bg-secondary",
+        "card-dark w-full justify-center cursor-pointer hover:bg-secondary h-1/4 xl:h-2/3 xl:w-1/2",
       attrs: { href: this.toRoute }
     },
     [
@@ -28365,7 +28521,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "flex flex-col w-full h-full justify-center flex-1 items-center xl:flex-row"
+        "flex flex-col w-full relative h-vh-large justify-evenly pb-6 space-y-3 md:justify-end flex-1 items-stretch md:flex-row md:pb-0"
     },
     [
       _c(
@@ -28393,7 +28549,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "flex flex-col w-full overflow-y-scroll training-holder flex-grow sm:h-72 xl:h-96 xl:w-1/2 "
+            "flex flex-col h-9/10 left-0 md:absolute overflow-y-scroll training-holder md:w-1/2 flex-grow"
         },
         [
           _c(
@@ -28515,14 +28671,14 @@ var render = function() {
         "div",
         {
           staticClass:
-            "flex flex-col bg-primaryBg h-min-32 mt-6 w-full p-4 items-center justify-center rounded-3xl xl:ml-20 xl:mt-0 xl:w-1/2 xl:h-96 light-card"
+            "flex flex-col bg-primaryBg md:h-9/10 p-4 items-center justify-evenly rounded-3xl md:w-12/25"
         },
         [
           _c(
             "h1",
             {
               staticClass:
-                "uppercase tracking-widest text-base  xl:text-4xl font-bold border-b border-white"
+                "uppercase tracking-widest text-base xl:text-4xl font-bold border-b border-white"
             },
             [_vm._v("Maximálne pauzy")]
           ),
@@ -28532,7 +28688,7 @@ var render = function() {
               "h2",
               {
                 staticClass:
-                  "uppercase tracking-widest  text-base xl:text-2xl pt-2 text-white xl:mt-20"
+                  "uppercase tracking-widest text-base xl:text-2xl text-white"
               },
               [_vm._v("Medzi cvikmi")]
             ),
@@ -28541,7 +28697,7 @@ var render = function() {
               "h1",
               {
                 staticClass:
-                  "uppercase tracking-widest ml-2 text-base xl:ml-0 xl:text-5xl pt-2 font-bold"
+                  "uppercase tracking-widest text-base xl:text-5xl font-bold"
               },
               [_vm._v(_vm._s(_vm.pauses.betweenExercises) + " sekúnd")]
             )
@@ -28552,7 +28708,7 @@ var render = function() {
               "h2",
               {
                 staticClass:
-                  "uppercase tracking-widest  text-base xl:text-2xl xl:py-2 text-white xl:mt-20"
+                  "uppercase tracking-widest text-base xl:text-2xl text-white"
               },
               [_vm._v("Medzi kolami")]
             ),
@@ -28561,7 +28717,7 @@ var render = function() {
               "h1",
               {
                 staticClass:
-                  "uppercase tracking-widest ml-2 text-base xl:ml-0 xl:text-5xl font-bold"
+                  "uppercase tracking-widest text-base xl:text-5xl font-bold"
               },
               [_vm._v(_vm._s(_vm.pauses.betweenRounds) + " sekúnd")]
             )
@@ -28569,7 +28725,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "flex justify-center items-center w-full mt-2" },
+            { staticClass: "flex justify-center items-center w-full" },
             [
               _c("i", {
                 staticClass:
@@ -28580,7 +28736,7 @@ var render = function() {
                 "span",
                 {
                   staticClass:
-                    "text-white text-base xl:text-2xl ml-4 uppercase tracking-widest"
+                    "text-white ml-2 text-base xl:text-2xl uppercase tracking-widest"
                 },
                 [_vm._v(_vm._s(_vm.formattedElapsedTime))]
               )
@@ -28602,7 +28758,7 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-4/5 sm:w-1/2 mb-5"
+            "bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-4/5 xl:w-1/2 mb-5"
         },
         [
           _c(
@@ -28635,7 +28791,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-4/5 sm:w-1/2"
+          "bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-4/5 xl:w-1/2"
       },
       [
         _c(
@@ -28662,7 +28818,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-4/5 sm:w-1/2"
+          "bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-4/5 xl:w-1/2"
       },
       [
         _c(
@@ -28682,6 +28838,340 @@ var staticRenderFns = [
     )
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/TrainingForm.vue?vue&type=template&id=2cb071a9&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/TrainingForm.vue?vue&type=template&id=2cb071a9&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass:
+        "grid gap-8 items-stretch grid-flow-row w-full xl:grid-flow-col xl:auto-cols-fr"
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass:
+            "card-dark-without-prop w-full h-64 xl:w-auto xl:h-auto justify-center items-center"
+        },
+        [
+          _c("h1", { staticClass: "heading-brown text-lg 2xl:text-xl" }, [
+            _vm._v("čo chceš dnes cvičiť ?")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "flex flex-col flex-1 w-full h-4/5 items-center" },
+            [
+              _c("div", { staticClass: "checkbox-holder" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.checkedType,
+                      expression: "checkedType"
+                    }
+                  ],
+                  staticClass:
+                    "appearance-none bg-transparent text-primary ml-4 mr-4",
+                  attrs: {
+                    type: "radio",
+                    value: "upper-body",
+                    name: "body-section",
+                    id: "upper-body"
+                  },
+                  domProps: { checked: _vm._q(_vm.checkedType, "upper-body") },
+                  on: {
+                    change: function($event) {
+                      _vm.checkedType = "upper-body"
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "text-white", attrs: { for: "upper-body" } },
+                  [_vm._v("vrchná časť tela")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "checkbox-holder" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.checkedType,
+                      expression: "checkedType"
+                    }
+                  ],
+                  staticClass:
+                    "appearance-none bg-transparent text-primary ml-4 mr-4",
+                  attrs: {
+                    type: "radio",
+                    value: "lower-body",
+                    name: "body-section",
+                    id: "lower-body"
+                  },
+                  domProps: { checked: _vm._q(_vm.checkedType, "lower-body") },
+                  on: {
+                    change: function($event) {
+                      _vm.checkedType = "lower-body"
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "text-white", attrs: { for: "lower-body" } },
+                  [_vm._v("spodná časť tela")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "checkbox-holder" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.checkedType,
+                      expression: "checkedType"
+                    }
+                  ],
+                  staticClass:
+                    "appearance-none bg-transparent text-primary ml-4 mr-4",
+                  attrs: {
+                    type: "radio",
+                    value: "whole-body",
+                    name: "body-section",
+                    id: "whole-body"
+                  },
+                  domProps: { checked: _vm._q(_vm.checkedType, "whole-body") },
+                  on: {
+                    change: function($event) {
+                      _vm.checkedType = "whole-body"
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "text-white", attrs: { for: "whole-body" } },
+                  [_vm._v("celé telo")]
+                )
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "card-dark-without-prop w-full h-64 xl:w-auto xl:h-auto justify-center items-center"
+        },
+        [
+          _c("h1", { staticClass: "heading-brown text-lg 2xl:text-xl" }, [
+            _vm._v("ako chceš dnes cvičiť ?")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "flex flex-col flex-1 w-full h-4/5 items-center" },
+            [
+              _c("div", { staticClass: "checkbox-holder" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.checkedLevel,
+                      expression: "checkedLevel"
+                    }
+                  ],
+                  staticClass:
+                    "appearance-none bg-transparent text-primary ml-4 mr-4",
+                  attrs: {
+                    type: "radio",
+                    value: "easy-training",
+                    name: "difficulty",
+                    id: "easy-training"
+                  },
+                  domProps: {
+                    checked: _vm._q(_vm.checkedLevel, "easy-training")
+                  },
+                  on: {
+                    change: function($event) {
+                      _vm.checkedLevel = "easy-training"
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-white",
+                    attrs: { for: "easy-training" }
+                  },
+                  [_vm._v("ľahký tréning")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "checkbox-holder" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.checkedLevel,
+                      expression: "checkedLevel"
+                    }
+                  ],
+                  staticClass:
+                    "appearance-none bg-transparent text-primary ml-4 mr-4",
+                  attrs: {
+                    type: "radio",
+                    value: "medium-training",
+                    name: "difficulty",
+                    id: "medium-training"
+                  },
+                  domProps: {
+                    checked: _vm._q(_vm.checkedLevel, "medium-training")
+                  },
+                  on: {
+                    change: function($event) {
+                      _vm.checkedLevel = "medium-training"
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-white",
+                    attrs: { for: "medium-training" }
+                  },
+                  [_vm._v("pokročilý tréning")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "checkbox-holder" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.checkedLevel,
+                      expression: "checkedLevel"
+                    }
+                  ],
+                  staticClass:
+                    "appearance-none bg-transparent text-primary ml-4 mr-4",
+                  attrs: {
+                    type: "radio",
+                    value: "hard-training",
+                    name: "difficulty",
+                    id: "hard-training"
+                  },
+                  domProps: {
+                    checked: _vm._q(_vm.checkedLevel, "hard-training")
+                  },
+                  on: {
+                    change: function($event) {
+                      _vm.checkedLevel = "hard-training"
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  {
+                    staticClass: "text-white",
+                    attrs: { for: "hard-training" }
+                  },
+                  [_vm._v("ťažký tréning")]
+                )
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "card-dark-without-prop w-full h-64 xl:w-auto xl:h-auto justify-center items-center"
+        },
+        [
+          _c("h1", { staticClass: "heading-brown text-lg 2xl:text-xl" }, [
+            _vm._v("ako dlho chceš dnes cvičiť ?")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "flex flex-col flex-1 w-full h-4/5 items-center" },
+            _vm._l(
+              _vm.times[_vm.types.indexOf(_vm.checkedType)][
+                _vm.levels.indexOf(_vm.checkedLevel)
+              ],
+              function(selectedTimes, index) {
+                return _c(
+                  "div",
+                  { key: index, staticClass: "checkbox-holder" },
+                  [
+                    _c("input", {
+                      staticClass:
+                        "appearance-none bg-transparent text-primary ml-4 mr-4",
+                      attrs: {
+                        type: "radio",
+                        name: "training-time",
+                        id: _vm.timesNamed[index]
+                      },
+                      domProps: { value: _vm.timesNamed[index] }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "text-white",
+                        attrs: { for: _vm.timesNamed[index] }
+                      },
+                      [_vm._v(_vm._s(selectedTimes) + " minút")]
+                    )
+                  ]
+                )
+              }
+            ),
+            0
+          )
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -28738,7 +29228,7 @@ var render = function() {
         },
         [
           _c("iframe", {
-            staticClass: "w-11/12 h-1/4",
+            staticClass: "w-11/12 h-2/5",
             attrs: {
               src:
                 "https://player.vimeo.com/video/" +
@@ -28756,7 +29246,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "btn-brown w-1/4 mt-12",
+              staticClass: "btn-brown w-11/12 mt-12 md:w-1/2",
               on: { click: _vm.callDestruction }
             },
             [_vm._v("Skryť ukážku")]

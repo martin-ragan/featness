@@ -3,9 +3,9 @@
         <div v-show="!loaded" class="loader"></div>
         <div v-show="loaded" class="w-full h-full flex flex-col justify-center items-center">
             <iframe :src="`https://player.vimeo.com/video/`+ visibleUrl + `?autoplay=1&amp;player_id=0&amp;app_id=58479`" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
-                    class="w-11/12 h-1/4"></iframe>
+                    class="w-11/12 h-2/5"></iframe>
             <p class="text-white text-xl tracking-widest mt-5">{{ visibleText }}</p>
-            <button v-on:click="callDestruction" class="btn-brown w-1/4 mt-12">Skryť ukážku</button>
+            <button v-on:click="callDestruction" class="btn-brown w-11/12 mt-12 md:w-1/2">Skryť ukážku</button>
         </div>
     </div>
 </template>

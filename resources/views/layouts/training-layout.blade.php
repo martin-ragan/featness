@@ -26,9 +26,7 @@
                 @section('navbar')
                     <top-navigation></top-navigation>
                 @show
-                <div class="h-5/6 xl:h-auto">
                 @yield('content')
-                </div>
             </div>
         </div>
 {{--<body class="bg-light-mobile-background bg-cover bg-no-repeat h-auto sm:bg-light-background lx:w-screen">--}}
