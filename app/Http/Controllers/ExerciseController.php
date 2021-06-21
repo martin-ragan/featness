@@ -79,7 +79,7 @@ class ExerciseController extends Controller
 
                             'fullTime' => 16
                         ],
-                        'long-time' => [
+                        'medium-time' => [
                             ["Horný chrbát", "Celý vrch", "Priame brucho", ['Kardio', 'Brucho']],
                             ["Horný chrbát", "Priame brucho", "Priame brucho", "Šikmé brucho"],
                             ["Horný chrbát", "Horný chrbát", "Priame brucho", ['Kardio', 'Brucho']],
@@ -190,7 +190,7 @@ class ExerciseController extends Controller
 
                             'fullTime' => 16
                         ],
-                        'long-time' => [
+                        'medium-time' => [
                             ['Celé nohy', "Zadok", 'Zadok', 'Priame brucho'],
                             ['Celé nohy', "Zadok", 'Celé nohy', 'Priame brucho'],
                             ['Celé nohy', "Zadok", 'Celé nohy', 'Priame brucho'],
@@ -301,7 +301,7 @@ class ExerciseController extends Controller
 
                             'fullTime' => 20
                         ],
-                        'long-time' => [
+                        'medium-time' => [
                             ['Celé nohy', 'Celé nohy', 'Horný chrbát', 'Priame brucho', 'Priame brucho'],
                             ['Celé nohy', ["Kardio", "Nohy"], "Horný chrbát", "Horný chrbát", 'Priame brucho'],
                             ['Celé nohy', "Zadok", "Horný chrbát", "Šikmé brucho", ["Kardio", "Brucho"]],
