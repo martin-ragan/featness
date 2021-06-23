@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="height=device-height, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <script src="https://kit.fontawesome.com/c196f76230.js" crossorigin="anonymous"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+{{-- <!-- @livewireStyles --> --}}
+
+<!-- Scripts -->
+    <script src="{{ mix('js/app.js') }}" defer></script>
+</head>
+
+<body class="bg-dark-background bg-cover bg-no-repeat overflow-x-hidden">
+    <div id="app">
+        <div class="container-fluid flex flex-col min-h-screen mx-auto">
+            @section('navbar')
+                <top-navigation></top-navigation>
+            @show
+            @yield('content')
+        </div>
+    </div>
+</body>
+</html>
