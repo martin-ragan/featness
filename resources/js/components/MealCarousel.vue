@@ -3,50 +3,7 @@
         <slide :index="0">
             <h1>Raňajky</h1>
             <form class="flex flex-col w-full h-full items-center mt-8" action="" >
-                <div class="flex flex-row w-4/5 h-20 justify-center items-center">
-                    <div class="flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4">
-                        <h1 class="text-2xl text-primary uppercase tracking-widest">vločky</h1>
-                        <div class="flex flex-col w-full h-full justify-center items-end">
-                            <h1 class="text-primary text-xl text-right w-full">443 kCal</h1>
-                            <p class="text-right text-primary text-s w-full">Bielkoviny: 20g, Tuky: 20g, Cukry: 20g</p>
-                        </div>
-                    </div>
-<!--                    <div class="flex flex-col items-center">-->
-<!--                        <button class="h-10 w-10">-->
-<!--                            <img class="h-full w-full" src="/images/select-arrow.png" alt="">-->
-<!--                        </button>-->
-<!--                        <button class="h-10 w-10">-->
-<!--                            <img class="h-full w-full" src="/images/select-arrow.png" alt="">-->
-<!--                        </button>-->
-<!--                    </div>-->
-                </div>
-                <div class="flex flex-row w-4/5 h-20 justify-center items-center mt-4">
-                    <div class="flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4">
-                        <h1 class="text-2xl text-primary uppercase tracking-widest">vločky</h1>
-                        <div class="flex flex-col w-full h-full justify-center items-end">
-                            <h1 class="text-primary text-xl text-right w-full">443 kCal</h1>
-                            <p class="text-right text-primary text-s w-full">Bielkoviny: 20g, Tuky: 20g, Cukry: 20g</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row w-4/5 h-20 justify-center items-center mt-4">
-                    <div class="flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4">
-                        <h1 class="text-2xl text-primary uppercase tracking-widest">vločky</h1>
-                        <div class="flex flex-col w-full h-full justify-center items-end">
-                            <h1 class="text-primary text-xl text-right w-full">443 kCal</h1>
-                            <p class="text-right text-primary text-s w-full">Bielkoviny: 20g, Tuky: 20g, Cukry: 20g</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row w-4/5 h-20 justify-center items-center mt-4">
-                    <div class="flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4">
-                        <h1 class="text-2xl text-primary uppercase tracking-widest">vločky</h1>
-                        <div class="flex flex-col w-full h-full justify-center items-end">
-                            <h1 class="text-primary text-xl text-right w-full">443 kCal</h1>
-                            <p class="text-right text-primary text-s w-full">Bielkoviny: 20g, Tuky: 20g, Cukry: 20g</p>
-                        </div>
-                    </div>
-                </div>
+                <meals-holder v-for="i in 4" :key="i" name="Vločky" :calories="400"></meals-holder>
                 <button class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light">
                     Vygenerovať nový recept
                 </button>
@@ -55,50 +12,7 @@
         <slide :index="1">
             <h1>Obed</h1>
             <form class="flex flex-col w-full h-full items-center mt-8" action="" >
-                <div class="flex flex-row w-4/5 h-20 justify-center items-center">
-                    <div class="flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4">
-                        <h1 class="text-2xl text-primary uppercase tracking-widest">vločky</h1>
-                        <div class="flex flex-col w-full h-full justify-center items-end">
-                            <h1 class="text-primary text-xl text-right w-full">443 kCal</h1>
-                            <p class="text-right text-primary text-s w-full">Bielkoviny: 20g, Tuky: 20g, Cukry: 20g</p>
-                        </div>
-                    </div>
-                    <!--                    <div class="flex flex-col items-center">-->
-                    <!--                        <button class="h-10 w-10">-->
-                    <!--                            <img class="h-full w-full" src="/images/select-arrow.png" alt="">-->
-                    <!--                        </button>-->
-                    <!--                        <button class="h-10 w-10">-->
-                    <!--                            <img class="h-full w-full" src="/images/select-arrow.png" alt="">-->
-                    <!--                        </button>-->
-                    <!--                    </div>-->
-                </div>
-                <div class="flex flex-row w-4/5 h-20 justify-center items-center mt-4">
-                    <div class="flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4">
-                        <h1 class="text-2xl text-primary uppercase tracking-widest">vločky</h1>
-                        <div class="flex flex-col w-full h-full justify-center items-end">
-                            <h1 class="text-primary text-xl text-right w-full">443 kCal</h1>
-                            <p class="text-right text-primary text-s w-full">Bielkoviny: 20g, Tuky: 20g, Cukry: 20g</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row w-4/5 h-20 justify-center items-center mt-4">
-                    <div class="flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4">
-                        <h1 class="text-2xl text-primary uppercase tracking-widest">vločky</h1>
-                        <div class="flex flex-col w-full h-full justify-center items-end">
-                            <h1 class="text-primary text-xl text-right w-full">443 kCal</h1>
-                            <p class="text-right text-primary text-s w-full">Bielkoviny: 20g, Tuky: 20g, Cukry: 20g</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row w-4/5 h-20 justify-center items-center mt-4">
-                    <div class="flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4">
-                        <h1 class="text-2xl text-primary uppercase tracking-widest">vločky</h1>
-                        <div class="flex flex-col w-full h-full justify-center items-end">
-                            <h1 class="text-primary text-xl text-right w-full">443 kCal</h1>
-                            <p class="text-right text-primary text-s w-full">Bielkoviny: 20g, Tuky: 20g, Cukry: 20g</p>
-                        </div>
-                    </div>
-                </div>
+                <meals-holder v-for="i in 4" :key="i" name="Vločky" :calories="400"></meals-holder>
                 <button class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light">
                     Vygenerovať nový recept
                 </button>
@@ -107,50 +21,7 @@
         <slide :index="2">
             <h1>Večera</h1>
             <form class="flex flex-col w-full h-full items-center mt-8" action="" >
-                <div class="flex flex-row w-4/5 h-20 justify-center items-center">
-                    <div class="flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4">
-                        <h1 class="text-2xl text-primary uppercase tracking-widest">vločky</h1>
-                        <div class="flex flex-col w-full h-full justify-center items-end">
-                            <h1 class="text-primary text-xl text-right w-full">443 kCal</h1>
-                            <p class="text-right text-primary text-s w-full">Bielkoviny: 20g, Tuky: 20g, Cukry: 20g</p>
-                        </div>
-                    </div>
-                    <!--                    <div class="flex flex-col items-center">-->
-                    <!--                        <button class="h-10 w-10">-->
-                    <!--                            <img class="h-full w-full" src="/images/select-arrow.png" alt="">-->
-                    <!--                        </button>-->
-                    <!--                        <button class="h-10 w-10">-->
-                    <!--                            <img class="h-full w-full" src="/images/select-arrow.png" alt="">-->
-                    <!--                        </button>-->
-                    <!--                    </div>-->
-                </div>
-                <div class="flex flex-row w-4/5 h-20 justify-center items-center mt-4">
-                    <div class="flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4">
-                        <h1 class="text-2xl text-primary uppercase tracking-widest">vločky</h1>
-                        <div class="flex flex-col w-full h-full justify-center items-end">
-                            <h1 class="text-primary text-xl text-right w-full">443 kCal</h1>
-                            <p class="text-right text-primary text-s w-full">Bielkoviny: 20g, Tuky: 20g, Cukry: 20g</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row w-4/5 h-20 justify-center items-center mt-4">
-                    <div class="flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4">
-                        <h1 class="text-2xl text-primary uppercase tracking-widest">vločky</h1>
-                        <div class="flex flex-col w-full h-full justify-center items-end">
-                            <h1 class="text-primary text-xl text-right w-full">443 kCal</h1>
-                            <p class="text-right text-primary text-s w-full">Bielkoviny: 20g, Tuky: 20g, Cukry: 20g</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row w-4/5 h-20 justify-center items-center mt-4">
-                    <div class="flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4">
-                        <h1 class="text-2xl text-primary uppercase tracking-widest">vločky</h1>
-                        <div class="flex flex-col w-full h-full justify-center items-end">
-                            <h1 class="text-primary text-xl text-right w-full">443 kCal</h1>
-                            <p class="text-right text-primary text-s w-full">Bielkoviny: 20g, Tuky: 20g, Cukry: 20g</p>
-                        </div>
-                    </div>
-                </div>
+                <meals-holder v-for="i in 4" :key="i" name="Vločky" :calories="400"></meals-holder>
                 <button class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light">
                     Vygenerovať nový recept
                 </button>

@@ -3919,135 +3919,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -4077,8 +3948,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "MealsHolder"
+  name: "MealsHolder",
+  props: {
+    name: {
+      type: String,
+      "default": ""
+    },
+    calories: {
+      type: Number,
+      "default": 0
+    }
+  }
 });
 
 /***/ }),
@@ -27292,217 +27178,12 @@ var render = function() {
             attrs: { action: "" }
           },
           [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex flex-row w-4/5 h-20 justify-center items-center"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4"
-                  },
-                  [
-                    _c(
-                      "h1",
-                      {
-                        staticClass:
-                          "text-2xl text-primary uppercase tracking-widest"
-                      },
-                      [_vm._v("vločky")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex flex-col w-full h-full justify-center items-end"
-                      },
-                      [
-                        _c(
-                          "h1",
-                          {
-                            staticClass:
-                              "text-primary text-xl text-right w-full"
-                          },
-                          [_vm._v("443 kCal")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "text-right text-primary text-s w-full"
-                          },
-                          [_vm._v("Bielkoviny: 20g, Tuky: 20g, Cukry: 20g")]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex flex-row w-4/5 h-20 justify-center items-center mt-4"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4"
-                  },
-                  [
-                    _c(
-                      "h1",
-                      {
-                        staticClass:
-                          "text-2xl text-primary uppercase tracking-widest"
-                      },
-                      [_vm._v("vločky")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex flex-col w-full h-full justify-center items-end"
-                      },
-                      [
-                        _c(
-                          "h1",
-                          {
-                            staticClass:
-                              "text-primary text-xl text-right w-full"
-                          },
-                          [_vm._v("443 kCal")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "text-right text-primary text-s w-full"
-                          },
-                          [_vm._v("Bielkoviny: 20g, Tuky: 20g, Cukry: 20g")]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex flex-row w-4/5 h-20 justify-center items-center mt-4"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4"
-                  },
-                  [
-                    _c(
-                      "h1",
-                      {
-                        staticClass:
-                          "text-2xl text-primary uppercase tracking-widest"
-                      },
-                      [_vm._v("vločky")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex flex-col w-full h-full justify-center items-end"
-                      },
-                      [
-                        _c(
-                          "h1",
-                          {
-                            staticClass:
-                              "text-primary text-xl text-right w-full"
-                          },
-                          [_vm._v("443 kCal")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "text-right text-primary text-s w-full"
-                          },
-                          [_vm._v("Bielkoviny: 20g, Tuky: 20g, Cukry: 20g")]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex flex-row w-4/5 h-20 justify-center items-center mt-4"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4"
-                  },
-                  [
-                    _c(
-                      "h1",
-                      {
-                        staticClass:
-                          "text-2xl text-primary uppercase tracking-widest"
-                      },
-                      [_vm._v("vločky")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex flex-col w-full h-full justify-center items-end"
-                      },
-                      [
-                        _c(
-                          "h1",
-                          {
-                            staticClass:
-                              "text-primary text-xl text-right w-full"
-                          },
-                          [_vm._v("443 kCal")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "text-right text-primary text-s w-full"
-                          },
-                          [_vm._v("Bielkoviny: 20g, Tuky: 20g, Cukry: 20g")]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
+            _vm._l(4, function(i) {
+              return _c("meals-holder", {
+                key: i,
+                attrs: { name: "Vločky", calories: 400 }
+              })
+            }),
             _vm._v(" "),
             _c(
               "button",
@@ -27512,11 +27193,12 @@ var render = function() {
               },
               [
                 _vm._v(
-                  "\n                    Vygenerovať nový recept\n                "
+                  "\n                Vygenerovať nový recept\n            "
                 )
               ]
             )
-          ]
+          ],
+          2
         )
       ]),
       _vm._v(" "),
@@ -27530,217 +27212,12 @@ var render = function() {
             attrs: { action: "" }
           },
           [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex flex-row w-4/5 h-20 justify-center items-center"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4"
-                  },
-                  [
-                    _c(
-                      "h1",
-                      {
-                        staticClass:
-                          "text-2xl text-primary uppercase tracking-widest"
-                      },
-                      [_vm._v("vločky")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex flex-col w-full h-full justify-center items-end"
-                      },
-                      [
-                        _c(
-                          "h1",
-                          {
-                            staticClass:
-                              "text-primary text-xl text-right w-full"
-                          },
-                          [_vm._v("443 kCal")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "text-right text-primary text-s w-full"
-                          },
-                          [_vm._v("Bielkoviny: 20g, Tuky: 20g, Cukry: 20g")]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex flex-row w-4/5 h-20 justify-center items-center mt-4"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4"
-                  },
-                  [
-                    _c(
-                      "h1",
-                      {
-                        staticClass:
-                          "text-2xl text-primary uppercase tracking-widest"
-                      },
-                      [_vm._v("vločky")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex flex-col w-full h-full justify-center items-end"
-                      },
-                      [
-                        _c(
-                          "h1",
-                          {
-                            staticClass:
-                              "text-primary text-xl text-right w-full"
-                          },
-                          [_vm._v("443 kCal")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "text-right text-primary text-s w-full"
-                          },
-                          [_vm._v("Bielkoviny: 20g, Tuky: 20g, Cukry: 20g")]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex flex-row w-4/5 h-20 justify-center items-center mt-4"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4"
-                  },
-                  [
-                    _c(
-                      "h1",
-                      {
-                        staticClass:
-                          "text-2xl text-primary uppercase tracking-widest"
-                      },
-                      [_vm._v("vločky")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex flex-col w-full h-full justify-center items-end"
-                      },
-                      [
-                        _c(
-                          "h1",
-                          {
-                            staticClass:
-                              "text-primary text-xl text-right w-full"
-                          },
-                          [_vm._v("443 kCal")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "text-right text-primary text-s w-full"
-                          },
-                          [_vm._v("Bielkoviny: 20g, Tuky: 20g, Cukry: 20g")]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex flex-row w-4/5 h-20 justify-center items-center mt-4"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4"
-                  },
-                  [
-                    _c(
-                      "h1",
-                      {
-                        staticClass:
-                          "text-2xl text-primary uppercase tracking-widest"
-                      },
-                      [_vm._v("vločky")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex flex-col w-full h-full justify-center items-end"
-                      },
-                      [
-                        _c(
-                          "h1",
-                          {
-                            staticClass:
-                              "text-primary text-xl text-right w-full"
-                          },
-                          [_vm._v("443 kCal")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "text-right text-primary text-s w-full"
-                          },
-                          [_vm._v("Bielkoviny: 20g, Tuky: 20g, Cukry: 20g")]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
+            _vm._l(4, function(i) {
+              return _c("meals-holder", {
+                key: i,
+                attrs: { name: "Vločky", calories: 400 }
+              })
+            }),
             _vm._v(" "),
             _c(
               "button",
@@ -27750,11 +27227,12 @@ var render = function() {
               },
               [
                 _vm._v(
-                  "\n                    Vygenerovať nový recept\n                "
+                  "\n                Vygenerovať nový recept\n            "
                 )
               ]
             )
-          ]
+          ],
+          2
         )
       ]),
       _vm._v(" "),
@@ -27768,217 +27246,12 @@ var render = function() {
             attrs: { action: "" }
           },
           [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex flex-row w-4/5 h-20 justify-center items-center"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4"
-                  },
-                  [
-                    _c(
-                      "h1",
-                      {
-                        staticClass:
-                          "text-2xl text-primary uppercase tracking-widest"
-                      },
-                      [_vm._v("vločky")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex flex-col w-full h-full justify-center items-end"
-                      },
-                      [
-                        _c(
-                          "h1",
-                          {
-                            staticClass:
-                              "text-primary text-xl text-right w-full"
-                          },
-                          [_vm._v("443 kCal")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "text-right text-primary text-s w-full"
-                          },
-                          [_vm._v("Bielkoviny: 20g, Tuky: 20g, Cukry: 20g")]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex flex-row w-4/5 h-20 justify-center items-center mt-4"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4"
-                  },
-                  [
-                    _c(
-                      "h1",
-                      {
-                        staticClass:
-                          "text-2xl text-primary uppercase tracking-widest"
-                      },
-                      [_vm._v("vločky")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex flex-col w-full h-full justify-center items-end"
-                      },
-                      [
-                        _c(
-                          "h1",
-                          {
-                            staticClass:
-                              "text-primary text-xl text-right w-full"
-                          },
-                          [_vm._v("443 kCal")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "text-right text-primary text-s w-full"
-                          },
-                          [_vm._v("Bielkoviny: 20g, Tuky: 20g, Cukry: 20g")]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex flex-row w-4/5 h-20 justify-center items-center mt-4"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4"
-                  },
-                  [
-                    _c(
-                      "h1",
-                      {
-                        staticClass:
-                          "text-2xl text-primary uppercase tracking-widest"
-                      },
-                      [_vm._v("vločky")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex flex-col w-full h-full justify-center items-end"
-                      },
-                      [
-                        _c(
-                          "h1",
-                          {
-                            staticClass:
-                              "text-primary text-xl text-right w-full"
-                          },
-                          [_vm._v("443 kCal")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "text-right text-primary text-s w-full"
-                          },
-                          [_vm._v("Bielkoviny: 20g, Tuky: 20g, Cukry: 20g")]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "flex flex-row w-4/5 h-20 justify-center items-center mt-4"
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4"
-                  },
-                  [
-                    _c(
-                      "h1",
-                      {
-                        staticClass:
-                          "text-2xl text-primary uppercase tracking-widest"
-                      },
-                      [_vm._v("vločky")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "flex flex-col w-full h-full justify-center items-end"
-                      },
-                      [
-                        _c(
-                          "h1",
-                          {
-                            staticClass:
-                              "text-primary text-xl text-right w-full"
-                          },
-                          [_vm._v("443 kCal")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "p",
-                          {
-                            staticClass: "text-right text-primary text-s w-full"
-                          },
-                          [_vm._v("Bielkoviny: 20g, Tuky: 20g, Cukry: 20g")]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            ),
+            _vm._l(4, function(i) {
+              return _c("meals-holder", {
+                key: i,
+                attrs: { name: "Vločky", calories: 400 }
+              })
+            }),
             _vm._v(" "),
             _c(
               "button",
@@ -27988,11 +27261,12 @@ var render = function() {
               },
               [
                 _vm._v(
-                  "\n                    Vygenerovať nový recept\n                "
+                  "\n                Vygenerovať nový recept\n            "
                 )
               ]
             )
-          ]
+          ],
+          2
         )
       ])
     ],
@@ -28022,7 +27296,43 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "bg-secondary w-full h-full rounded-xl" })
+  return _c(
+    "div",
+    {
+      staticClass: "flex flex-row w-4/5 h-20 justify-center items-center mt-4"
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass:
+            "flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4"
+        },
+        [
+          _c(
+            "h1",
+            { staticClass: "text-2xl text-primary uppercase tracking-widest" },
+            [_vm._v(_vm._s(_vm.name))]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "flex flex-col w-full h-full justify-center items-end"
+            },
+            [
+              _c(
+                "h1",
+                { staticClass: "text-primary text-xl text-right w-full" },
+                [_vm._v(_vm._s(_vm.calories) + " kCal")]
+              )
+            ]
+          )
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
