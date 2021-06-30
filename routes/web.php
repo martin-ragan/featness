@@ -14,7 +14,36 @@ use App\Http\Controllers\ExerciseController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('mamau', function () {
+//    $array = [
+//        [
+//            'name' => 'ovsené vločky',
+//            'amount' => 15
+//        ],
+//        [
+//            'name' => 'orechy vlašské',
+//            'amount' => 4
+//        ],
+//        [
+//            'name' => 'jogurt biely bez smotany',
+//            'amount' => 60
+//        ],
+//        [
+//            'name' => 'jahody mrazené',
+//            'amount' => 19
+//        ],
+//        [
+//            'name' => 'med',
+//            'amount' => 2
+//        ]
+//    ];
+//
+//    $json = json_encode($array);
+//    dd($json);
 
+    $food = \App\Models\Food::skip(4)->first();
+    dd($food->ingredients);
+});
 
 Route::get('/', function() {
     return view('welcome');

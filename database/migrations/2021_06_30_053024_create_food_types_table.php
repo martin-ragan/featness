@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateFoodTypesTable extends Migration
 {
@@ -17,6 +18,13 @@ class CreateFoodTypesTable extends Migration
             $table->id();
             $table->string("name");
         });
+
+        DB::table('food_types')->insert([
+            [ 'name' => 'Raňajky' ],
+            [ 'name' => 'Obed' ],
+            [ 'name' => 'Olovrant' ],
+            [ 'name' => 'Večera' ],
+        ]);
     }
 
     /**
