@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Food extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
+
+    protected $casts = [
+        'ingredients' => 'array',
+        'recipe' => 'array',
+    ];
+
+    public function foodType(){
+        return $this->belongsTo(FoodType::class);
+    }
 }
