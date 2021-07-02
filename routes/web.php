@@ -35,9 +35,6 @@ Route::get('/cookies', function() {
     return view('cookies');
 });
 
-Route::get('/generate-food', [FoodController::class, 'generateFoodMenu']);
-
-
 // Routes protected for logged users
 Route::middleware('auth')->group(function() {
     Route::middleware('isAdmin')->group(function () {
