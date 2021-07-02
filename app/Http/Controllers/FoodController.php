@@ -101,4 +101,28 @@ class FoodController extends Controller
         }
         return $newFoods;
     }
+
+    public function generateSpecificFootType(Request $request){
+
+        $data = $request->validate([
+            "foodType" => ['required', 'between:1,4', 'integer']
+        ]);
+
+        $foodType = $data['foodType'];
+
+        $foodIds = $this->generateFood($foodType);
+
+        $food = Food::whereIn('id', json_decode($foodIds))->get()->toArray();
+
+        $user = Auth::user();
+
+        if ($foodType == 1) $calories = $user->daily_calories * .25;
+        else if ($foodType == 2 || $foodType == 4) $calories = $user->daily_calories * .3;
+        else if ($foodType == 3) $calories = $user->daily_calories * .15;
+
+        $food = $this->calculateByCalories($calories, $food);
+
+        return $food;
+
+    }
 }
