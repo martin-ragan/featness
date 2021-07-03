@@ -45,14 +45,18 @@ Route::middleware('auth')->group(function() {
             return view('trening');
         });
 
+        Route::post('/generate-training', [ExerciseController::class, 'generateTraining']);
+
+        Route::get('/current-training', [ExerciseController::class, 'currentTraining']);
+
         Route::get('/jedalnicek', [FoodController::class, 'show']);
+        
+        Route::post('/generateNewRecipe', [FoodController::class, 'generatenewRecipe']);
+
+
         Route::get('/profile', function() {
             return view('profile');
         });
-        Route::post('/generate-training', [ExerciseController::class, 'generateTraining']);
-
-
-        Route::get('/current-training', [ExerciseController::class, 'currentTraining']);
 
     });
 
