@@ -48,6 +48,9 @@ Route::middleware('auth')->group(function() {
         Route::get('/jedalnicek', function() {
             return view('jedalnicek');
         });
+        Route::get('/profile', function() {
+            return view('profile');
+        });
 
         Route::post('/generate-training', [ExerciseController::class, 'generateTraining']);
 

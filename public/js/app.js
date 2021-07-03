@@ -3926,6 +3926,31 @@ __webpack_require__.r(__webpack_exports__);
     Carousel3d: vue_carousel_3d__WEBPACK_IMPORTED_MODULE_0__.Carousel3d,
     Slide: vue_carousel_3d__WEBPACK_IMPORTED_MODULE_0__.Slide,
     MealsHolder: _MealsHolder__WEBPACK_IMPORTED_MODULE_1__.default
+  },
+  data: function data() {
+    return {
+      mealHolderWidth: window.outerWidth < 650 ? window.outerWidth * 0.9 : window.outerWidth * 0.4,
+      dTransform: false
+    };
+  },
+  created: function created() {
+    window.addEventListener("resize", this.myEventHandler);
+  },
+  destroyed: function destroyed() {
+    window.removeEventListener("resize", this.myEventHandler);
+  },
+  methods: {
+    myEventHandler: function myEventHandler(e) {
+      var windowWidth = e.srcElement.outerWidth;
+
+      if (windowWidth <= 650) {
+        this.dTransform = true;
+        this.mealHolderWidth = windowWidth * 0.9;
+      } else {
+        this.dTransform = false;
+        this.mealHolderWidth = windowWidth * 0.4;
+      }
+    }
   }
 });
 
@@ -4539,7 +4564,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-3d-container {\n}\n.carousel-3d-container span {\n    color: #C18E60;\n    font-size: 10rem;\n}\n.carousel-3d-slide {\n    padding: 2rem;\n    border: none;\n    display: flex;\n    flex-direction: column;\n    justify-items: center;\n    align-items: center;\n    border-radius: 2rem;\n    background: rgba(40, 60, 80, 0.85);\n}\n.carousel-3d-slide.current {\n    background: #283C50;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-3d-container {\n    height: 100vh !important;\n    width: 100% !important;\n}\n.carousel-3d-container span {\n    color: #C18E60;\n    font-size: 10rem;\n}\n.carousel-3d-slide {\n    height: 70vh !important;\n    padding: 2rem;\n    border: none;\n    display: flex;\n    flex-direction: column;\n    justify-items: center;\n    align-items: center;\n    border-radius: 2rem;\n    background: rgba(40, 60, 80, 0.85);\n}\n.carousel-3d-slide.current {\n    background: #283C50;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27160,24 +27185,26 @@ var render = function() {
     "carousel-3d",
     {
       attrs: {
+        disable3d: _vm.dTransform,
+        space: 365,
         controlsVisible: true,
         controlsHeight: 100,
         controlsWidth: 100,
-        width: 600,
-        height: 600
+        width: _vm.mealHolderWidth
       }
     },
     [
       _c("slide", { attrs: { index: 0 } }, [
-        _c("h1", [_vm._v("Raňajky")]),
-        _vm._v(" "),
         _c(
           "form",
           {
-            staticClass: "flex flex-col w-full h-full items-center mt-8",
+            staticClass:
+              "flex flex-col w-full h-full justify-evenly items-center",
             attrs: { action: "" }
           },
           [
+            _c("h1", { staticClass: "text-xl" }, [_vm._v("Raňajky")]),
+            _vm._v(" "),
             _vm._l(4, function(i) {
               return _c("meals-holder", {
                 key: i,
@@ -27189,7 +27216,7 @@ var render = function() {
               "button",
               {
                 staticClass:
-                  "btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light"
+                  "btn-brown text-tiny py-2 w-2/3 font-sans tracking-widest font-light"
               },
               [
                 _vm._v(
@@ -27203,12 +27230,13 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("slide", { attrs: { index: 1 } }, [
-        _c("h1", [_vm._v("Obed")]),
+        _c("h1", { staticClass: "text-xl" }, [_vm._v("Obed")]),
         _vm._v(" "),
         _c(
           "form",
           {
-            staticClass: "flex flex-col w-full h-full items-center mt-8",
+            staticClass:
+              "flex flex-col w-full justify-evenly items-center mt-8",
             attrs: { action: "" }
           },
           [
@@ -27223,7 +27251,7 @@ var render = function() {
               "button",
               {
                 staticClass:
-                  "btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light"
+                  "btn-brown text-sm w-2/3 font-sans tracking-widest font-light"
               },
               [
                 _vm._v(
@@ -27237,7 +27265,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("slide", { attrs: { index: 2 } }, [
-        _c("h1", [_vm._v("Večera")]),
+        _c("h1", { staticClass: "text-xl" }, [_vm._v("Večera")]),
         _vm._v(" "),
         _c(
           "form",
@@ -27298,33 +27326,31 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "flex flex-row w-4/5 h-20 justify-center items-center mt-4"
-    },
+    { staticClass: "flex flex-row w-4/5 h-12 justify-center items-center" },
     [
       _c(
         "div",
         {
           staticClass:
-            "flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4"
+            "flex-1 bg-white h-full flex flex-row rounded-lg items-center px-4"
         },
         [
           _c(
             "h1",
-            { staticClass: "text-2xl text-primary uppercase tracking-widest" },
+            { staticClass: "text-lg text-primary uppercase tracking-widest" },
             [_vm._v(_vm._s(_vm.name))]
           ),
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass:
-                "flex flex-col w-full h-full justify-center items-end"
-            },
+            { staticClass: "flex flex-col w-full justify-center items-end" },
             [
               _c(
                 "h1",
-                { staticClass: "text-primary text-xl text-right w-full" },
+                {
+                  staticClass:
+                    "text-primary text-tiny font-bold text-right w-full"
+                },
                 [_vm._v(_vm._s(_vm.calories) + " kCal")]
               )
             ]
@@ -27752,7 +27778,7 @@ var staticRenderFns = [
       {
         staticClass:
           "no-underline mt-2 w-full text-left block sm:inline-block sm:mt-0 sm:w-auto",
-        attrs: { href: "" }
+        attrs: { href: "/profile" }
       },
       [
         _c("img", {
