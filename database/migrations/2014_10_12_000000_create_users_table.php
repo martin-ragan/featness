@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('age');
             $table->string('life_style');
             $table->string('my_goal');
+            $table->integer('daily_calories')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

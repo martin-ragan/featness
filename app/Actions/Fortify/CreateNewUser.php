@@ -27,8 +27,8 @@ class CreateNewUser implements CreatesNewUsers
             'height' => ['required', 'integer', 'between:0,300'],
             'weight' => ['required', 'numeric', 'between:0,500'],
             'age' => ['required', 'integer', 'between:0,200'],
-            'life_style' => ['required', 'string'],
-            'my_goal' => ['required', 'string'],
+            'life_style' => ['required', 'string', 'in:sedavý typ,ľahko aktívny,aktívny,veľmi aktívny'],
+            'my_goal' => ['required', 'string', 'in:chcem chudnúť,chcem udržať hmotnosť,chcem pribráť'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
