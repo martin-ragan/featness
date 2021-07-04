@@ -1,5 +1,5 @@
 <template>
-    <carousel-3d :controlsVisible="true" :controlsHeight="100" :controlsWidth="100" :width="600" :height="600">
+    <carousel-3d :disable3d="dTransform" :space="365" :controlsVisible="true" :controlsHeight="100" :controlsWidth="100" :width="mealHolderWidth">
         <slide :index="0">
             <h1>Raňajky</h1>
             <form class="flex flex-col w-full h-full items-center mt-8" action="" >
@@ -50,17 +50,44 @@ export default {
         MealsHolder
     },
     props: ['breakfast', 'lunch', 'snack', 'dinner'],
+    data() {
+        return {
+            mealHolderWidth: window.outerWidth < 650 ? window.outerWidth * 0.9 : window.outerWidth * 0.4,
+            dTransform: false
+        }
+    },
+    created() {
+        window.addEventListener("resize", this.myEventHandler);
+    },
+    destroyed() {
+        window.removeEventListener("resize", this.myEventHandler);
+    },
+    methods: {
+        myEventHandler(e) {
+            let windowWidth =  e.srcElement.outerWidth;
+            if (windowWidth <= 650) {
+                this.dTransform = true;
+                this.mealHolderWidth = windowWidth * 0.9;
+            } else {
+                this.dTransform = false;
+                this.mealHolderWidth = windowWidth * 0.4;
+            }
+        }
+    }
 };
 </script>
 
 <style>
 .carousel-3d-container {
+    height: 100vh !important;
+    width: 100% !important;
 }
 .carousel-3d-container span {
     color: #C18E60;
     font-size: 10rem;
 }
 .carousel-3d-slide {
+    height: 70vh !important;
     padding: 2rem;
     border: none;
     display: flex;
@@ -73,5 +100,4 @@ export default {
 .carousel-3d-slide.current {
     background: #283C50;
 }
-
 </style>
