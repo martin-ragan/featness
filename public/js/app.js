@@ -3919,6 +3919,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3926,7 +3935,8 @@ __webpack_require__.r(__webpack_exports__);
     Carousel3d: vue_carousel_3d__WEBPACK_IMPORTED_MODULE_0__.Carousel3d,
     Slide: vue_carousel_3d__WEBPACK_IMPORTED_MODULE_0__.Slide,
     MealsHolder: _MealsHolder__WEBPACK_IMPORTED_MODULE_1__.default
-  }
+  },
+  props: ['breakfast', 'lunch', 'snack', 'dinner']
 });
 
 /***/ }),
@@ -4539,7 +4549,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-3d-container {\n}\n.carousel-3d-container span {\r\n    color: #C18E60;\r\n    font-size: 10rem;\n}\n.carousel-3d-slide {\r\n    padding: 2rem;\r\n    border: none;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-items: center;\r\n    align-items: center;\r\n    border-radius: 2rem;\r\n    background: rgba(40, 60, 80, 0.85);\n}\n.carousel-3d-slide.current {\r\n    background: #283C50;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-3d-container {\n}\n.carousel-3d-container span {\n    color: #C18E60;\n    font-size: 10rem;\n}\n.carousel-3d-slide {\n    padding: 2rem;\n    border: none;\n    display: flex;\n    flex-direction: column;\n    justify-items: center;\n    align-items: center;\n    border-radius: 2rem;\n    background: rgba(40, 60, 80, 0.85);\n}\n.carousel-3d-slide.current {\n    background: #283C50;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4587,7 +4597,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active, .fade-leave-active {\r\n    transition: opacity .5s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\r\n    opacity: 0;\n}\n.training-holder::-webkit-scrollbar {\r\n    width: 1.25rem;\r\n    border-radius: 0.75rem;\n}\n.training-holder::-webkit-scrollbar-track {\r\n    background-color: rgba(40, 60, 80, 0.50);\r\n    border-radius: 0.75rem;\n}\n.training-holder::-webkit-scrollbar-thumb {\r\n    background-color: rgba(40, 60, 80, 1);\r\n    border-radius: 0.75rem;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active, .fade-leave-active {\n    transition: opacity .5s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n    opacity: 0;\n}\n.training-holder::-webkit-scrollbar {\n    width: 1.25rem;\n    border-radius: 0.75rem;\n}\n.training-holder::-webkit-scrollbar-track {\n    background-color: rgba(40, 60, 80, 0.50);\n    border-radius: 0.75rem;\n}\n.training-holder::-webkit-scrollbar-thumb {\n    background-color: rgba(40, 60, 80, 1);\n    border-radius: 0.75rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4611,7 +4621,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.loader[data-v-26d38626] {\r\n    /*@apply border-8 border-white border-t-8 border-t-primary rounded-2xl;*/\r\n    border: 8px solid #f3f3f3;\r\n    border-radius: 50%;\r\n    border-top: 8px solid #C18E60;\r\n    width: 80px;\r\n    height: 80px;\r\n    -webkit-animation: spin-data-v-26d38626 2s linear infinite; /* Safari */\r\n    animation: spin-data-v-26d38626 2s linear infinite;\n}\r\n\r\n/* Safari */\n@-webkit-keyframes spin-data-v-26d38626 {\n0% { -webkit-transform: rotate(0deg);\n}\n100% { -webkit-transform: rotate(360deg);\n}\n}\n@keyframes spin-data-v-26d38626 {\n0% {\r\n        transform: rotate(0deg);\n}\n100% {\r\n        transform: rotate(360deg);\n}\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.loader[data-v-26d38626] {\n    /*@apply border-8 border-white border-t-8 border-t-primary rounded-2xl;*/\n    border: 8px solid #f3f3f3;\n    border-radius: 50%;\n    border-top: 8px solid #C18E60;\n    width: 80px;\n    height: 80px;\n    -webkit-animation: spin-data-v-26d38626 2s linear infinite; /* Safari */\n    animation: spin-data-v-26d38626 2s linear infinite;\n}\n\n/* Safari */\n@-webkit-keyframes spin-data-v-26d38626 {\n0% { -webkit-transform: rotate(0deg);\n}\n100% { -webkit-transform: rotate(360deg);\n}\n}\n@keyframes spin-data-v-26d38626 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27178,10 +27188,10 @@ var render = function() {
             attrs: { action: "" }
           },
           [
-            _vm._l(4, function(i) {
+            _vm._l(_vm.breakfast, function(meal) {
               return _c("meals-holder", {
-                key: i,
-                attrs: { name: "Vločky", calories: 400 }
+                key: meal.id,
+                attrs: { name: meal.name, calories: meal.kcal }
               })
             }),
             _vm._v(" "),
@@ -27203,7 +27213,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("slide", { attrs: { index: 1 } }, [
-        _c("h1", [_vm._v("Obed")]),
+        _c("h1", [_vm._v("Olovrant")]),
         _vm._v(" "),
         _c(
           "form",
@@ -27212,10 +27222,10 @@ var render = function() {
             attrs: { action: "" }
           },
           [
-            _vm._l(4, function(i) {
+            _vm._l(_vm.snack, function(meal) {
               return _c("meals-holder", {
-                key: i,
-                attrs: { name: "Vločky", calories: 400 }
+                key: meal.id,
+                attrs: { name: meal.name, calories: meal.kcal }
               })
             }),
             _vm._v(" "),
@@ -27237,6 +27247,40 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("slide", { attrs: { index: 2 } }, [
+        _c("h1", [_vm._v("Obed")]),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            staticClass: "flex flex-col w-full h-full items-center mt-8",
+            attrs: { action: "" }
+          },
+          [
+            _vm._l(_vm.lunch, function(meal) {
+              return _c("meals-holder", {
+                key: meal.id,
+                attrs: { name: meal.name, calories: meal.kcal }
+              })
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light"
+              },
+              [
+                _vm._v(
+                  "\n                Vygenerovať nový recept\n            "
+                )
+              ]
+            )
+          ],
+          2
+        )
+      ]),
+      _vm._v(" "),
+      _c("slide", { attrs: { index: 3 } }, [
         _c("h1", [_vm._v("Večera")]),
         _vm._v(" "),
         _c(
@@ -27246,10 +27290,10 @@ var render = function() {
             attrs: { action: "" }
           },
           [
-            _vm._l(4, function(i) {
+            _vm._l(_vm.dinner, function(meal) {
               return _c("meals-holder", {
-                key: i,
-                attrs: { name: "Vločky", calories: 400 }
+                key: meal.id,
+                attrs: { name: meal.name, calories: meal.kcal }
               })
             }),
             _vm._v(" "),
@@ -27311,16 +27355,16 @@ var render = function() {
         [
           _c(
             "h1",
-            { staticClass: "text-2xl text-primary uppercase tracking-widest" },
+            {
+              staticClass:
+                "text-lg flex-1 text-primary uppercase tracking-widest"
+            },
             [_vm._v(_vm._s(_vm.name))]
           ),
           _vm._v(" "),
           _c(
             "div",
-            {
-              staticClass:
-                "flex flex-col w-full h-full justify-center items-end"
-            },
+            { staticClass: "flex flex-col h-full justify-center items-end" },
             [
               _c(
                 "h1",

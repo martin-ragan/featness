@@ -3,25 +3,34 @@
         <slide :index="0">
             <h1>Raňajky</h1>
             <form class="flex flex-col w-full h-full items-center mt-8" action="" >
-                <meals-holder v-for="i in 4" :key="i" name="Vločky" :calories="400"></meals-holder>
+                <meals-holder v-for="meal in breakfast" :key="meal.id" :name="meal.name" :calories="meal.kcal"></meals-holder>
                 <button class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light">
                     Vygenerovať nový recept
                 </button>
             </form>
         </slide>
         <slide :index="1">
-            <h1>Obed</h1>
+            <h1>Olovrant</h1>
             <form class="flex flex-col w-full h-full items-center mt-8" action="" >
-                <meals-holder v-for="i in 4" :key="i" name="Vločky" :calories="400"></meals-holder>
+                <meals-holder v-for="meal in snack" :key="meal.id" :name="meal.name" :calories="meal.kcal"></meals-holder>
                 <button class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light">
                     Vygenerovať nový recept
                 </button>
             </form>
         </slide>
         <slide :index="2">
+            <h1>Obed</h1>
+            <form class="flex flex-col w-full h-full items-center mt-8" action="" >
+                <meals-holder v-for="meal in lunch" :key="meal.id" :name="meal.name" :calories="meal.kcal"></meals-holder>
+                <button class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light">
+                    Vygenerovať nový recept
+                </button>
+            </form>
+        </slide>
+        <slide :index="3">
             <h1>Večera</h1>
             <form class="flex flex-col w-full h-full items-center mt-8" action="" >
-                <meals-holder v-for="i in 4" :key="i" name="Vločky" :calories="400"></meals-holder>
+                <meals-holder v-for="meal in dinner" :key="meal.id" :name="meal.name" :calories="meal.kcal"></meals-holder>
                 <button class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light">
                     Vygenerovať nový recept
                 </button>
@@ -39,7 +48,8 @@ export default {
         Carousel3d,
         Slide,
         MealsHolder
-    }
+    },
+    props: ['breakfast', 'lunch', 'snack', 'dinner'],
 };
 </script>
 
