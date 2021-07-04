@@ -15,6 +15,7 @@ use App\Http\Controllers\FoodController;
 |
 */
 
+
 Route::get('/', function() {
     return view('welcome');
 });
@@ -35,6 +36,7 @@ Route::get('/cookies', function() {
     return view('cookies');
 });
 
+
 // Routes protected for logged users
 Route::middleware('auth')->group(function() {
     Route::middleware('isAdmin')->group(function () {
@@ -43,12 +45,18 @@ Route::middleware('auth')->group(function() {
             return view('trening');
         });
 
-        Route::get('/jedalnicek', [FoodController::class, 'show']);
-
         Route::post('/generate-training', [ExerciseController::class, 'generateTraining']);
 
-
         Route::get('/current-training', [ExerciseController::class, 'currentTraining']);
+
+        Route::get('/jedalnicek', [FoodController::class, 'show']);
+        
+        Route::post('/generateNewRecipe', [FoodController::class, 'generatenewRecipe']);
+
+
+        Route::get('/profile', function() {
+            return view('profile');
+        });
 
     });
 

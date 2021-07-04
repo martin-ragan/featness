@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -100,5 +101,43 @@ class FoodController extends Controller
             array_push($newFoods, $food);
         }
         return $newFoods;
+    }
+
+    public function generatenewRecipe(Request $request){
+
+        $data = $request->validate([
+            "foodType" => ['required', 'between:1,4', 'integer']
+        ]);
+
+        $foodType = $data['foodType'];
+
+        $foodIds = $this->generateFood($foodType);
+
+        $food = Food::whereIn('id', $foodIds)->get()->toArray();
+
+        $user = Auth::user();
+
+        if ($foodType == 1) {
+            $calories = $user->daily_calories * .25;
+            $menuType = "breakfastIds";
+        }
+        else if ($foodType == 2 || $foodType == 4) {
+            $calories = $user->daily_calories * .3;
+            $menuType = "lunchIds";
+        }
+        else if ($foodType == 3) {
+            $calories = $user->daily_calories * .15;
+            $menuType = "snackIds";
+        }
+        else if ($foodType == 4) {
+            $calories = $user->daily_calories * .3;
+            $menuType = "dinnerIds";
+        }
+
+
+        $user->menu()->update([$menuType => json_encode($foodIds)]);
+
+        return $this->calculateByCalories($calories, $food);
+
     }
 }
