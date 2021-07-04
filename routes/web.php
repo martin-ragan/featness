@@ -50,7 +50,7 @@ Route::middleware('auth')->group(function() {
         Route::get('/current-training', [ExerciseController::class, 'currentTraining']);
 
         Route::get('/jedalnicek', [FoodController::class, 'show']);
-        
+
         Route::post('/generateNewRecipe', [FoodController::class, 'generatenewRecipe']);
 
 

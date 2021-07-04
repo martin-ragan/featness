@@ -55,11 +55,17 @@ class FoodController extends Controller
 
         $menu = $user->menu;
         if (!$menu) $menu = $this->generateFoodMenu();
+        if (!is_array($menu->breakfastIds)) $menu->breakfastIds = json_decode($menu->breakfastIds);
+        if (!is_array($menu->lunchIds)) $menu->lunchIds = json_decode($menu->lunchIds);
+        if (!is_array($menu->snackIds)) $menu->snackIds = json_decode($menu->snackIds);
+        if (!is_array($menu->dinnerIds)) $menu->dinnerIds = json_decode($menu->dinnerIds);
 
-        $breakfast = Food::whereIn('id', json_decode($menu->breakfastIds))->get()->toArray();
-        $lunch = Food::whereIn('id', json_decode($menu->lunchIds))->get()->toArray();
-        $snack = Food::whereIn('id', json_decode($menu->snackIds))->get()->toArray();
-        $dinner = Food::whereIn('id', json_decode($menu->dinnerIds))->get()->toArray();
+
+//        dd($menu->lunchIds);
+        $breakfast = Food::whereIn('id', $menu->breakfastIds)->get()->toArray();
+        $lunch = Food::whereIn('id', $menu->lunchIds)->get()->toArray();
+        $snack = Food::whereIn('id', $menu->snackIds)->get()->toArray();
+        $dinner = Food::whereIn('id', $menu->dinnerIds)->get()->toArray();
 
         $breakfast = $this->calculateByCalories($dailyCalories * .25, $breakfast);
         $lunch = $this->calculateByCalories($dailyCalories * .3, $lunch);
