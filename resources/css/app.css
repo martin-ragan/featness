@@ -6,10 +6,25 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
+*{
+    outline: 2px solid transparent !important;
+    outline-offset: 2px !important;
+}
+
 @layer base {
     h1 {
           @apply text-2xl text-white uppercase tracking-widest md:text-4xl;
     }
+    input[type="checkbox"]{
+        appearance: none !important;
+        background: transparent;
+    }
+    input[type="checkbox"]:checked{
+        color: #C18E60 !important;
+    }
+    /*input[type="checkbox"]:hover{*/
+    /*    color: #C18E60 !important;*/
+    /*}*/
     input {
         @apply tracking-widest font-sans;
     }

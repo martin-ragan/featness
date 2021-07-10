@@ -7,7 +7,9 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
-
+    corePlugins: {
+        outline: false,
+    },
     theme: {
         extend: {
             inset:{
@@ -58,6 +60,8 @@ module.exports = {
     variants: {
         extend: {
             opacity: ['disabled'],
+            backgroundColor: ['checked'],
+            borderColor: ['checked'],
         },
     },
 
