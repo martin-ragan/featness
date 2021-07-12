@@ -3,52 +3,52 @@
         <carousel-3d :disable3d="dTransform" :space="365" :controlsVisible="true" :controlsHeight="100" :controlsWidth="100" :width="mealHolderWidth">
             <slide :index="0">
                 <h1>Raňajky</h1>
-                <form class="flex flex-col w-full h-full items-center mt-8" v-on:submit.prevent="generateMeals(1)">
+                <form class="flex flex-col w-full h-full items-center sm:mt-8" v-on:submit.prevent="generateMeals(1)">
                     <meals-holder v-for="meal in breakfastData" :key="meal.id"
                                   :name="meal.name"
                                   :calories="meal.kcal"
                                   v-on:click.native="showMeal(meal.name, meal.kcal, meal.proteins, meal.fats, meal.carbohydrates, meal.ingredients, meal.recipe)">
                     </meals-holder>
-                    <button type="submit" class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light">
+                    <button type="submit" class="btn-brown text-sm py-2 font-sans mb-6 w-full tracking-widest font-light sm:mt-12 sm:w-2/3">
                         Vygenerovať nový recept
                     </button>
                 </form>
             </slide>
             <slide :index="1">
                 <h1>Olovrant</h1>
-                <form class="flex flex-col w-full h-full items-center mt-8" v-on:submit.prevent="generateMeals(2)">
+                <form class="flex flex-col w-full h-full items-center sm:mt-8" v-on:submit.prevent="generateMeals(2)">
                     <meals-holder v-for="meal in snackData" :key="meal.id"
                                   :name="meal.name"
                                   :calories="meal.kcal"
                                   v-on:click.native="showMeal(meal.name, meal.kcal, meal.proteins, meal.fats, meal.carbohydrates, meal.ingredients, meal.recipe)">
                     </meals-holder>
-                    <button type="submit" class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light">
+                    <button type="submit" class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light sm:mt-12">
                         Vygenerovať nový recept
                     </button>
                 </form>
             </slide>
             <slide :index="2">
                 <h1>Obed</h1>
-                <form class="flex flex-col w-full h-full items-center mt-8" v-on:submit.prevent="generateMeals(3)">
+                <form class="flex flex-col w-full h-full items-center sm:mt-8" v-on:submit.prevent="generateMeals(3)">
                     <meals-holder v-for="meal in lunchData" :key="meal.id"
                                   :name="meal.name"
                                   :calories="meal.kcal"
                                   v-on:click.native="showMeal(meal.name, meal.kcal, meal.proteins, meal.fats, meal.carbohydrates, meal.ingredients, meal.recipe)"></meals-holder>
-                    <button type="submit" class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light">
+                    <button type="submit" class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light sm:mt-12">
                         Vygenerovať nový recept
                     </button>
                 </form>
             </slide>
             <slide :index="3">
                 <h1>Večera</h1>
-                <form class="flex flex-col w-full h-full items-center mt-8" v-on:submit.prevent="generateMeals(4)">
+                <form class="flex flex-col w-full h-full items-center sm:mt-8" v-on:submit.prevent="generateMeals(4)">
                     <meals-holder v-for="meal in dinnerData" :key="meal.id"
                                   :name="meal.name"
                                   :calories="meal.kcal"
                                   v-on:click.native="showMeal(meal.name, meal.kcal, meal.proteins, meal.fats, meal.carbohydrates, meal.ingredients, meal.recipe)">
 
                     </meals-holder>
-                    <button type="submit" class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light">
+                    <button type="submit" class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light sm:mt-12">
                         Vygenerovať nový recept
                     </button>
                 </form>
@@ -146,8 +146,8 @@ export default {
 
 <style>
 .carousel-3d-container {
-    padding-top: 2rem;
-    height: 100% !important;
+    /*padding-top: 2rem;*/
+    height: 90% !important;
     width: 100% !important;
 }
 .carousel-3d-container span {

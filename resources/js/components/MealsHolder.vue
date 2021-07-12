@@ -1,10 +1,8 @@
 <template>
-    <div class="flex flex-row w-4/5 h-20 justify-center items-center mt-4 cursor-pointer">
-        <div class="flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4" v-on:click="popupVisibility = true">
-            <h1 class="text-lg flex-1 text-primary uppercase tracking-widest">{{ name }}</h1>
-            <div class="flex flex-col h-full justify-center items-end">
-                <h1 class="text-primary text-xl text-right w-full">{{calories}} kCal</h1>
-            </div>
+    <div class="flex flex-row w-full h-20 justify-center items-center mt-4 cursor-pointer sm:w-4/5">
+        <div class="w-full bg-white h-full flex flex-row rounded-xl items-center px-4" v-on:click="popupVisibility = true">
+            <h1 class="flex-1 text-base text-primary uppercase tracking-widest sm:text-lg">{{ name }}</h1>
+            <h1 class="text-base text-primary text-right hidden sm:text-lg sm:block">{{calories}} kCal</h1>
         </div>
     </div>
 </template>

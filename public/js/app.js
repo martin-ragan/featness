@@ -4174,8 +4174,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "MealsHolder",
@@ -4770,7 +4768,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-3d-container {\n    padding-top: 2rem;\n    height: 100% !important;\n    width: 100% !important;\n}\n.carousel-3d-container span {\n    color: #C18E60;\n    font-size: 10rem;\n    z-index: 20;\n}\n.carousel-3d-slide {\n    height: 70vh !important;\n    padding: 2rem;\n    border: none;\n    display: flex;\n    flex-direction: column;\n    justify-items: center;\n    align-items: center;\n    border-radius: 2rem;\n    background: rgba(40, 60, 80, 0.85);\n}\n.carousel-3d-slide.current {\n    background: #283C50;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-3d-container {\n    /*padding-top: 2rem;*/\n    height: 90% !important;\n    width: 100% !important;\n}\n.carousel-3d-container span {\n    color: #C18E60;\n    font-size: 10rem;\n    z-index: 20;\n}\n.carousel-3d-slide {\n    height: 70vh !important;\n    padding: 2rem;\n    border: none;\n    display: flex;\n    flex-direction: column;\n    justify-items: center;\n    align-items: center;\n    border-radius: 2rem;\n    background: rgba(40, 60, 80, 0.85);\n}\n.carousel-3d-slide.current {\n    background: #283C50;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27551,7 +27549,7 @@ var render = function() {
             _c(
               "form",
               {
-                staticClass: "flex flex-col w-full h-full items-center mt-8",
+                staticClass: "flex flex-col w-full h-full items-center sm:mt-8",
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
@@ -27584,7 +27582,7 @@ var render = function() {
                   "button",
                   {
                     staticClass:
-                      "btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light",
+                      "btn-brown text-sm py-2 font-sans mb-6 w-full tracking-widest font-light sm:mt-12 sm:w-2/3",
                     attrs: { type: "submit" }
                   },
                   [
@@ -27604,7 +27602,7 @@ var render = function() {
             _c(
               "form",
               {
-                staticClass: "flex flex-col w-full h-full items-center mt-8",
+                staticClass: "flex flex-col w-full h-full items-center sm:mt-8",
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
@@ -27637,7 +27635,7 @@ var render = function() {
                   "button",
                   {
                     staticClass:
-                      "btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light",
+                      "btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light sm:mt-12",
                     attrs: { type: "submit" }
                   },
                   [
@@ -27657,7 +27655,7 @@ var render = function() {
             _c(
               "form",
               {
-                staticClass: "flex flex-col w-full h-full items-center mt-8",
+                staticClass: "flex flex-col w-full h-full items-center sm:mt-8",
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
@@ -27690,7 +27688,7 @@ var render = function() {
                   "button",
                   {
                     staticClass:
-                      "btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light",
+                      "btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light sm:mt-12",
                     attrs: { type: "submit" }
                   },
                   [
@@ -27710,7 +27708,7 @@ var render = function() {
             _c(
               "form",
               {
-                staticClass: "flex flex-col w-full h-full items-center mt-8",
+                staticClass: "flex flex-col w-full h-full items-center sm:mt-8",
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
@@ -27743,7 +27741,7 @@ var render = function() {
                   "button",
                   {
                     staticClass:
-                      "btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light",
+                      "btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light sm:mt-12",
                     attrs: { type: "submit" }
                   },
                   [
@@ -27985,14 +27983,14 @@ var render = function() {
     "div",
     {
       staticClass:
-        "flex flex-row w-4/5 h-20 justify-center items-center mt-4 cursor-pointer"
+        "flex flex-row w-full h-20 justify-center items-center mt-4 cursor-pointer sm:w-4/5"
     },
     [
       _c(
         "div",
         {
           staticClass:
-            "flex-1 bg-white h-full flex flex-row rounded-xl items-center px-4",
+            "w-full bg-white h-full flex flex-row rounded-xl items-center px-4",
           on: {
             click: function($event) {
               _vm.popupVisibility = true
@@ -28004,21 +28002,18 @@ var render = function() {
             "h1",
             {
               staticClass:
-                "text-lg flex-1 text-primary uppercase tracking-widest"
+                "flex-1 text-base text-primary uppercase tracking-widest sm:text-lg"
             },
             [_vm._v(_vm._s(_vm.name))]
           ),
           _vm._v(" "),
           _c(
-            "div",
-            { staticClass: "flex flex-col h-full justify-center items-end" },
-            [
-              _c(
-                "h1",
-                { staticClass: "text-primary text-xl text-right w-full" },
-                [_vm._v(_vm._s(_vm.calories) + " kCal")]
-              )
-            ]
+            "h1",
+            {
+              staticClass:
+                "text-base text-primary text-right hidden sm:text-lg sm:block"
+            },
+            [_vm._v(_vm._s(_vm.calories) + " kCal")]
           )
         ]
       )
