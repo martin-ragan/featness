@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,11 @@ Route::middleware('auth')->group(function() {
         Route::get('/jedalnicek', [FoodController::class, 'show']);
 
         Route::post('/generateNewRecipe', [FoodController::class, 'generatenewRecipe']);
+
+        Route::post('/toggleEatedFood', [FoodController::class, 'toggleEatedFood']);
+
+
+        Route::get('/profile/{user}', [UserController::class, 'showProfile']);
 
 
         Route::get('/profile', function() {

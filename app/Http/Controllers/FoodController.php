@@ -127,7 +127,7 @@ class FoodController extends Controller
             $calories = $user->daily_calories * .25;
             $menuType = "breakfastIds";
         }
-        else if ($foodType == 2 || $foodType == 4) {
+        else if ($foodType == 2) {
             $calories = $user->daily_calories * .3;
             $menuType = "lunchIds";
         }
@@ -144,6 +144,50 @@ class FoodController extends Controller
         $user->menu()->update([$menuType => json_encode($foodIds)]);
 
         return $this->calculateByCalories($calories, $food);
+
+    }
+
+
+    public function toggleEatedFood(Request $request){
+
+        $data = $request->validate([
+            "foodType" => ['required', 'between:1,4', 'integer'],
+            "calories" => ['required', 'integer']
+        ]);
+
+        $user = Auth::user();
+
+        $eatedFood = $user->eatedFood()->firstOrNew();
+
+        if (!isset($eatedFood->updated_at) || (isset($eatedFood->updated_at) && !$eatedFood->updated_at->isToday())){
+            $eatedFood->breakfastCalories = 0;
+            $eatedFood->lunchCalories = 0;
+            $eatedFood->snackCalories = 0;
+            $eatedFood->dinnerCalories = 0;
+        }
+
+        $foodType = $data['foodType'];
+        $calories = $data['calories'];
+
+
+        if ($foodType == 1) {
+            if ($eatedFood->breakfastCalories != 0) $eatedFood->breakfastCalories = 0;
+            else $eatedFood->breakfastCalories = $calories;
+        }
+        else if ($foodType == 2) {
+            if ($eatedFood->lunchCalories != 0) $eatedFood->lunchCalories = 0;
+            else $eatedFood->lunchCalories = $calories;
+        }
+        else if ($foodType == 3) {
+            if ($eatedFood->snackCalories != 0) $eatedFood->snackCalories = 0;
+            else $eatedFood->snackCalories = $calories;
+        }
+        else if ($foodType == 4) {
+            if ($eatedFood->dinnerCalories != 0) $eatedFood->dinnerCalories = 0;
+            else $eatedFood->dinnerCalories = $calories;
+        }
+        $eatedFood->save();
+
 
     }
 }
