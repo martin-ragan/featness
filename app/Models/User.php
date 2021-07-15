@@ -34,6 +34,7 @@ class User extends Authenticatable
         'life_style',
         'my_goal',
         'active_until',
+        'daily_calories'
     ];
 
     /**

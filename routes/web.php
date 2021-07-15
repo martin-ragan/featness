@@ -59,6 +59,8 @@ Route::middleware('auth')->group(function() {
 
         Route::get('/profile/{user}', [UserController::class, 'showProfile']);
 
+        Route::get('/profileupdate/{user}', [UserController::class, 'update']);
+
 
         Route::get('/profile', function() {
             return view('profile');

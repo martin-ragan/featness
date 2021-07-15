@@ -36,15 +36,61 @@ class UserController extends Controller
             'my_goal' => ['required', 'string', 'in:chcem chudnúť,chcem udržať hmotnosť,chcem pribráť'],
         ]);
 
+        $daily_calories = 447.593 + (9.247 * $data['weight']) + (3.098 * $data['height']) - (4.330 * $data['age']);
+
+        switch ($data['life_style']) {
+            case "sedavý typ":
+            {
+                $daily_calories *= 1.2;
+                break;
+            }
+            case "ľahko aktívny":
+            {
+                $daily_calories *= 1.375;
+                break;
+            }
+            case "aktívny":
+            {
+                $daily_calories *= 1.55;
+                break;
+            }
+            case "veľmi aktívny":
+            {
+                $daily_calories *= 1.725;
+                break;
+            }
+        }
+
+        switch ($data['my_goal']) {
+            case "chcem chudnúť":
+            {
+                $daily_calories -= 300;
+                break;
+            }
+            case "chcem pribrať":
+            {
+                $daily_calories += 350;
+                break;
+            }
+        }
+//dd($daily_calories);
+
         $user->update([
-            'height' => $data['height']
+            'height' => $data['height'],
+            'weight' => $data['weight'],
+            'age' => $data['age'],
+            'life_style' => $data['life_style'],
+            'my_goal' => $data['my_goal'],
+            'daily_calories' => $daily_calories,
         ]);
+
+        return redirect('/profile/' . $user->name);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
