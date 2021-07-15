@@ -47,8 +47,8 @@ class FoodController extends Controller
     }
 
 
-    public function show()
-    {
+    public function show() {
+
         $user = Auth::user();
 
         $dailyCalories = $user->daily_calories;

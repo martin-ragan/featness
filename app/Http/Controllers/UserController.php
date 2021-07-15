@@ -26,8 +26,10 @@ class UserController extends Controller
     }
 
 
-    public function update(Request $request, User $user)
-    {
+    public function update(Request $request, User $user) {
+
+        $this->authorize('update', $user);
+
         $data = $request->validate([
             'height' => ['required', 'integer', 'between:0,300'],
             'weight' => ['required', 'numeric', 'between:0,500'],
@@ -73,7 +75,6 @@ class UserController extends Controller
                 break;
             }
         }
-//dd($daily_calories);
 
         $user->update([
             'height' => $data['height'],
