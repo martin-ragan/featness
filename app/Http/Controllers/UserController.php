@@ -11,62 +11,34 @@ class UserController extends Controller
 
     public function showProfile(User $user)
     {
-        dd($user->eatedFood);
+        $caloriesAte = 0;
+        // need to cound how many calories are already eaten
+        $eatedFood = $user->eatedFood;
+
+        if ($eatedFood->breakfast_id != null) $caloriesAte += $user->daily_calories * .25;
+        if ($eatedFood->lunch_id != null) $caloriesAte += $user->daily_calories * .3;
+        if ($eatedFood->snack_id != null) $caloriesAte += $user->daily_calories * .15;
+        if ($eatedFood->dinner_id != null) $caloriesAte += $user->daily_calories * .3;
+
+        $user->ate_calories = $caloriesAte;
+
+        return $user;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, User $user)
     {
-        //
+        $data = $request->validate([
+            'height' => ['required', 'integer', 'between:0,300'],
+            'weight' => ['required', 'numeric', 'between:0,500'],
+            'age' => ['required', 'integer', 'between:0,200'],
+            'life_style' => ['required', 'string', 'in:sedavý typ,ľahko aktívny,aktívny,veľmi aktívny'],
+            'my_goal' => ['required', 'string', 'in:chcem chudnúť,chcem udržať hmotnosť,chcem pribráť'],
+        ]);
+
+        $user->update([
+            'height' => $data['height']
+        ]);
     }
 
     /**
