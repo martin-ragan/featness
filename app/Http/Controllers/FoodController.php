@@ -61,16 +61,23 @@ class FoodController extends Controller
         if (!is_array($menu->dinnerIds)) $menu->dinnerIds = json_decode($menu->dinnerIds);
 
 
-//        dd($menu->lunchIds);
         $breakfast = Food::whereIn('id', $menu->breakfastIds)->get()->toArray();
         $lunch = Food::whereIn('id', $menu->lunchIds)->get()->toArray();
         $snack = Food::whereIn('id', $menu->snackIds)->get()->toArray();
         $dinner = Food::whereIn('id', $menu->dinnerIds)->get()->toArray();
 
-        $breakfast = $this->calculateByCalories($dailyCalories * .25, $breakfast);
-        $lunch = $this->calculateByCalories($dailyCalories * .3, $lunch);
-        $snack = $this->calculateByCalories($dailyCalories * .15, $snack);
-        $dinner = $this->calculateByCalories($dailyCalories * .3, $dinner);
+
+        // we need to check if food has been already eaten, if yes inFE show checked checkbox
+        $eatedFood = $this->chcekEatedFood($user);
+        $eatedFood->save();
+
+
+        // i also chcek if food is already ate
+        $breakfast = $this->calculateByCalories($dailyCalories * .25, $breakfast, $eatedFood->breakfast_id);
+        $lunch = $this->calculateByCalories($dailyCalories * .3, $lunch, $eatedFood->lunch_id);
+        $snack = $this->calculateByCalories($dailyCalories * .15, $snack, $eatedFood->snack_id);
+        $dinner = $this->calculateByCalories($dailyCalories * .3, $dinner, $eatedFood->dinner_id);
+
 
         return view('jedalnicek',
             [
@@ -82,8 +89,9 @@ class FoodController extends Controller
         );
     }
 
-    public function calculateByCalories($calories, $foods)
-    {
+    // in this functionality is also if food isAte
+    public function calculateByCalories($calories, $foods, $eatedFoodId){
+
         $newFoods = [];
 
         foreach ($foods as $food) {
@@ -103,6 +111,10 @@ class FoodController extends Controller
             $food['proteins'] = round($food['proteins'] * $multipleTimes);
             $food['carbohydrates'] = round($food['carbohydrates'] * $multipleTimes);
             $food['fats'] = round($food['fats'] * $multipleTimes);
+
+            // we need to chcek if is eated this food for this day
+            if ($food['id'] == $eatedFoodId) $food['isAte'] = true;
+            else $food['isAte'] = false;
 
             array_push($newFoods, $food);
         }
@@ -152,42 +164,50 @@ class FoodController extends Controller
 
         $data = $request->validate([
             "foodType" => ['required', 'between:1,4', 'integer'],
-            "calories" => ['required', 'integer']
+            "foodId" => ['required', 'integer']
         ]);
 
         $user = Auth::user();
 
-        $eatedFood = $user->eatedFood()->firstOrNew();
-
-        if (!isset($eatedFood->updated_at) || (isset($eatedFood->updated_at) && !$eatedFood->updated_at->isToday())){
-            $eatedFood->breakfastCalories = 0;
-            $eatedFood->lunchCalories = 0;
-            $eatedFood->snackCalories = 0;
-            $eatedFood->dinnerCalories = 0;
-        }
+        $eatedFood = $this->chcekEatedFood($user);
 
         $foodType = $data['foodType'];
-        $calories = $data['calories'];
+        $calories = $data['foodId'];
 
 
         if ($foodType == 1) {
-            if ($eatedFood->breakfastCalories != 0) $eatedFood->breakfastCalories = 0;
-            else $eatedFood->breakfastCalories = $calories;
+            if ($eatedFood->breakfast_id != 0) $eatedFood->breakfast_id = 0;
+            else $eatedFood->breakfast_id = $calories;
         }
         else if ($foodType == 2) {
-            if ($eatedFood->lunchCalories != 0) $eatedFood->lunchCalories = 0;
-            else $eatedFood->lunchCalories = $calories;
+            if ($eatedFood->lunch_id != 0) $eatedFood->lunch_id = 0;
+            else $eatedFood->lunch_id = $calories;
         }
         else if ($foodType == 3) {
-            if ($eatedFood->snackCalories != 0) $eatedFood->snackCalories = 0;
-            else $eatedFood->snackCalories = $calories;
+            if ($eatedFood->snack_id != 0) $eatedFood->snack_id = 0;
+            else $eatedFood->snack_id = $calories;
         }
         else if ($foodType == 4) {
-            if ($eatedFood->dinnerCalories != 0) $eatedFood->dinnerCalories = 0;
-            else $eatedFood->dinnerCalories = $calories;
+            if ($eatedFood->dinner_id != 0) $eatedFood->dinner_id = 0;
+            else $eatedFood->dinner_id = $calories;
         }
         $eatedFood->save();
 
 
+    }
+
+
+    private function chcekEatedFood($user){
+
+        $eatedFood = $user->eatedFood()->firstOrNew();
+
+        if (!isset($eatedFood->updated_at) || (isset($eatedFood->updated_at) && !$eatedFood->updated_at->isToday())){
+            $eatedFood->breakfast_id = null;
+            $eatedFood->lunch_id = null;
+            $eatedFood->snack_id = null;
+            $eatedFood->dinner_id = null;
+        }
+
+        return $eatedFood;
     }
 }
