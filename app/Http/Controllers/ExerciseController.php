@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ExerciseController extends Controller
@@ -543,6 +544,13 @@ class ExerciseController extends Controller
         }
 
         return $full;
+    }
 
+    public function finishedTraining() {
+        $user = Auth::user();
+        $user->finished_trainings +=1;
+        $user->save();
+
+        return redirect('/profile/' . $user->name);
     }
 }

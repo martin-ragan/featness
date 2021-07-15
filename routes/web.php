@@ -50,6 +50,9 @@ Route::middleware('auth')->group(function() {
 
         Route::get('/current-training', [ExerciseController::class, 'currentTraining']);
 
+        Route::post('/finished-training', [ExerciseController::class, 'finishedTraining']);
+
+
         Route::get('/jedalnicek', [FoodController::class, 'show']);
 
         Route::post('/generateNewRecipe', [FoodController::class, 'generatenewRecipe']);
@@ -59,7 +62,7 @@ Route::middleware('auth')->group(function() {
 
         Route::get('/profile/{user}', [UserController::class, 'showProfile']);
 
-        Route::get('/profileupdate/{user}', [UserController::class, 'update']);
+        Route::post('/profileupdate/{user}', [UserController::class, 'update']);
 
 
         Route::get('/profile', function() {

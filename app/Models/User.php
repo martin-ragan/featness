@@ -34,7 +34,8 @@ class User extends Authenticatable
         'life_style',
         'my_goal',
         'active_until',
-        'daily_calories'
+        'daily_calories',
+        'finished_trainings'
     ];
 
     /**
@@ -64,7 +65,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $appends = [
-        'profile_photo_url',
+//        'profile_photo_url',
     ];
 
     public function getRouteKeyName()
