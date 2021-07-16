@@ -4479,6 +4479,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "TopNavigation",
   data: function data() {
@@ -4489,6 +4492,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     toggle: function toggle() {
       this.open = !this.open;
+    }
+  },
+  computed: {
+    csrf: function csrf() {
+      return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     }
   }
 });
@@ -28595,7 +28603,21 @@ var render = function() {
           _vm._v(" "),
           _vm._m(1),
           _vm._v(" "),
-          _vm._m(2)
+          _c("div", { staticClass: "w-full h-full mt-3 sm:mt-0 sm:w-auto" }, [
+            _c("form", { attrs: { action: "/logout", method: "post" } }, [
+              _c("input", {
+                attrs: { type: "hidden", name: "_token" },
+                domProps: { value: _vm.csrf }
+              }),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "hidden",
+                attrs: { type: "submit", id: "logout" }
+              })
+            ])
+          ])
         ]
       )
     ]
@@ -28653,37 +28675,28 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-full h-full mt-3 sm:mt-0 sm:w-auto" }, [
-      _c("form", { attrs: { action: "/logout", method: "post" } }, [
-        _c(
-          "label",
-          {
-            staticClass: "cursor-pointer w-full h-full text-left",
-            attrs: { for: "logout" }
-          },
-          [
-            _c("img", {
-              staticClass: "w-16 h-16 hidden sm:block",
-              attrs: { src: "/images/3.png", alt: "" }
-            }),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                staticClass:
-                  "text-secondary uppercase font-bold text-base block sm:hidden"
-              },
-              [_vm._v("Odhlásiť sa")]
-            )
-          ]
-        ),
+    return _c(
+      "label",
+      {
+        staticClass: "cursor-pointer w-full h-full text-left",
+        attrs: { for: "logout" }
+      },
+      [
+        _c("img", {
+          staticClass: "w-16 h-16 hidden sm:block",
+          attrs: { src: "/images/3.png", alt: "" }
+        }),
         _vm._v(" "),
-        _c("input", {
-          staticClass: "hidden",
-          attrs: { type: "submit", id: "logout" }
-        })
-      ])
-    ])
+        _c(
+          "span",
+          {
+            staticClass:
+              "text-secondary uppercase font-bold text-base block sm:hidden"
+          },
+          [_vm._v("Odhlásiť sa")]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true

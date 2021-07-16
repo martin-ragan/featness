@@ -17,6 +17,9 @@
             <div class="w-full h-full mt-3 sm:mt-0 sm:w-auto">
                 <form action="/logout" method="post">
 <!--                    @csrf-->
+
+                    <input type="hidden" name="_token" :value="csrf">
+
                     <label for="logout" class="cursor-pointer w-full h-full text-left">
                         <img class="w-16 h-16 hidden sm:block" src="/images/3.png" alt="">
                         <span class="text-secondary uppercase font-bold text-base block sm:hidden">Odhlásiť sa</span>
@@ -41,7 +44,13 @@ export default {
         toggle() {
             this.open = !this.open
         }
-    }
+    },
+    computed: {
+
+        csrf() {
+            return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        },
+    },
 }
 </script>
 

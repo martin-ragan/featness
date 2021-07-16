@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,15 @@ Route::middleware('auth')->group(function() {
     Route::middleware('verified')->get('/dashboard', function() {
         return view('dashboard');
     })->name('dashboard');
+
+
+
+    // path for admin panel
+    Route::middleware('isAdmin')->group(function () {
+
+        Route::get('/admin', [AdminController::class, 'index']);
+
+    });
 
 });
 
