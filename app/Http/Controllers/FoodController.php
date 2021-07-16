@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
-use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -155,7 +154,7 @@ class FoodController extends Controller
 
         $user->menu()->update([$menuType => json_encode($foodIds)]);
 
-        return $this->calculateByCalories($calories, $food);
+        return $this->calculateByCalories($calories, $food, null);
 
     }
 
