@@ -111,6 +111,11 @@ class User extends Authenticatable
             }
             $user->daily_calories = $daily_calories;
             $user->save();
+
+            $eatedFood = $user->eatedFood()->create();
+
+            $eatedFood->save();
+
         });
     }
 

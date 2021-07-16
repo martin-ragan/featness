@@ -15,13 +15,23 @@ class CreateEatedFoodTable extends Migration
     {
         Schema::create('eated_food', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('breakfast_id')->nullable();
-            $table->foreignId('lunch_id')->nullable();
-            $table->foreignId('snack_id')->nullable();
-            $table->foreignId('dinner_id')->nullable();
+            $table->foreignId('breakfast_id')->nullable()->default(null);
+            $table->foreignId('lunch_id')->nullable()->default(null);
+            $table->foreignId('snack_id')->nullable()->default(null);
+            $table->foreignId('dinner_id')->nullable()->default(null);
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->timestamps();
         });
+
+        \Illuminate\Support\Facades\DB::table('eated_food')->insert([
+            [
+                'breakfast_id' => null,
+                'lunch_id' => null,
+                'snack_id' => null,
+                'dinner_id' => null,
+                'user_id' => 1
+            ]
+        ]);
     }
 
     /**
