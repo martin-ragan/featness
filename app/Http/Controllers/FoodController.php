@@ -120,7 +120,7 @@ class FoodController extends Controller
         return $newFoods;
     }
 
-    public function generatenewRecipe(Request $request){
+    public function generateNewRecipe(Request $request){
 
         $data = $request->validate([
             "foodType" => ['required', 'between:1,4', 'integer']

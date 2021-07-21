@@ -9,6 +9,8 @@ class Difficulty extends Model
 {
     use HasFactory;
 
+    protected $hidden = ['pivot'];
+
     public $timestamps = false;
 
     public function exercises(){
