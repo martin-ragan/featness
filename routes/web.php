@@ -90,8 +90,14 @@ Route::middleware('auth')->group(function () {
             Route::get('/food/create', [AdminController::class, 'createFood']);
             Route::post('/food', [AdminController::class, 'storeFood']);
             //testing route
-            Route::get('/foode', [AdminController::class, 'storeFood']);
+//            Route::get('/foode', [AdminController::class, 'storeFood']);
             Route::get('/food/{food}/edit', [AdminController::class, 'editFood']);
+            Route::put('/food/{food}', [AdminController::class, 'updateFood']);
+            //testing route
+//            Route::get('/foode/{food}', [AdminController::class, 'updateFood']);
+            Route::delete('/food/{food}', [AdminController::class, 'destroyFood']);
+            //testing route
+//            Route::get('/foode/{food}', [AdminController::class, 'destroyFood']);
 
 
             // routes for admin panel exercises
