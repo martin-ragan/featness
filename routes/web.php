@@ -107,6 +107,12 @@ Route::middleware('auth')->group(function () {
             //testing route
 //            Route::get('/exercisese', [AdminController::class, 'storeExercise']);
             Route::get('/exercises/{exercise}/edit', [AdminController::class, 'editExercise']);
+            Route::put('/exercises/{exercise}', [AdminController::class, 'updateExercise']);
+            //testing route
+//            Route::get('/exercisese/{exercise}', [AdminController::class, 'updateExercise']);
+            Route::delete('/exercises/{exercise}', [AdminController::class, 'destroyExercise']);
+            //testing route
+            Route::get('/exercisese/{exercise}', [AdminController::class, 'destroyExercise']);
 
         });
     });

@@ -111,7 +111,7 @@ class AdminController extends Controller
         );
     }
 
-    public function updateFood(Food $food, Request $request)
+    public function updateFood(Request $request, Food $food)
     {
         Gate::authorize('viewAny');
 
@@ -179,7 +179,7 @@ class AdminController extends Controller
 
         return view('adminExercises',
             [
-                "exercises" => Exercise::with('bodyPart', 'bodySection', 'difficulties', 'areas', 'type')->get()->toArray(),
+                "exercises" => Exercise::with('bodyPart:id,name', 'bodySection', 'difficulties', 'areas', 'type:id,name')->get()->toArray(),
             ],
         );
     }
@@ -210,8 +210,8 @@ class AdminController extends Controller
         Gate::authorize('viewAny');
 
         $data = $request->validate([
-            'url' => ['required', 'string', 'min:1', 'max:255'],
-            'name' => ['required', 'string', 'min:1', 'max:255'],
+            'url' => ['required', 'unique:exercises,url', 'string', 'min:1', 'max:255'],
+            'name' => ['required', 'unique:exercises,name', 'string', 'min:1', 'max:255'],
             'body_part_id' => ['required', 'integer', 'between:1,15'],
             'body_section_id' => ['required', 'integer', 'between:1,3'],
             'type_id' => ['required', 'integer', 'between:1,4'],
@@ -255,8 +255,65 @@ class AdminController extends Controller
 
         return view('editFood',
             [
-                "food" => Exercise::with('bodySection', 'bodyPart', 'difficulties', 'areas', 'type')->findOrFail($id)->toArray(),
+                "food" => Exercise::with('bodySection', 'bodyPart:id,name', 'difficulties', 'areas', 'type:id,name')->findOrFail($id)->toArray(),
             ],
         );
     }
+
+    public function updateExercise(Request $request, Exercise $exercise){
+        Gate::authorize('viewAny');
+
+        $data = $request->validate([
+            'url' => ['string', 'min:1', 'max:255'],
+            'name' => ['string', 'min:1', 'max:255'],
+            'body_part_id' => ['integer', 'between:1,15'],
+            'body_section_id' => ['integer', 'between:1,3'],
+            'type_id' => ['integer', 'between:1,4'],
+            'area_ids' => ['array', 'min:1', 'max:3'],
+            'difficulty_ids' => ['array', 'min:1', 'max:3']
+        ]);
+
+
+        $areas = $data['area_ids'];
+        $difficulties = $data['difficulty_ids'];
+        unset($data['area_ids']);
+        unset($data['difficulty_ids']);
+
+
+//        $fakeExercise = [
+//            'url' => '549607068',
+//            'name' => 'drepik',
+//            'body_part_id' => 1,
+//            'body_section_id' => 1,
+//            'type_id' => 1,
+//            'area_ids' => [2],
+//            'difficulty_ids' => [1,2]
+//        ];
+//
+////        dd($fakeExercise);
+//        $areas = $fakeExercise['area_ids'];
+//        $difficulties = $fakeExercise['difficulty_ids'];
+//        unset($fakeExercise['area_ids']);
+//        unset($fakeExercise['difficulty_ids']);
+
+
+
+        $exercise->update($data);
+
+        $exercise->difficulties()->sync($difficulties);
+        $exercise->areas()->sync($areas);
+
+        return redirect('/admin/exercises');
+    }
+
+    public function destroyExercise(Exercise $exercise){
+        Gate::authorize('viewAny');
+
+        // all realted delete with CascadeOnDelete
+        $exercise->delete();
+
+        return redirect('/admin/exercises');
+    }
+
+
 }
