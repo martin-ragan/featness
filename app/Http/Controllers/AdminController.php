@@ -19,7 +19,6 @@ class AdminController extends Controller
 {
     public function index()
     {
-
         Gate::authorize('viewAny');
 
         return view('admin');
@@ -31,7 +30,10 @@ class AdminController extends Controller
 
         return view('adminFood',
             [
-                "food" => Food::all()->toArray(),
+                "food" => Food::with('foodType')->get()->toArray(),
+//                "food" => Food::join('food_types', 'food.food_type_id', '=', 'food_types.id')
+//                    ->select('food.*', 'food_types.name as food_type')
+//                    ->get()->toArray(),
             ],
         );
     }
@@ -95,13 +97,16 @@ class AdminController extends Controller
         return redirect('/admin/food');
     }
 
-    public function editFood(Food $food)
+    public function editFood($id)
     {
         Gate::authorize('viewAny');
 
         return view('editFood',
             [
-                "food" => $food->toArray(),
+                "food" => Food::with('foodType')->find($id)->toArray()
+//                "food" => Food::join('food_types', 'food.food_type_id', '=', 'food_types.id')
+//                            ->select('food.*', 'food_types.name as food_type')
+//                            ->find($id)->toArray(),
             ],
         );
     }
@@ -183,11 +188,6 @@ class AdminController extends Controller
     {
         Gate::authorize('viewAny');
 
-//        dd(BodyParts::select('id', 'name')->get()->toArray());
-//        dd(BodySection::select('id', 'name')->get()->toArray());
-//        dd(Type::select(DB::raw('CONCAT(name, " ", cardio_type) as name'), 'id')->get()->toArray());
-//        dd(Area::select('id', 'name')->get()->toArray());
-//        dd(Difficulty::select('id', 'name')->get()->toArray());
         $types = Type::select('id', 'name', 'cardio_type')->get()->toArray();
 
         for ($i = 0; $i < count($types); $i++){
