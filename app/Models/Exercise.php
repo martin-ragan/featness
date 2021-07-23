@@ -9,6 +9,8 @@ class Exercise extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['url', 'name', 'body_part_id', 'body_section_id', 'type_id'];
+
     protected $hidden = ['pivot'];
 
     public $timestamps = false;

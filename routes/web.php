@@ -103,6 +103,9 @@ Route::middleware('auth')->group(function () {
             // routes for admin panel exercises
             Route::get('/exercises', [AdminController::class, 'indexExercises']);
             Route::get('/exercises/create', [AdminController::class, 'createExercise']);
+            Route::post('/exercises', [AdminController::class, 'storeExercise']);
+            //testing route
+//            Route::get('/exercisese', [AdminController::class, 'storeExercise']);
             Route::get('/exercises/{exercise}/edit', [AdminController::class, 'editExercise']);
 
         });

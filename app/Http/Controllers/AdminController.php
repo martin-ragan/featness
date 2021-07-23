@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Area;
+use App\Models\BodyParts;
+use App\Models\BodySection;
+use App\Models\Difficulty;
 use App\Models\Exercise;
 use App\Models\Food;
 use App\Models\FoodType;
+use App\Models\Type;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
+use SebastianBergmann\Diff\Diff;
 
 class AdminController extends Controller
 {
@@ -160,6 +166,8 @@ class AdminController extends Controller
     }
 
 
+
+
     public function indexExercises()
     {
         Gate::authorize('viewAny');
@@ -175,7 +183,70 @@ class AdminController extends Controller
     {
         Gate::authorize('viewAny');
 
-        return view('createExercise');
+//        dd(BodyParts::select('id', 'name')->get()->toArray());
+//        dd(BodySection::select('id', 'name')->get()->toArray());
+//        dd(Type::select(DB::raw('CONCAT(name, " ", cardio_type) as name'), 'id')->get()->toArray());
+//        dd(Area::select('id', 'name')->get()->toArray());
+//        dd(Difficulty::select('id', 'name')->get()->toArray());
+        $types = Type::select('id', 'name', 'cardio_type')->get()->toArray();
+
+        for ($i = 0; $i < count($types); $i++){
+            $newTypes = [];
+            $newTypes['id'] = $types[$i]['id'];
+            $newTypes['name'] = trim($types[$i]['name'] ." " . $types[$i]['cardio_type']);
+            $types[$i] = $newTypes;
+        }
+
+        return view('createExercise', [
+            'body_parts' => BodyParts::select('id', 'name')->get()->toArray(),
+            'body_sections' => BodySection::select('id', 'name')->get()->toArray(),
+            'types' => $types,
+            'areas' => Area::select('id', 'name')->get()->toArray(),
+            'difficulties' => Difficulty::select('id', 'name')->get()->toArray()
+        ]);
+    }
+
+    public function storeExercise(Request $request){
+        Gate::authorize('viewAny');
+
+        $data = $request->validate([
+            'url' => ['required', 'string', 'min:1', 'max:255'],
+            'name' => ['required', 'string', 'min:1', 'max:255'],
+            'body_part_id' => ['required', 'integer', 'between:1,15'],
+            'body_section_id' => ['required', 'integer', 'between:1,3'],
+            'type_id' => ['required', 'integer', 'between:1,4'],
+            'area_ids' => ['required', 'array', 'min:1', 'max:3'],
+            'difficulty_ids' => ['required', 'array', 'min:1', 'max:3']
+        ]);
+
+//        $fakeExercise = [
+//            'url' => '549607068',
+//            'name' => 'drepik',
+//            'body_part_id' => 1,
+//            'body_section_id' => 1,
+//            'type_id' => 1,
+//            'area_ids' => [2],
+//            'difficulty_ids' => [1,2]
+//        ];
+
+//        dd($fakeExercise);
+//        $areas = $fakeExercise['area_ids'];
+//        $difficulties = $fakeExercise['difficulty_ids'];
+//        unset($fakeExercise['area_ids']);
+//        unset($fakeExercise['difficulty_ids']);
+
+
+        $areas = $data['area_ids'];
+        $difficulties = $data['difficulty_ids'];
+        unset($data['area_ids']);
+        unset($data['difficulty_ids']);
+
+        $res = Exercise::create($data);
+
+        $res->difficulties()->sync($difficulties);
+        $res->areas()->sync($areas);
+
+        return redirect('/admin/exercises');
     }
 
     public function editExercise($id)
