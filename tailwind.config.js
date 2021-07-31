@@ -23,6 +23,7 @@ module.exports = {
                 '9/10': '90%'
             },
             width: {
+                'vw-large': '80vw',
                 '12/25': '48%',
             },
             fontSize: {

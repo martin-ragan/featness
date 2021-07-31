@@ -6,25 +6,25 @@
         </div>
         <div v-show="loaded" class="w-full h-full flex justify-between items-stretch">
             <div class="flex flex-col">
-                <h1>{{name}}</h1>
-                <h2 class="text-primary text-2xl font-bold mt-6">{{kCal}} KCAL</h2>
-                <p class="text-white text-xl tracking-widest">bielkoviny: {{proteins}}g, tuky: {{fats}}g, cukry: {{carbohydrates}}g</p>
+                <h1>{{meal.name}}</h1>
+                <h2 class="text-primary text-2xl font-bold mt-6">{{meal.kcal}} KCAL</h2>
+                <p class="text-white text-xl tracking-widest">bielkoviny: {{meal.proteins}}g, tuky: {{meal.fats}}g, cukry: {{meal.carbohydrates}}g</p>
                 <span class="w-4/5 bg-primary h-0.5 my-6"></span>
                 <h1 class="mb-6">Budeš potrebovať</h1>
-                <h3 class="text-white text-xl uppercase" v-for="(ingredient, index) in ingredients" :key="index">
+                <h3 class="text-white text-xl uppercase" v-for="(ingredient, index) in meal.ingredients" :key="index">
                     <span class="font-bold w-12 lowercase">{{ingredient.amount}}g</span>
                     {{ingredient.name}}
                 </h3>
             </div>
             <div class="flex flex-col w-1/3">
                 <h1 class="mb-6">Postup prípravy</h1>
-                <p class="text-white mt-2 uppercase tracking-widest text-xl" v-for="(step, index) in recipe" :key="index">
+                <p class="text-white mt-2 uppercase tracking-widest text-xl" v-for="(step, index) in meal.recipe" :key="index">
                     {{step}}
                 </p>
             </div>
             <div class="flex flex-col justify-end items-center">
                 <div class="flex items-center justify-between w-full">
-                    <input class="mr-4" type="checkbox" id="scales" name="scales">
+                    <input class="mr-4" type="checkbox" id="scales" v-model="meal.isAte" name="scales" v-on:change="setEaten">
                     <label class="text-white tracking-widest text-xl uppercase" for="scales">Zjedené</label>
                 </div>
             </div>
@@ -38,35 +38,7 @@ export default {
     created() {
         setTimeout(() => this.loaded = true, 500);
     },
-    props: {
-        name: {
-            type: String,
-            default: ""
-        },
-        kCal: {
-            type: Number,
-            default: 0
-        },
-        proteins:{
-            type: Number,
-            default: 0
-        },
-        fats:{
-            type: Number,
-            default: 0
-        },
-        carbohydrates: {
-            type: Number,
-            default: 0
-        },
-        ingredients: {
-            type: Array,
-        },
-        recipe: {
-            type: Array,
-        },
-
-    },
+    props: ['meal'],
     data() {
         return {
             loaded: false
@@ -75,6 +47,10 @@ export default {
     methods: {
         callDestruction() {
             this.$emit('hideIframe')
+        },
+        setEaten() {
+                axios.post('/toggleEatedFood/?foodType=' + this.meal.food_type_id + '&foodId=' + this.meal.id);
+                this.$emit('eatenChanged');
         }
     },
 }

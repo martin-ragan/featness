@@ -22,7 +22,7 @@ class UserController extends Controller
 
         $user->ate_calories = $caloriesAte;
 
-        return $user;
+        return view('profile', ["user" => $user]);
     }
 
 

@@ -9,7 +9,8 @@
             >
             </video-component>
         </transition>
-        <div class="flex flex-col h-9/10 left-0 md:absolute overflow-y-scroll training-holder md:w-1/2 flex-grow">
+        <form method="post" action="finished-training" class="flex flex-col h-9/10 left-0 md:absolute overflow-y-scroll training-holder md:w-1/2 flex-grow">
+            <input type="hidden" name="_token" :value="csrf">
             <div class="flex flex-col w-full" id="warm-up">
                 <div class="flex flex-row w-full justify-between">
                     <div class="bg-primaryBg pl-4 flex flex-row justify-between items-center rounded-2xl w-4/5 xl:w-1/2 mb-5">
@@ -38,10 +39,11 @@
                 <exercise v-for="exercise in stretching" :key="exercise.id" v-on:click.native="showVideo(exercise.url, exercise.name)" :exercise-name="exercise.name" :reps="exercise.reps ? exercise.reps : 0" :time="exercise.time ? exercise.time : 0"></exercise>
             </div>
             <button
+                type="submit"
                 class="bg-secondary w-2/3 tracking-widest rounded-sm text-white text-base sm:text-xl py-3 font-sans uppercase text-center mx-auto mt-5">
                 Ukončiť tréning
             </button>
-        </div>
+        </form>
 
         <div class="flex flex-col bg-primaryBg md:h-9/10 p-4 items-center justify-evenly rounded-3xl md:w-12/25">
             <h1 class="uppercase tracking-widest text-base xl:text-4xl font-bold border-b border-white">Maximálne pauzy</h1>
@@ -85,7 +87,10 @@ export default {
             date.setSeconds(this.elapsedTime / 1000);
             const utc = date.toUTCString();
             return utc.substr(utc.indexOf(":") + 1, 5);
-        }
+        },
+        csrf() {
+            return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        },
     },
     methods: {
         showVideo(url, text) {

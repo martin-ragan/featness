@@ -31,7 +31,8 @@
 export default {
     name: "ProgressRing",
     props: {
-        progress: Number,
+        ate: Number,
+        daily: Number,
     },
     data() {
         const stroke = 14;
@@ -43,12 +44,13 @@ export default {
             radius: radius,
             stroke: stroke,
             normalizedRadius: normalizedRadius,
-            circumference: circumference
+            circumference: circumference,
+            progress: this.ate / this.daily
         };
     },
     computed: {
         strokeDashoffset() {
-            return this.circumference - this.progress / 100 * this.circumference;
+            return this.circumference - this.progress * this.circumference;
         }
     }
 }

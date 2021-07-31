@@ -13,8 +13,6 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-        {{-- <!-- @livewireStyles --> --}}
-
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
@@ -23,7 +21,7 @@
         <div id="app" class="h-auto xl:h-screen xl:w-screen">
             @section('navbar')
                    <nav class="flex items-center container-fluid mx-auto h-36 xl:h-1/6">
-                       <a href="/" class="h-logo" href="">F<span class="text-primary">EAT</span>NESS</a>
+                       <a href="/" class="h-logo">F<span class="text-primary">EAT</span>NESS</a>
                    </nav>
             @show
 

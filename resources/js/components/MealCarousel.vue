@@ -1,13 +1,14 @@
 <template>
     <div class="h-vh-large">
-        <carousel-3d :disable3d="dTransform" :space="365" :controlsVisible="true" :controlsHeight="100" :controlsWidth="100" :width="mealHolderWidth">
+        <carousel-3d :space="365" :controlsVisible="true" :controlsHeight="100" :controlsWidth="100" :width="mealHolderWidth">
             <slide :index="0">
                 <h1>Raňajky</h1>
                 <form class="flex flex-col w-full h-full items-center sm:mt-8" v-on:submit.prevent="generateMeals(1)">
-                    <meals-holder v-for="meal in breakfastData" :key="meal.id"
-                                  :name="meal.name"
-                                  :calories="meal.kcal"
-                                  v-on:click.native="showMeal(meal.name, meal.kcal, meal.proteins, meal.fats, meal.carbohydrates, meal.ingredients, meal.recipe)">
+                    <meals-holder v-for="meal in breakfastData"
+                                  :key="meal.id"
+                                  :meal="meal"
+                                  v-on:eatenChanged="meal.isAte = !meal.isAte"
+                                  v-on:click.native="showMeal(meal)">
                     </meals-holder>
                     <button type="submit" class="btn-brown text-sm py-2 font-sans mb-6 w-full tracking-widest font-light sm:mt-12 sm:w-2/3">
                         Vygenerovať nový recept
@@ -17,10 +18,11 @@
             <slide :index="1">
                 <h1>Olovrant</h1>
                 <form class="flex flex-col w-full h-full items-center sm:mt-8" v-on:submit.prevent="generateMeals(2)">
-                    <meals-holder v-for="meal in snackData" :key="meal.id"
-                                  :name="meal.name"
-                                  :calories="meal.kcal"
-                                  v-on:click.native="showMeal(meal.name, meal.kcal, meal.proteins, meal.fats, meal.carbohydrates, meal.ingredients, meal.recipe)">
+                    <meals-holder v-for="meal in snackData"
+                                  :key="meal.id"
+                                  :meal="meal"
+                                  v-on:eatenChanged="meal.isAte = !meal.isAte"
+                                  v-on:click.native="showMeal(meal)">
                     </meals-holder>
                     <button type="submit" class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light sm:mt-12">
                         Vygenerovať nový recept
@@ -30,10 +32,12 @@
             <slide :index="2">
                 <h1>Obed</h1>
                 <form class="flex flex-col w-full h-full items-center sm:mt-8" v-on:submit.prevent="generateMeals(3)">
-                    <meals-holder v-for="meal in lunchData" :key="meal.id"
-                                  :name="meal.name"
-                                  :calories="meal.kcal"
-                                  v-on:click.native="showMeal(meal.name, meal.kcal, meal.proteins, meal.fats, meal.carbohydrates, meal.ingredients, meal.recipe)"></meals-holder>
+                    <meals-holder v-for="meal in lunchData"
+                                  :key="meal.id"
+                                  :meal="meal"
+                                  v-on:eatenChanged="meal.isAte = !meal.isAte"
+                                  v-on:click.native="showMeal(meal)">
+                    </meals-holder>
                     <button type="submit" class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light sm:mt-12">
                         Vygenerovať nový recept
                     </button>
@@ -42,11 +46,12 @@
             <slide :index="3">
                 <h1>Večera</h1>
                 <form class="flex flex-col w-full h-full items-center sm:mt-8" v-on:submit.prevent="generateMeals(4)">
-                    <meals-holder v-for="meal in dinnerData" :key="meal.id"
-                                  :name="meal.name"
-                                  :calories="meal.kcal"
-                                  v-on:click.native="showMeal(meal.name, meal.kcal, meal.proteins, meal.fats, meal.carbohydrates, meal.ingredients, meal.recipe)">
-
+                    <meals-holder v-for="meal in dinnerData"
+                                  :key="meal.id"
+                                  :meal="meal"
+                                  v-on:eatenChanged="meal.isAte = !meal.isAte"
+                                  v-on:click.native="showMeal(meal)"
+                    >
                     </meals-holder>
                     <button type="submit" class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light sm:mt-12">
                         Vygenerovať nový recept
@@ -54,17 +59,11 @@
                 </form>
             </slide>
         </carousel-3d>
+
         <transition name="fade">
             <meal-popup v-if="popupVisibility"
-                        :name="mealName"
-                        :k-cal="mealKcal"
-                        :proteins="mealProteins"
-                        :fats="mealFats"
-                        :carbohydrates="mealCarbohydrates"
-                        :ingredients="mealIngredients"
-                        :recipe="mealRecipe"
+                        :meal="displayedMeal"
                         v-on:hideIframe="popupVisibility = false"
-
             >
             </meal-popup>
         </transition>
@@ -91,15 +90,8 @@ export default {
             snackData: this.snack,
             dinnerData: this.dinner,
             mealHolderWidth: window.outerWidth < 650 ? window.outerWidth * 0.9 : window.outerWidth * 0.4,
-            dTransform: false,
             popupVisibility: false,
-            mealName: "",
-            mealKcal: 0,
-            mealProteins: 0,
-            mealFats: 0,
-            mealCarbohydrates: 0,
-            mealIngredients: [],
-            mealRecipe: [],
+            displayedMeal: null
         }
     },
     created() {
@@ -111,22 +103,18 @@ export default {
     methods: {
         myEventHandler(e) {
             let windowWidth =  e.srcElement.outerWidth;
-            if (windowWidth <= 650) {
-                this.dTransform = true;
-                this.mealHolderWidth = windowWidth * 0.9;
+            if (windowWidth <= 1250) {
+                if (windowWidth <= 900) {
+                    this.mealHolderWidth = windowWidth * 0.8;
+                } else{
+                    this.mealHolderWidth = windowWidth * 0.6;
+                }
             } else {
-                this.dTransform = false;
                 this.mealHolderWidth = windowWidth * 0.4;
             }
         },
-        showMeal(mealName, mealKcal, mealProteins, mealFats, mealCarbohydrates, mealIngredients, mealRecipe) {
-            this.mealName = mealName;
-            this.mealKcal = mealKcal;
-            this.mealProteins = mealProteins;
-            this.mealFats = mealFats;
-            this.mealCarbohydrates = mealCarbohydrates;
-            this.mealIngredients = mealIngredients;
-            this.mealRecipe = mealRecipe
+        showMeal(meal) {
+            this.displayedMeal = meal;
             this.popupVisibility = true;
         },
         generateMeals(foodType){
@@ -156,7 +144,7 @@ export default {
     z-index: 20;
 }
 .carousel-3d-slide {
-    height: 70vh !important;
+    height: 72vh !important;
     padding: 2rem;
     border: none;
     display: flex;

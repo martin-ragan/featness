@@ -1,8 +1,8 @@
 <template>
-    <div class="flex flex-row w-full h-20 justify-center items-center mt-4 cursor-pointer sm:w-4/5">
-        <div class="w-full bg-white h-full flex flex-row rounded-xl items-center px-4" v-on:click="popupVisibility = true">
-            <h1 class="flex-1 text-base text-primary uppercase tracking-widest sm:text-lg">{{ name }}</h1>
-            <h1 class="text-base text-primary text-right hidden sm:text-lg sm:block">{{calories}} kCal</h1>
+    <div class="flex flex-row w-full h-20 justify-center items-center mt-4 cursor-pointer sm:w-4/5" v-bind:class="[meal.isAte ? '' : 'not-eaten']">
+        <div class="w-full bg-white h-full flex flex-row rounded-xl items-center px-4">
+            <h1 class="flex-1 text-base text-primary uppercase tracking-widest sm:text-lg">{{ meal.name }}</h1>
+            <h1 class="text-base text-primary text-right hidden sm:text-lg sm:block">{{meal.kcal}} kCal</h1>
         </div>
     </div>
 </template>
@@ -15,23 +15,17 @@ export default {
     components: {
         MealPopup,
     },
-    props: {
-        name: {
-            type: String,
-            default: "",
-        },
-        calories: {
-            type: Number,
-            default: 0
-        },
-    },
+    props: ['meal'],
     data() {
         return {
+            mealWindowOpener: false
         }
     },
 }
 </script>
 
 <style scoped>
-
+.not-eaten {
+    opacity: 0.8;
+}
 </style>
