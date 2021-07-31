@@ -16,7 +16,7 @@ class CreateFoodTable extends Migration
     {
         Schema::create('food', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
+            $table->string("name")->unique();
             $table->json("ingredients");
             $table->json("recipe");
             $table->integer("kcal");

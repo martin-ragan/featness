@@ -11,6 +11,8 @@ class Food extends Model
 
     public $timestamps = false;
 
+    protected $fillable = ['name', 'ingredients', 'recipe', 'kcal', 'proteins', 'carbohydrates', 'fats', 'food_type_id'];
+
     protected $casts = [
         'ingredients' => 'array',
         'recipe' => 'array',

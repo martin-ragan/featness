@@ -28,6 +28,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // gate for checking if user is admin
+        Gate::define('viewAny', function(User $user) {
+            return $user->isAdmin;
+        });
+
+        Gate::define('update', function(User $user, User $model) {
+            return $user->isAdmin && $user->id === $model->id && $model->isAdmin;
+        });
     }
 }

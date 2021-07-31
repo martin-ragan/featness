@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,32 +18,32 @@ use App\Http\Controllers\UserController;
 */
 
 
-Route::get('/', function() {
+Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/clenstvo', function() {
+Route::get('/clenstvo', function () {
     return view('membership');
 });
-Route::get('/kontakt', function() {
+Route::get('/kontakt', function () {
     return view('contact');
 });
-Route::get('/ochrana-osobnych-udajov', function() {
+Route::get('/ochrana-osobnych-udajov', function () {
     return view('ochrana-osobnych-udajov');
 });
-Route::get('/obchodne-podmienky', function() {
+Route::get('/obchodne-podmienky', function () {
     return view('obchodne-podmienky');
 });
-Route::get('/cookies', function() {
+Route::get('/cookies', function () {
     return view('cookies');
 });
 
 
 // Routes protected for logged users
-Route::middleware('auth')->group(function() {
+Route::middleware('auth')->group(function () {
     Route::middleware('isAdmin')->group(function () {
 
-        Route::get('/trening', function() {
+        Route::get('/trening', function () {
             return view('trening');
         });
 
@@ -55,7 +56,7 @@ Route::middleware('auth')->group(function() {
 
         Route::get('/jedalnicek', [FoodController::class, 'show']);
 
-        Route::post('/generateNewRecipe', [FoodController::class, 'generatenewRecipe']);
+        Route::post('/generateNewRecipe', [FoodController::class, 'generateNewRecipe']);
 
         Route::post('/toggleEatedFood', [FoodController::class, 'toggleEatedFood']);
 
@@ -65,16 +66,56 @@ Route::middleware('auth')->group(function() {
         Route::post('/profileupdate/{user}', [UserController::class, 'update']);
 
 
-        Route::get('/profile', function() {
+        Route::get('/profile', function () {
             return view('profile');
         });
 
     });
 
 
-    Route::middleware('verified')->get('/dashboard', function() {
+    Route::middleware('verified')->get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+
+    // path for admin panel
+    Route::middleware('isAdmin')->group(function () {
+        Route::prefix('admin')->group(function () {
+
+            // main admin dashboard
+            Route::get('/', [AdminController::class, 'index']);
+
+            // view of admin foods-editing
+            Route::get('/food', [AdminController::class, 'indexFood']);
+            Route::get('/food/create', [AdminController::class, 'createFood']);
+            Route::post('/food', [AdminController::class, 'storeFood']);
+            //testing route
+//            Route::get('/foode', [AdminController::class, 'storeFood']);
+            Route::get('/food/{food}/edit', [AdminController::class, 'editFood']);
+            Route::put('/food/{food}', [AdminController::class, 'updateFood']);
+            //testing route
+//            Route::get('/foode/{food}', [AdminController::class, 'updateFood']);
+            Route::delete('/food/{food}', [AdminController::class, 'destroyFood']);
+            //testing route
+//            Route::get('/foode/{food}', [AdminController::class, 'destroyFood']);
+
+
+            // routes for admin panel exercises
+            Route::get('/exercises', [AdminController::class, 'indexExercises']);
+            Route::get('/exercises/create', [AdminController::class, 'createExercise']);
+            Route::post('/exercises', [AdminController::class, 'storeExercise']);
+            //testing route
+//            Route::get('/exercisese', [AdminController::class, 'storeExercise']);
+            Route::get('/exercises/{exercise}/edit', [AdminController::class, 'editExercise']);
+            Route::put('/exercises/{exercise}', [AdminController::class, 'updateExercise']);
+            //testing route
+//            Route::get('/exercisese/{exercise}', [AdminController::class, 'updateExercise']);
+            Route::delete('/exercises/{exercise}', [AdminController::class, 'destroyExercise']);
+            //testing route
+            Route::get('/exercisese/{exercise}', [AdminController::class, 'destroyExercise']);
+
+        });
+    });
 
 });
 
