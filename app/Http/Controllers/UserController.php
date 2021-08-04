@@ -11,6 +11,7 @@ class UserController extends Controller
 
     public function showProfile(User $user)
     {
+        $user = Auth::user();
         $caloriesAte = 0;
         // need to cound how many calories are already eaten
         $eatedFood = $user->eatedFood;
