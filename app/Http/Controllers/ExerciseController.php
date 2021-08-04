@@ -445,8 +445,6 @@ class ExerciseController extends Controller
     public function generateExercisesByArray($parts, $difficulty, $area)
     {
 
-//        dd($parts);
-
         $full = [];
         $count = count($parts);
 
@@ -518,23 +516,24 @@ class ExerciseController extends Controller
 
             foreach ($oneExercise as $exercise) {
 //                dd($oneExercise[0]);
-                if (isset($full[0])) {
-                    if ($exercise->id == $full[0]->id) {
-                        $i-= count($oneExercise);
-                        continue;
-                        echo "<pre>";
-                        print_r($full);
-                        echo "</pre>";
-
-                        echo "<pre>";
-                        print_r($oneExercise);
-                        echo "</pre>";
-//                        var_dump($oneExercise[0]);
-
-//                        var_dump($full[0]);
-                        dd($exercise);
-                    }
-                }
+//                if (isset($full[0])) {
+//                    if ($exercise->id == $full[0]->id) {
+//                        dd($exercise->id);
+//                        $i-= count($oneExercise);
+//                        continue;
+//                        echo "<pre>";
+//                        print_r($full);
+//                        echo "</pre>";
+//
+//                        echo "<pre>";
+//                        print_r($oneExercise);
+//                        echo "</pre>";
+////                        var_dump($oneExercise[0]);
+//
+////                        var_dump($full[0]);
+//                        dd($exercise);
+//                    }
+//                }
 
 
                 array_push($full, $this->randomRepsOrTime($exercise, $difficulty, $area == "Strečing" || $area == "Rozcvička"));
