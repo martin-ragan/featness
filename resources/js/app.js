@@ -15,6 +15,10 @@ Vue.component('meals-popup', require('./components/MealPopup.vue').default);
 Vue.component('training-form', require('./components/TrainingForm.vue').default);
 Vue.component('top-navigation', require('./components/TopNavigation.vue').default);
 Vue.component('progress-ring', require('./components/ProgressRing.vue').default);
+Vue.component('admin-nav', require('./components/AdminNav.vue').default);
+Vue.component('item-list', require('./components/ItemList.vue').default);
+Vue.component('modal-form', require('./components/ModalForm.vue').default);
+
 const app = new Vue({
     el: '#app',
 
