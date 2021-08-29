@@ -21,7 +21,7 @@ class AdminController extends Controller
     {
         Gate::authorize('viewAny');
 
-        return view('admin');
+        return view('admin-dashboard');
     }
 
     public function indexFood()
@@ -198,7 +198,7 @@ class AdminController extends Controller
         }
 
         return view('createExercise', [
-            'body_parts' => BodyParts::select('id', 'name')->get()->toArray(),
+            'body_parts' => BodyParts::select('id', 'name', 'both_parts')->get()->toArray(),
             'body_sections' => BodySection::select('id', 'name')->get()->toArray(),
             'types' => $types,
             'areas' => Area::select('id', 'name')->get()->toArray(),
@@ -208,6 +208,10 @@ class AdminController extends Controller
 
     public function storeExercise(Request $request){
         Gate::authorize('viewAny');
+
+        $request['body_part_id'] = (int) $request->body_part_id;
+        $request['body_section_id'] = (int) $request->body_section_id;
+        $request['type_id'] = (int) $request->type_id;
 
         $data = $request->validate([
             'url' => ['required', 'unique:exercises,url', 'string', 'min:1', 'max:255'],
@@ -253,9 +257,9 @@ class AdminController extends Controller
     {
         Gate::authorize('viewAny');
 
-        return view('editFood',
+        return view('editExercise',
             [
-                "food" => Exercise::with('bodySection', 'bodyPart:id,name', 'difficulties', 'areas', 'type:id,name')->findOrFail($id)->toArray(),
+                "exercise" => Exercise::with('bodySection', 'bodyPart:id,name', 'difficulties', 'areas', 'type:id,name')->findOrFail($id)->toArray(),
             ],
         );
     }

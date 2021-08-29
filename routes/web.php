@@ -37,13 +37,6 @@ Route::get('/obchodne-podmienky', function () {
 Route::get('/cookies', function () {
     return view('cookies');
 });
-Route::get('/admin', function () {
-    return view('admin');
-});
-Route::get('/admin-dashboard', function () {
-    return view('admin-dashboard');
-});
-
 
 // Routes protected for logged users
 Route::middleware('auth')->group(function () {
@@ -87,7 +80,7 @@ Route::middleware('auth')->group(function () {
         Route::prefix('admin')->group(function () {
 
             // main admin dashboard
-            Route::get('/admin-dashboard', [AdminController::class, 'index']);
+            Route::get('/', [AdminController::class, 'index']);
 
             // view of admin foods-editing
             Route::get('/food', [AdminController::class, 'indexFood']);
