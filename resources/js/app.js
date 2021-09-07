@@ -16,6 +16,8 @@ Vue.component('training-form', require('./components/TrainingForm.vue').default)
 Vue.component('top-navigation', require('./components/TopNavigation.vue').default);
 Vue.component('progress-ring', require('./components/ProgressRing.vue').default);
 Vue.component('admin-nav', require('./components/AdminNav.vue').default);
+Vue.component('adding-food-form', require('./components/AddingFoodForm.vue').default);
+Vue.component('edit-exercise-form', require('./components/EditExerciseForm.vue').default);
 Vue.component('item-list', require('./components/ItemList.vue').default);
 Vue.component('modal-form', require('./components/ModalForm.vue').default);
 

@@ -3792,6 +3792,206 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AddingFoodForm.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AddingFoodForm.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    food: {
+      type: Object,
+      "default": null
+    }
+  },
+  data: function data() {
+    return {
+      name: !this.food ? '' : this.food.name,
+      kcal: !this.food ? 0 : this.food.kcal,
+      fats: !this.food ? 0 : this.food.fats,
+      proteins: !this.food ? 0 : this.food.proteins,
+      carbohydrates: !this.food ? 0 : this.food.carbohydrates,
+      food_type_id: !this.food ? 0 : this.food.food_type_id,
+      ingredients: !this.food ? [{
+        id: 1,
+        name: '',
+        amount: ''
+      }] : this.food.ingredients,
+      steps: !this.food ? [{
+        id: 1,
+        value: ''
+      }] : this.makeJson(this.food.recipe)
+    };
+  },
+  methods: {
+    addIngredient: function addIngredient() {
+      this.ingredients.push({
+        id: this.ingredients.length !== 0 ? this.ingredients[this.ingredients.length - 1].id + 1 : 1,
+        amount: 0
+      });
+    },
+    removeIngredient: function removeIngredient(ingredient) {
+      var index = 0;
+
+      for (var i = 0; i < this.ingredients.length; i++) {
+        if (ingredient.id === this.ingredients[i].id) {
+          index = i;
+          break;
+        }
+      }
+
+      this.ingredients.splice(index, 1);
+    },
+    addStep: function addStep() {
+      this.steps.push({
+        id: this.steps.length !== 0 ? this.steps[this.steps.length - 1].id + 1 : 1,
+        desc: ''
+      });
+    },
+    removeStep: function removeStep(step) {
+      var index = 0;
+
+      for (var i = 0; i < this.steps.length; i++) {
+        if (step.id === this.steps[i].id) {
+          index = i;
+          break;
+        }
+      }
+
+      this.steps.splice(index, 1);
+    },
+    sendFormData: function sendFormData() {
+      var url = this.food === null ? '/admin/food' : '/admin/food/' + this.food.id;
+      axios.post(url, {
+        _method: this.food === null ? 'POST' : 'PUT',
+        name: this.name,
+        kcal: this.kcal,
+        fats: this.fats,
+        proteins: this.proteins,
+        carbohydrates: this.carbohydrates,
+        food_type_id: this.food_type_id,
+        ingredients: this.ingredients,
+        recipe: this.makeFromJson(this.steps)
+      }).then(function () {
+        window.location.href = '/admin/food';
+      })["catch"](function (err) {
+        console.log(err.response.data);
+      });
+    },
+    makeJson: function makeJson(arr) {
+      var json_arr = [];
+
+      for (var i = 0; i < arr.length; i++) {
+        json_arr.push({
+          id: i,
+          value: arr[i]
+        });
+      }
+
+      return json_arr;
+    },
+    makeFromJson: function makeFromJson(json_arr) {
+      var arr = [];
+
+      for (var i = 0; i < json_arr.length; i++) {
+        arr.push(json_arr[i].value);
+      }
+
+      return arr;
+    },
+    destroyFood: function destroyFood() {
+      axios.post('/admin/food/' + this.food.id, {
+        _method: 'DELETE'
+      }).then(function () {
+        window.location.href = '/admin/food';
+      });
+    }
+  },
+  computed: {
+    csrf: function csrf() {
+      return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminNav.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AdminNav.vue?vue&type=script&lang=js& ***!
@@ -3884,6 +4084,164 @@ __webpack_require__.r(__webpack_exports__);
     toRoute: {
       type: String,
       "default": "/"
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditExerciseForm.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditExerciseForm.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "EditExerciseForm",
+  props: ['exercise', 'body_sections', 'body_parts', 'areas', 'types', 'difficulties'],
+  data: function data() {
+    return {
+      exerciseData: this.exercise
+    };
+  },
+  methods: {
+    sendFormData: function sendFormData() {
+      var url = '/admin/exercises/' + this.exercise.id;
+      axios.post(url, {
+        _method: 'PUT',
+        name: this.exerciseData.name,
+        url: this.exerciseData.url,
+        body_part: this.body_parts[this.exerciseData.body_part_id - 1],
+        body_part_id: this.exerciseData.body_part_id,
+        body_section: this.exerciseData.body_section,
+        body_section_id: this.exerciseData.body_section_id,
+        difficulties: this.exerciseData.difficulties,
+        type: this.exerciseData.type,
+        type_id: this.exerciseData.type_id,
+        areas: this.exerciseData.areas
+      }).then(function () {
+        window.location.href = '/admin/exercises';
+      })["catch"](function (err) {
+        console.log(err.response.data);
+      });
+    },
+    destroyExercise: function destroyExercise() {
+      axios.post('/admin/exercise/' + this.exercise.id, {
+        _method: 'DELETE'
+      }).then(function () {
+        window.location.href = '/admin/exercises';
+      });
+    },
+    inArray: function inArray(item, arr) {
+      for (var i = 0; i < arr.length; i++) {
+        if (item === arr[i]) {
+          return true;
+        }
+      }
+
+      return false;
     }
   }
 });
@@ -4188,6 +4546,10 @@ __webpack_require__.r(__webpack_exports__);
             window.alert("Something is wrong");
         }
       });
+    },
+    hideFrame: function hideFrame() {
+      this.popupVisibility = false;
+      location.reload();
     }
   }
 });
@@ -4710,6 +5072,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "TopNavigation",
   data: function data() {
@@ -5023,6 +5388,8 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.component('training-form', __webpack_re
 vue__WEBPACK_IMPORTED_MODULE_0__.default.component('top-navigation', __webpack_require__(/*! ./components/TopNavigation.vue */ "./resources/js/components/TopNavigation.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_0__.default.component('progress-ring', __webpack_require__(/*! ./components/ProgressRing.vue */ "./resources/js/components/ProgressRing.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_0__.default.component('admin-nav', __webpack_require__(/*! ./components/AdminNav.vue */ "./resources/js/components/AdminNav.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_0__.default.component('adding-food-form', __webpack_require__(/*! ./components/AddingFoodForm.vue */ "./resources/js/components/AddingFoodForm.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_0__.default.component('edit-exercise-form', __webpack_require__(/*! ./components/EditExerciseForm.vue */ "./resources/js/components/EditExerciseForm.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_0__.default.component('item-list', __webpack_require__(/*! ./components/ItemList.vue */ "./resources/js/components/ItemList.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_0__.default.component('modal-form', __webpack_require__(/*! ./components/ModalForm.vue */ "./resources/js/components/ModalForm.vue").default);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
@@ -5079,7 +5446,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-3d-container {\r\n    /*padding-top: 2rem;*/\r\n    height: 90% !important;\r\n    width: 100% !important;\n}\n.carousel-3d-container span {\r\n    color: #C18E60;\r\n    font-size: 10rem;\r\n    z-index: 20;\n}\n.carousel-3d-slide {\r\n    height: 72vh !important;\r\n    padding: 2rem;\r\n    border: none;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-items: center;\r\n    align-items: center;\r\n    border-radius: 2rem;\r\n    background: rgba(40, 60, 80, 0.85);\n}\n.carousel-3d-slide.current {\r\n    background: #283C50;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-3d-container {\n    /*padding-top: 2rem;*/\n    height: 90% !important;\n    width: 100% !important;\n}\n.carousel-3d-container span {\n    color: #C18E60;\n    font-size: 10rem;\n    z-index: 20;\n}\n.carousel-3d-slide {\n    height: 72vh !important;\n    padding: 2rem;\n    border: none;\n    display: flex;\n    flex-direction: column;\n    justify-items: center;\n    align-items: center;\n    border-radius: 2rem;\n    background: rgba(40, 60, 80, 0.85);\n}\n.carousel-3d-slide.current {\n    background: #283C50;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5103,7 +5470,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.loader[data-v-de130764] {\r\n    position: absolute;\r\n    top: 10%;\r\n    right: 45%;\r\n    border: 8px solid #f3f3f3;\r\n    border-radius: 50%;\r\n    border-top: 8px solid #C18E60;\r\n    width: 80px;\r\n    height: 80px;\r\n    -webkit-animation: spin-data-v-de130764 2s linear infinite; /* Safari */\r\n    animation: spin-data-v-de130764 2s linear infinite;\n}\r\n\r\n/* Safari */\n@-webkit-keyframes spin-data-v-de130764 {\n0% { -webkit-transform: rotate(0deg);\n}\n100% { -webkit-transform: rotate(360deg);\n}\n}\n@keyframes spin-data-v-de130764 {\n0% {\r\n        transform: rotate(0deg);\n}\n100% {\r\n        transform: rotate(360deg);\n}\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.loader[data-v-de130764] {\n    position: absolute;\n    top: 10%;\n    right: 45%;\n    border: 8px solid #f3f3f3;\n    border-radius: 50%;\n    border-top: 8px solid #C18E60;\n    width: 80px;\n    height: 80px;\n    -webkit-animation: spin-data-v-de130764 2s linear infinite; /* Safari */\n    animation: spin-data-v-de130764 2s linear infinite;\n}\n\n/* Safari */\n@-webkit-keyframes spin-data-v-de130764 {\n0% { -webkit-transform: rotate(0deg);\n}\n100% { -webkit-transform: rotate(360deg);\n}\n}\n@keyframes spin-data-v-de130764 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5127,7 +5494,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.not-eaten[data-v-0e35807e] {\r\n    opacity: 0.8;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.not-eaten[data-v-0e35807e] {\n    opacity: 0.8;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5175,7 +5542,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active, .fade-leave-active {\r\n    transition: opacity .5s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\r\n    opacity: 0;\n}\n.training-holder::-webkit-scrollbar {\r\n    width: 1.25rem;\r\n    border-radius: 0.75rem;\n}\n.training-holder::-webkit-scrollbar-track {\r\n    background-color: rgba(40, 60, 80, 0.50);\r\n    border-radius: 0.75rem;\n}\n.training-holder::-webkit-scrollbar-thumb {\r\n    background-color: rgba(40, 60, 80, 1);\r\n    border-radius: 0.75rem;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active, .fade-leave-active {\n    transition: opacity .5s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n    opacity: 0;\n}\n.training-holder::-webkit-scrollbar {\n    width: 1.25rem;\n    border-radius: 0.75rem;\n}\n.training-holder::-webkit-scrollbar-track {\n    background-color: rgba(40, 60, 80, 0.50);\n    border-radius: 0.75rem;\n}\n.training-holder::-webkit-scrollbar-thumb {\n    background-color: rgba(40, 60, 80, 1);\n    border-radius: 0.75rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5199,7 +5566,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.loader[data-v-26d38626] {\r\n    /*@apply border-8 border-white border-t-8 border-t-primary rounded-2xl;*/\r\n    border: 8px solid #f3f3f3;\r\n    border-radius: 50%;\r\n    border-top: 8px solid #C18E60;\r\n    width: 80px;\r\n    height: 80px;\r\n    -webkit-animation: spin-data-v-26d38626 2s linear infinite; /* Safari */\r\n    animation: spin-data-v-26d38626 2s linear infinite;\n}\r\n\r\n/* Safari */\n@-webkit-keyframes spin-data-v-26d38626 {\n0% { -webkit-transform: rotate(0deg);\n}\n100% { -webkit-transform: rotate(360deg);\n}\n}\n@keyframes spin-data-v-26d38626 {\n0% {\r\n        transform: rotate(0deg);\n}\n100% {\r\n        transform: rotate(360deg);\n}\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.loader[data-v-26d38626] {\n    /*@apply border-8 border-white border-t-8 border-t-primary rounded-2xl;*/\n    border: 8px solid #f3f3f3;\n    border-radius: 50%;\n    border-top: 8px solid #C18E60;\n    width: 80px;\n    height: 80px;\n    -webkit-animation: spin-data-v-26d38626 2s linear infinite; /* Safari */\n    animation: spin-data-v-26d38626 2s linear infinite;\n}\n\n/* Safari */\n@-webkit-keyframes spin-data-v-26d38626 {\n0% { -webkit-transform: rotate(0deg);\n}\n100% { -webkit-transform: rotate(360deg);\n}\n}\n@keyframes spin-data-v-26d38626 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -26956,6 +27323,45 @@ module.exports = NATIVE_SYMBOL
 
 /***/ }),
 
+/***/ "./resources/js/components/AddingFoodForm.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/AddingFoodForm.vue ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AddingFoodForm_vue_vue_type_template_id_7eb43aa4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddingFoodForm.vue?vue&type=template&id=7eb43aa4&scoped=true& */ "./resources/js/components/AddingFoodForm.vue?vue&type=template&id=7eb43aa4&scoped=true&");
+/* harmony import */ var _AddingFoodForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddingFoodForm.vue?vue&type=script&lang=js& */ "./resources/js/components/AddingFoodForm.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _AddingFoodForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _AddingFoodForm_vue_vue_type_template_id_7eb43aa4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AddingFoodForm_vue_vue_type_template_id_7eb43aa4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "7eb43aa4",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AddingFoodForm.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/AdminNav.vue":
 /*!**********************************************!*\
   !*** ./resources/js/components/AdminNav.vue ***!
@@ -27030,6 +27436,45 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/ChooseBox.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/EditExerciseForm.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/EditExerciseForm.vue ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EditExerciseForm_vue_vue_type_template_id_6639ed5e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditExerciseForm.vue?vue&type=template&id=6639ed5e&scoped=true& */ "./resources/js/components/EditExerciseForm.vue?vue&type=template&id=6639ed5e&scoped=true&");
+/* harmony import */ var _EditExerciseForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditExerciseForm.vue?vue&type=script&lang=js& */ "./resources/js/components/EditExerciseForm.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _EditExerciseForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _EditExerciseForm_vue_vue_type_template_id_6639ed5e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _EditExerciseForm_vue_vue_type_template_id_6639ed5e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "6639ed5e",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/EditExerciseForm.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -27514,6 +27959,22 @@ component.options.__file = "resources/js/components/VideoComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/AddingFoodForm.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/AddingFoodForm.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AddingFoodForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AddingFoodForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AddingFoodForm.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AddingFoodForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/AdminNav.vue?vue&type=script&lang=js&":
 /*!***********************************************************************!*\
   !*** ./resources/js/components/AdminNav.vue?vue&type=script&lang=js& ***!
@@ -27543,6 +28004,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChooseBox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ChooseBox.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ChooseBox.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChooseBox_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/EditExerciseForm.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/EditExerciseForm.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditExerciseForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditExerciseForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditExerciseForm.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditExerciseForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -27816,6 +28293,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/AddingFoodForm.vue?vue&type=template&id=7eb43aa4&scoped=true&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/AddingFoodForm.vue?vue&type=template&id=7eb43aa4&scoped=true& ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddingFoodForm_vue_vue_type_template_id_7eb43aa4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddingFoodForm_vue_vue_type_template_id_7eb43aa4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddingFoodForm_vue_vue_type_template_id_7eb43aa4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AddingFoodForm.vue?vue&type=template&id=7eb43aa4&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AddingFoodForm.vue?vue&type=template&id=7eb43aa4&scoped=true&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/AdminNav.vue?vue&type=template&id=6e3f82bf&scoped=true&":
 /*!*****************************************************************************************!*\
   !*** ./resources/js/components/AdminNav.vue?vue&type=template&id=6e3f82bf&scoped=true& ***!
@@ -27846,6 +28340,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChooseBox_vue_vue_type_template_id_03afb459_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChooseBox_vue_vue_type_template_id_03afb459_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ChooseBox.vue?vue&type=template&id=03afb459&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ChooseBox.vue?vue&type=template&id=03afb459&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/EditExerciseForm.vue?vue&type=template&id=6639ed5e&scoped=true&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/EditExerciseForm.vue?vue&type=template&id=6639ed5e&scoped=true& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditExerciseForm_vue_vue_type_template_id_6639ed5e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditExerciseForm_vue_vue_type_template_id_6639ed5e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditExerciseForm_vue_vue_type_template_id_6639ed5e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditExerciseForm.vue?vue&type=template&id=6639ed5e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditExerciseForm.vue?vue&type=template&id=6639ed5e&scoped=true&");
 
 
 /***/ }),
@@ -28050,6 +28561,494 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoComponent_vue_vue_type_template_id_26d38626_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoComponent_vue_vue_type_template_id_26d38626_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VideoComponent.vue?vue&type=template&id=26d38626&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/VideoComponent.vue?vue&type=template&id=26d38626&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AddingFoodForm.vue?vue&type=template&id=7eb43aa4&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AddingFoodForm.vue?vue&type=template&id=7eb43aa4&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      staticClass: "w-1/2 mx-auto mt-12",
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.sendFormData.apply(null, arguments)
+        }
+      }
+    },
+    [
+      _c("input", {
+        attrs: { type: "hidden", name: "_token" },
+        domProps: { value: _vm.csrf }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "shadow overflow-hidden sm:rounded-md" }, [
+        _c("div", { staticClass: "px-4 py-5 bg-white sm:p-6" }, [
+          _c("div", { staticClass: "flex flex-col" }, [
+            _c("h1", { staticClass: "text-primary text-xl" }, [
+              _vm._v(
+                _vm._s(
+                  this.food === null ? "Pridaj si jedlo" : "Uprav si jedlo"
+                ) + " !"
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "w-full mt-4" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "block text-sm font-medium text-secondary",
+                  attrs: { for: "name" }
+                },
+                [_vm._v("Názov jedla")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.name,
+                    expression: "name"
+                  }
+                ],
+                staticClass:
+                  "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                attrs: { type: "text", name: "name", id: "name" },
+                domProps: { value: _vm.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.name = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "w-full mt-4" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "block text-sm font-medium text-secondary",
+                  attrs: { for: "kcal" }
+                },
+                [_vm._v("kCal")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.kcal,
+                    expression: "kcal"
+                  }
+                ],
+                staticClass:
+                  "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                attrs: { type: "text", name: "kcal", id: "kcal" },
+                domProps: { value: _vm.kcal },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.kcal = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "w-full mt-4" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "block text-sm font-medium text-secondary",
+                  attrs: { for: "proteins" }
+                },
+                [_vm._v("Proteíny")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.proteins,
+                    expression: "proteins"
+                  }
+                ],
+                staticClass:
+                  "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                attrs: { type: "text", name: "proteins", id: "proteins" },
+                domProps: { value: _vm.proteins },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.proteins = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "w-full mt-4" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "block text-sm font-medium text-secondary",
+                  attrs: { for: "fats" }
+                },
+                [_vm._v("Tuky")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.fats,
+                    expression: "fats"
+                  }
+                ],
+                staticClass:
+                  "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                attrs: { type: "text", name: "fats", id: "fats" },
+                domProps: { value: _vm.fats },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.fats = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "w-full mt-4" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "block text-sm font-medium text-secondary",
+                  attrs: { for: "carbohydrates" }
+                },
+                [_vm._v("Karbohydráty")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.carbohydrates,
+                    expression: "carbohydrates"
+                  }
+                ],
+                staticClass:
+                  "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                attrs: {
+                  type: "text",
+                  name: "carbohydrates",
+                  id: "carbohydrates"
+                },
+                domProps: { value: _vm.carbohydrates },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.carbohydrates = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "w-full mt-4" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "block text-sm font-medium text-secondary",
+                  attrs: { for: "type_id" }
+                },
+                [_vm._v("Typ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.food_type_id,
+                      expression: "food_type_id"
+                    }
+                  ],
+                  staticClass:
+                    "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                  attrs: { id: "type_id" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.food_type_id = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "1" } }, [_vm._v("Ranajky")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "2" } }, [_vm._v("Obed")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "3" } }, [_vm._v("Olovrant")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "4" } }, [_vm._v("Vecera")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "w-full mt-4" },
+              [
+                _c(
+                  "label",
+                  {
+                    staticClass: "block text-sm font-medium text-secondary",
+                    attrs: { for: "url" }
+                  },
+                  [_vm._v("Ingrediencie")]
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.ingredients, function(ingredient) {
+                  return _c(
+                    "div",
+                    { staticClass: "flex gap-x-1 items-center" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: ingredient.name,
+                            expression: "ingredient.name"
+                          }
+                        ],
+                        staticClass:
+                          "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                        attrs: {
+                          type: "text",
+                          placeholder: "Názov ingrediencie"
+                        },
+                        domProps: { value: ingredient.name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(ingredient, "name", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: ingredient.amount,
+                            expression: "ingredient.amount"
+                          }
+                        ],
+                        staticClass:
+                          "w-24 mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md",
+                        attrs: { type: "text", placeholder: "Množstvo" },
+                        domProps: { value: ingredient.amount },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(ingredient, "amount", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "text-base text-bold text-secondary block h-full cursor-pointer",
+                          on: {
+                            click: function($event) {
+                              return _vm.removeIngredient(ingredient)
+                            }
+                          }
+                        },
+                        [_vm._v("X")]
+                      )
+                    ]
+                  )
+                })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "mt-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary",
+                attrs: { type: "button" },
+                on: { click: _vm.addIngredient }
+              },
+              [_vm._v("Pridaj ingredienciu")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "w-full mt-4" },
+              [
+                _c(
+                  "label",
+                  {
+                    staticClass: "block text-sm font-medium text-secondary",
+                    attrs: { for: "url" }
+                  },
+                  [_vm._v("Recept")]
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.steps, function(step) {
+                  return _c(
+                    "div",
+                    { staticClass: "flex gap-x-1 items-center" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: step.value,
+                            expression: "step.value"
+                          }
+                        ],
+                        staticClass:
+                          "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+                        attrs: { type: "text", placeholder: "Popis" },
+                        domProps: { value: step.value },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(step, "value", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "text-base text-bold text-secondary block h-full cursor-pointer",
+                          on: {
+                            click: function($event) {
+                              return _vm.removeStep(step)
+                            }
+                          }
+                        },
+                        [_vm._v("X")]
+                      )
+                    ]
+                  )
+                })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "mt-2 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary",
+                attrs: { type: "button" },
+                on: { click: _vm.addStep }
+              },
+              [_vm._v("Pridaj krok")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "px-4 py-3 bg-gray-50 text-right sm:px-6" }, [
+          _c(
+            "button",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.food !== null,
+                  expression: "food !== null"
+                }
+              ],
+              staticClass:
+                "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-700 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+              on: { click: _vm.destroyFood }
+            },
+            [_vm._v("\n                Odstrániť jedlo\n            ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-secondary hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+              attrs: { type: "submit" }
+            },
+            [
+              _vm._v(
+                "\n                " +
+                  _vm._s(_vm.food === null ? "Pridať" : "Upraviť") +
+                  "\n            "
+              )
+            ]
+          )
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
 
 
 /***/ }),
@@ -28283,6 +29282,466 @@ var render = function() {
       )
     ]
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditExerciseForm.vue?vue&type=template&id=6639ed5e&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EditExerciseForm.vue?vue&type=template&id=6639ed5e&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "w-1/2 mx-auto mt-12" }, [
+    _c("div", { staticClass: "shadow overflow-hidden sm:rounded-md" }, [
+      _c("div", { staticClass: "px-4 py-5 bg-white sm:p-6" }, [
+        _c("div", { staticClass: "flex flex-col" }, [
+          _c("h1", { staticClass: "text-primary text-xl" }, [
+            _vm._v("Uprav cvik !")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-full mt-4" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block text-sm font-medium text-secondary",
+                attrs: { for: "name" }
+              },
+              [_vm._v("Názov cviku")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.exerciseData.name,
+                  expression: "exerciseData.name"
+                }
+              ],
+              staticClass:
+                "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+              attrs: { type: "text", name: "name", id: "name" },
+              domProps: { value: _vm.exerciseData.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.exerciseData, "name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-full mt-4" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block text-sm font-medium text-secondary",
+                attrs: { for: "url" }
+              },
+              [_vm._v("URL")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.exerciseData.url,
+                  expression: "exerciseData.url"
+                }
+              ],
+              staticClass:
+                "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md",
+              attrs: { type: "text", name: "url", id: "url" },
+              domProps: { value: _vm.exerciseData.url },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.exerciseData, "url", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-full mt-4" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block text-sm font-medium text-secondary",
+                attrs: { for: "body_section_id" }
+              },
+              [_vm._v("Časť tela")]
+            ),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.exerciseData.body_section,
+                    expression: "exerciseData.body_section"
+                  }
+                ],
+                staticClass:
+                  "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                attrs: {
+                  id: "body_section_id",
+                  name: "body_section_id",
+                  autocomplete: "country"
+                },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.exerciseData,
+                      "body_section",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              _vm._l(_vm.body_sections, function(body_section) {
+                return _c(
+                  "option",
+                  {
+                    domProps: {
+                      value: body_section,
+                      selected:
+                        body_section.name === _vm.exerciseData.body_section.name
+                    }
+                  },
+                  [_vm._v(_vm._s(body_section.name))]
+                )
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-full mt-4" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block text-sm font-medium text-secondary",
+                attrs: { for: "body_part_id" }
+              },
+              [_vm._v("Partia")]
+            ),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.exerciseData.body_part_id,
+                    expression: "exerciseData.body_part_id"
+                  }
+                ],
+                staticClass:
+                  "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                attrs: { id: "body_part_id", name: "body_part_id" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.exerciseData,
+                      "body_part_id",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              _vm._l(_vm.body_parts, function(body_part) {
+                return _c(
+                  "option",
+                  {
+                    domProps: {
+                      selected: body_part.id === _vm.exerciseData.body_part_id,
+                      value: body_part.id
+                    }
+                  },
+                  [_vm._v(_vm._s(body_part.name))]
+                )
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-full mt-4" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block text-sm font-medium text-secondary",
+                attrs: { for: "type_id" }
+              },
+              [_vm._v("Typ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.exerciseData.type,
+                    expression: "exerciseData.type"
+                  }
+                ],
+                staticClass:
+                  "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                attrs: {
+                  id: "type_id",
+                  name: "type_id",
+                  autocomplete: "type_id"
+                },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.exerciseData,
+                      "type",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              _vm._l(_vm.types, function(type) {
+                return _c(
+                  "option",
+                  {
+                    domProps: {
+                      value: type,
+                      selected: type.name === _vm.exercise.type.name
+                    }
+                  },
+                  [_vm._v(_vm._s(type.name))]
+                )
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-full mt-4" }, [
+            _c(
+              "h4",
+              { staticClass: "block text-sm font-medium text-secondary" },
+              [_vm._v("Zložitosť")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "flex flex-row" },
+              _vm._l(_vm.difficulties, function(difficulty) {
+                return _c("div", { staticClass: "flex items-center w-1/3" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.exerciseData.difficulties,
+                        expression: "exerciseData.difficulties"
+                      }
+                    ],
+                    attrs: {
+                      type: "checkbox",
+                      id: difficulty.name,
+                      name: "difficulty_ids[]"
+                    },
+                    domProps: {
+                      value: difficulty,
+                      checked: _vm.inArray(
+                        difficulty,
+                        _vm.exerciseData.difficulties
+                      ),
+                      checked: Array.isArray(_vm.exerciseData.difficulties)
+                        ? _vm._i(_vm.exerciseData.difficulties, difficulty) > -1
+                        : _vm.exerciseData.difficulties
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.exerciseData.difficulties,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = difficulty,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              _vm.$set(
+                                _vm.exerciseData,
+                                "difficulties",
+                                $$a.concat([$$v])
+                              )
+                          } else {
+                            $$i > -1 &&
+                              _vm.$set(
+                                _vm.exerciseData,
+                                "difficulties",
+                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                              )
+                          }
+                        } else {
+                          _vm.$set(_vm.exerciseData, "difficulties", $$c)
+                        }
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    { staticClass: "ml-4", attrs: { for: difficulty.name } },
+                    [_vm._v(_vm._s(difficulty.name))]
+                  )
+                ])
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-full mt-4" }, [
+            _c(
+              "h4",
+              { staticClass: "block text-sm font-medium text-secondary" },
+              [_vm._v("Použitie")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "flex flex-row" },
+              _vm._l(_vm.areas, function(area) {
+                return _c("div", { staticClass: "flex items-center w-1/3" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.exerciseData.areas,
+                        expression: "exerciseData.areas"
+                      }
+                    ],
+                    attrs: {
+                      type: "checkbox",
+                      id: area.name,
+                      name: "difficulty_ids[]"
+                    },
+                    domProps: {
+                      value: area,
+                      checked: _vm.inArray(area, _vm.exerciseData.areas),
+                      checked: Array.isArray(_vm.exerciseData.areas)
+                        ? _vm._i(_vm.exerciseData.areas, area) > -1
+                        : _vm.exerciseData.areas
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.exerciseData.areas,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = area,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              _vm.$set(
+                                _vm.exerciseData,
+                                "areas",
+                                $$a.concat([$$v])
+                              )
+                          } else {
+                            $$i > -1 &&
+                              _vm.$set(
+                                _vm.exerciseData,
+                                "areas",
+                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                              )
+                          }
+                        } else {
+                          _vm.$set(_vm.exerciseData, "areas", $$c)
+                        }
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    { staticClass: "ml-4", attrs: { for: area.name } },
+                    [_vm._v(_vm._s(area.name))]
+                  )
+                ])
+              }),
+              0
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "px-4 py-3 bg-gray-50 text-right sm:px-6" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-700 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+            on: { click: _vm.destroyExercise }
+          },
+          [_vm._v("\n                    Odstrániť cvik\n                ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-secondary hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+            attrs: { type: "submit" },
+            on: { click: _vm.sendFormData }
+          },
+          [_vm._v("\n                    Upraviť\n                ")]
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -28641,7 +30100,11 @@ var render = function() {
                     attrs: { meal: meal },
                     on: {
                       eatenChanged: function($event) {
-                        meal.isAte = !meal.isAte
+                        return _vm.changeMealStatus(
+                          _vm.breakfastData,
+                          meal.id,
+                          1
+                        )
                       }
                     },
                     nativeOn: {
@@ -28691,7 +30154,7 @@ var render = function() {
                     attrs: { meal: meal },
                     on: {
                       eatenChanged: function($event) {
-                        meal.isAte = !meal.isAte
+                        return _vm.changeMealStatus(_vm.snackData, meal.id, 2)
                       }
                     },
                     nativeOn: {
@@ -28741,7 +30204,7 @@ var render = function() {
                     attrs: { meal: meal },
                     on: {
                       eatenChanged: function($event) {
-                        meal.isAte = !meal.isAte
+                        return _vm.changeMealStatus(_vm.lunchData, meal.id, 3)
                       }
                     },
                     nativeOn: {
@@ -28791,7 +30254,7 @@ var render = function() {
                     attrs: { meal: meal },
                     on: {
                       eatenChanged: function($event) {
-                        meal.isAte = !meal.isAte
+                        return _vm.changeMealStatus(_vm.dinnerData, meal.id, 4)
                       }
                     },
                     nativeOn: {
@@ -28830,11 +30293,7 @@ var render = function() {
           _vm.popupVisibility
             ? _c("meal-popup", {
                 attrs: { meal: _vm.displayedMeal },
-                on: {
-                  hideIframe: function($event) {
-                    _vm.popupVisibility = false
-                  }
-                }
+                on: { hideIframe: _vm.hideFrame }
               })
             : _vm._e()
         ],
@@ -29088,7 +30547,7 @@ var render = function() {
             "h1",
             {
               staticClass:
-                "flex-1 text-base text-primary uppercase tracking-widest sm:text-lg"
+                "flex-1 text-base overflow-ellipsis whitespace-nowrap overflow-hidden text-primary uppercase tracking-widest"
             },
             [_vm._v(_vm._s(_vm.meal.name))]
           ),
@@ -29759,13 +31218,15 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "w-4/5 flex items-center mt-12" }, [
         _c("input", {
-          staticClass: "appearance-none bg-transparent text-primary ml-4 mr-4",
+          staticClass: "text-primary",
           attrs: { type: "checkbox", name: "terms", id: "terms" }
         }),
         _vm._v(" "),
-        _c("label", { staticClass: "text-white", attrs: { for: "terms" } }, [
-          _vm._v("suhlásim s obchodnými podmienkami")
-        ])
+        _c(
+          "label",
+          { staticClass: "text-white pl-4", attrs: { for: "terms" } },
+          [_vm._v("suhlásim s obchodnými podmienkami")]
+        )
       ])
     ])
   },
@@ -29860,17 +31321,9 @@ var render = function() {
           class: _vm.open ? "block" : "hidden"
         },
         [
-          _c(
-            "a",
-            {
-              staticClass:
-                "no-underline mt-2 w-full text-base block text-secondary sm:text-xl sm:w-auto sm:inline-block sm:mt-0 sm:text-primary sm:mr-4",
-              attrs: { href: "" }
-            },
-            [_vm._v("BLOG")]
-          ),
-          _vm._v(" "),
           _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2),
           _vm._v(" "),
           _c("div", { staticClass: "w-full h-full mt-3 sm:mt-0 sm:w-auto" }, [
             _c("form", { attrs: { action: "/logout", method: "post" } }, [
@@ -29879,7 +31332,7 @@ var render = function() {
                 domProps: { value: _vm.csrf }
               }),
               _vm._v(" "),
-              _vm._m(2),
+              _vm._m(3),
               _vm._v(" "),
               _c("input", {
                 staticClass: "hidden",
@@ -29911,6 +31364,31 @@ var staticRenderFns = [
             ]),
             _vm._v("NESS")
           ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass:
+          "no-underline mt-2 w-full text-left block sm:inline-block sm:mt-0 sm:w-auto",
+        attrs: { href: "/settings" }
+      },
+      [
+        _c("img", {
+          staticClass: "w-14 h-14 hidden sm:block",
+          attrs: { src: "/images/1.png", alt: "" }
+        }),
+        _vm._v(" "),
+        _c(
+          "span",
+          { staticClass: "text-secondary uppercase text-base sm:hidden" },
+          [_vm._v("Nastavenia")]
         )
       ]
     )

@@ -1,9 +1,9 @@
 @extends('layouts.logged-in')
 
 @section('content')
-    <form action="" class="flex flex-col justify-between items-center h-full">
+    <form action="" class="flex flex-col items-center h-full flex-1">
         <h1 class="text-primary">Profil</h1>
-        <div class="flex flex-col items-center flex-1 justify-between space-y-3 w-full xl:flex-row xl:space-y-0">
+        <div class="flex flex-col-reverse items-center flex-1 justify-between gap-y-2 w-full xl:flex-row xl:gap-y-0">
             <div class="card-dark xl:w-12/25">
                 <h1>Telestné údaje</h1>
                 <div class="flex flex-col space-y-4 w-4/5">
@@ -43,9 +43,9 @@
                     Uložiť
                 </button>
             </div>
-            <div class="card-dark items-center justify-evenly xl:w-12/25">
+            <div class="card-dark items-center justify-start xl:w-12/25">
                 <h1>Moje úspechy</h1>
-                <div class="flex flex-col justify-center items-center w-4/5 sm:flex-row sm:justify-between">
+                <div class="flex flex-col justify-center items-center mt-6 w-4/5 sm:flex-row sm:justify-between">
                     <progress-ring :ate="{{$user->ate_calories}}" :daily="{{$user->daily_calories}}"></progress-ring>
                     <div class="flex flex-col w-2/3 justify-between">
                         <h1 class="text-lg text-primary text-center sm:text-left md:text-2xl">Celkovo Kcal</h1>
@@ -59,7 +59,7 @@
                             {{$user->finished_trainings}}
                         </text>
                     </svg>
-                    <h1 class="text-center text-lg w-2/3 text-primary md:text-2xl md:text-left">Celkovo odcvičené tréningy</h1>
+                    <h1 class="text-center text-lg text-primary md:text-2xl md:w-2/3 md:text-left">Celkovo odcvičené tréningy</h1>
                 </div>
             </div>
         </div>

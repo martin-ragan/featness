@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="w-11/12 mx-auto mt-5">
-                {{ json_encode($food[0]) }}
+{{--                {{ json_encode($food[0]) }}--}}
         <a href="/admin/food/create" class="bg-primary text-white text-bold w-1/3 py-2 px-2 rounded-md">Pridať jedlo</a>
         <div class="mt-12 w-full shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
             <table class="min-w-full divide-y divide-gray-200">
@@ -63,7 +63,7 @@
                             </span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Upraviť</a>
+                            <a href="/admin/food/{{$exercise["id"]}}/edit" class="text-indigo-600 hover:text-indigo-900">Upraviť</a>
                         </td>
                     </tr>
                 @endforeach

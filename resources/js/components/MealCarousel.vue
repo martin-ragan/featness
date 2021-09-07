@@ -7,7 +7,7 @@
                     <meals-holder v-for="meal in breakfastData"
                                   :key="meal.id"
                                   :meal="meal"
-                                  v-on:eatenChanged="meal.isAte = !meal.isAte"
+                                  v-on:eatenChanged="changeMealStatus(breakfastData, meal.id,1)"
                                   v-on:click.native="showMeal(meal)">
                     </meals-holder>
                     <button type="submit" class="btn-brown text-sm py-2 font-sans mb-6 w-full tracking-widest font-light sm:mt-12 sm:w-2/3">
@@ -21,7 +21,7 @@
                     <meals-holder v-for="meal in snackData"
                                   :key="meal.id"
                                   :meal="meal"
-                                  v-on:eatenChanged="meal.isAte = !meal.isAte"
+                                  v-on:eatenChanged="changeMealStatus(snackData, meal.id, 2)"
                                   v-on:click.native="showMeal(meal)">
                     </meals-holder>
                     <button type="submit" class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light sm:mt-12">
@@ -35,7 +35,7 @@
                     <meals-holder v-for="meal in lunchData"
                                   :key="meal.id"
                                   :meal="meal"
-                                  v-on:eatenChanged="meal.isAte = !meal.isAte"
+                                  v-on:eatenChanged="changeMealStatus(lunchData, meal.id, 3)"
                                   v-on:click.native="showMeal(meal)">
                     </meals-holder>
                     <button type="submit" class="btn-brown text-sm py-2 w-2/3 font-sans tracking-widest font-light sm:mt-12">
@@ -49,7 +49,7 @@
                     <meals-holder v-for="meal in dinnerData"
                                   :key="meal.id"
                                   :meal="meal"
-                                  v-on:eatenChanged="meal.isAte = !meal.isAte"
+                                  v-on:eatenChanged="changeMealStatus(dinnerData, meal.id, 4)"
                                   v-on:click.native="showMeal(meal)"
                     >
                     </meals-holder>
@@ -63,7 +63,7 @@
         <transition name="fade">
             <meal-popup v-if="popupVisibility"
                         :meal="displayedMeal"
-                        v-on:hideIframe="popupVisibility = false"
+                        v-on:hideIframe="hideFrame"
             >
             </meal-popup>
         </transition>
@@ -128,6 +128,10 @@ export default {
                 }
           });
         },
+        hideFrame() {
+            this.popupVisibility = false;
+            location.reload();
+        }
     }
 };
 </script>

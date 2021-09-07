@@ -9,7 +9,10 @@
             </button>
         </div>
         <div :class="open ? 'block': 'hidden'" class="w-full flex flex-col justify-start items-start sm:justify-end flex-grow sm:flex sm:flex-row items-center sm:w-auto">
-                <a class="no-underline mt-2 w-full text-base block text-secondary sm:text-xl sm:w-auto sm:inline-block sm:mt-0 sm:text-primary sm:mr-4" href="">BLOG</a>
+            <a href="/settings" class="no-underline mt-2 w-full text-left block sm:inline-block sm:mt-0 sm:w-auto">
+                <img class="w-14 h-14 hidden sm:block" src="/images/1.png" alt="">
+                <span class="text-secondary uppercase text-base sm:hidden">Nastavenia</span>
+            </a>
                 <a href="/profile" class="no-underline mt-2 w-full text-left block sm:inline-block sm:mt-0 sm:w-auto">
                     <img class="w-14 h-14 hidden sm:block" src="/images/2.png" alt="">
                     <span class="text-secondary uppercase text-base sm:hidden">Profil</span>

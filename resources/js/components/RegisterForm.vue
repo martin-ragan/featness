@@ -30,8 +30,8 @@
                     </div>
 
                     <div class="w-4/5 flex items-center mt-12">
-                        <input type="checkbox" name="terms" id="terms" class="appearance-none bg-transparent text-primary ml-4 mr-4">
-                        <label for="terms" class="text-white">suhlásim s obchodnými podmienkami</label>
+                        <input type="checkbox" name="terms" id="terms" class="text-primary">
+                        <label for="terms" class="text-white pl-4">suhlásim s obchodnými podmienkami</label>
                     </div>
 
 

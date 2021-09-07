@@ -28,6 +28,9 @@ Route::get('/clenstvo', function () {
 Route::get('/kontakt', function () {
     return view('contact');
 });
+Route::get('/settings', function () {
+    return view('settings');
+});
 Route::get('/ochrana-osobnych-udajov', function () {
     return view('ochrana-osobnych-udajov');
 });

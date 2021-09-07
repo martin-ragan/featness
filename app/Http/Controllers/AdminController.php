@@ -162,15 +162,14 @@ class AdminController extends Controller
         return redirect('/admin/food');
     }
 
-    public function destroyFood(Food $food){
+    public function destroyFood(Food $food)
+    {
         Gate::authorize('viewAny');
 
         $food->delete();
 
         return redirect('/admin/food');
     }
-
-
 
 
     public function indexExercises()
@@ -190,10 +189,10 @@ class AdminController extends Controller
 
         $types = Type::select('id', 'name', 'cardio_type')->get()->toArray();
 
-        for ($i = 0; $i < count($types); $i++){
+        for ($i = 0; $i < count($types); $i++) {
             $newTypes = [];
             $newTypes['id'] = $types[$i]['id'];
-            $newTypes['name'] = trim($types[$i]['name'] ." " . $types[$i]['cardio_type']);
+            $newTypes['name'] = trim($types[$i]['name'] . " " . $types[$i]['cardio_type']);
             $types[$i] = $newTypes;
         }
 
@@ -206,12 +205,13 @@ class AdminController extends Controller
         ]);
     }
 
-    public function storeExercise(Request $request){
+    public function storeExercise(Request $request)
+    {
         Gate::authorize('viewAny');
 
-        $request['body_part_id'] = (int) $request->body_part_id;
-        $request['body_section_id'] = (int) $request->body_section_id;
-        $request['type_id'] = (int) $request->type_id;
+        $request['body_part_id'] = (int)$request->body_part_id;
+        $request['body_section_id'] = (int)$request->body_section_id;
+        $request['type_id'] = (int)$request->type_id;
 
         $data = $request->validate([
             'url' => ['required', 'unique:exercises,url', 'string', 'min:1', 'max:255'],
@@ -257,14 +257,30 @@ class AdminController extends Controller
     {
         Gate::authorize('viewAny');
 
+        $types = Type::select('id', 'name', 'cardio_type')->get()->toArray();
+
+        for ($i = 0; $i < count($types); $i++) {
+            $newTypes = [];
+            $newTypes['id'] = $types[$i]['id'];
+            $newTypes['name'] = trim($types[$i]['name'] . " " . $types[$i]['cardio_type']);
+            $types[$i] = $newTypes;
+        }
+
+
         return view('editExercise',
             [
                 "exercise" => Exercise::with('bodySection', 'bodyPart:id,name', 'difficulties', 'areas', 'type:id,name')->findOrFail($id)->toArray(),
+                'body_parts' => BodyParts::select('id', 'name', 'both_parts')->get()->toArray(),
+                'body_sections' => BodySection::select('id', 'name')->get()->toArray(),
+                'types' => $types,
+                'areas' => Area::select('id', 'name')->get()->toArray(),
+                'difficulties' => Difficulty::select('id', 'name')->get()->toArray()
             ],
         );
     }
 
-    public function updateExercise(Request $request, Exercise $exercise){
+    public function updateExercise(Request $request, Exercise $exercise)
+    {
         Gate::authorize('viewAny');
 
         $data = $request->validate([
@@ -301,7 +317,6 @@ class AdminController extends Controller
 //        unset($fakeExercise['difficulty_ids']);
 
 
-
         $exercise->update($data);
 
         $exercise->difficulties()->sync($difficulties);
@@ -310,7 +325,8 @@ class AdminController extends Controller
         return redirect('/admin/exercises');
     }
 
-    public function destroyExercise(Exercise $exercise){
+    public function destroyExercise(Exercise $exercise)
+    {
         Gate::authorize('viewAny');
 
         // all realted delete with CascadeOnDelete

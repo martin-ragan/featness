@@ -16,20 +16,26 @@ body {
           @apply text-2xl text-white uppercase tracking-widest md:text-4xl;
     }
     input[type="checkbox"]{
-        appearance: none !important;
-        background: transparent;
+        /*background: transparent;*/
+        /*appearance: none;*/
+        border: 1px solid #C18E60;
+        /*background: #C18E60;*/
+        width: 1rem;
+        height: 1rem;
     }
     input[type="checkbox"]:checked{
         color: #C18E60 !important;
     }
-    /*input[type="checkbox"]:hover{*/
-    /*    color: #C18E60 !important;*/
-    /*}*/
+    input[type="checkbox"]:hover{
+        color: #C18E60 !important;
+    }
     input {
         @apply tracking-widest font-sans;
     }
     select {
         @apply bg-select-arrow;
+        background-repeat: no-repeat;
+        appearance: none;
         background-size: 5rem;
     }
     article p {

@@ -53,7 +53,7 @@
                                 {{ $exercise["id"] }}
                             </div>
                         </td>
-                        <td class="pl-6 py-4 whitespace-nowrap">
+                        <td class="pl-6 py-4">
                             <div class="text-sm font-medium text-gray-900">
                                 {{ $exercise["name"] }}
                             </div>
@@ -90,7 +90,7 @@
                             @endforeach
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Upraviť</a>
+                            <a href="/admin/exercises/{{$exercise["id"]}}/edit" class="text-indigo-600 hover:text-indigo-900">Upraviť</a>
                         </td>
                     </tr>
                 @endforeach
