@@ -106,6 +106,8 @@ export default {
     },
     methods: {
         sendFormData() {
+            console.log("hoho")
+            console.log(this.exerciseData)
             const url = '/admin/exercises/' + this.exercise.id;
             axios.post(url, {
                 _method: 'PUT',
@@ -126,7 +128,7 @@ export default {
             });
         },
         destroyExercise() {
-            axios.post('/admin/exercise/' + this.exercise.id, {
+            axios.post('/admin/exercises/' + this.exercise.id, {
                 _method: 'DELETE'
             }).then( () => {
                 window.location.href = '/admin/exercises';

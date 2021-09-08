@@ -247,8 +247,8 @@ class AdminController extends Controller
 
         $res = Exercise::create($data);
 
-        $res->difficulties()->sync($difficulties);
         $res->areas()->sync($areas);
+        $res->difficulties()->sync($difficulties);
 
         return redirect('/admin/exercises');
     }
@@ -292,7 +292,7 @@ class AdminController extends Controller
             'area_ids' => ['array', 'min:1', 'max:3'],
             'difficulty_ids' => ['array', 'min:1', 'max:3']
         ]);
-
+return response($data, 500);
 
         $areas = $data['area_ids'];
         $difficulties = $data['difficulty_ids'];
